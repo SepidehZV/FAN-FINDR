@@ -13,4 +13,4 @@ const dbHelpers = db => {
   }
 };
 
-module.exports dbHelpers;
+module.export dbHelpers;
