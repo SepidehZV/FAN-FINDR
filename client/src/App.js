@@ -2,6 +2,10 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import useApplicationData from './hooks/useApplicationData';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import  NavigationBar  from './components/NavigationBar';
+import Sidebar from './components/Sidebar';
 
 function App() {
   const { state, dispatch } = useApplicationData();
@@ -13,13 +17,8 @@ function App() {
   ));
 
   return (
-    <div className='App'>
-      <h1>Users</h1>
-
-      {state.loading && <h3>Loading...</h3>}
-
-      <ul>{!state.loading && userList}</ul>
-    </div>
+<div><NavigationBar/></div>  
+  
   );
 }
 
