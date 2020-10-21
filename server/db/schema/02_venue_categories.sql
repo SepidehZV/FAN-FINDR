@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS venue_categories CASCADE;
+
+CREATE TABLE venue_categories (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(225) NOT NULL
+);
