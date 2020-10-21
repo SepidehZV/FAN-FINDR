@@ -1,18 +1,62 @@
 INSERT INTO
-  users(first_name, last_name, email, password)
+  users(
+    first_name,
+    last_name,
+    username,
+    email,
+    zip_code,
+    avatar_url,
+    user_type,
+    password
+  )
 VALUES
-  ('Mario', 'Bros', 'mario@nintendo.com', 'test'),
-  ('Luigi', 'Bros', 'luigi@nintendo.com', 'test'),
+  (
+    'Mario',
+    'Bros',
+    'MariB',
+    'mario@nintendo.com',
+    '',
+    'https://i.imgur.com/LpaY82x.png',
+    true,
+    'password'
+  ),
+  (
+    'Luigi',
+    'Bros',
+    'LuiB',
+    'luigi@nintendo.com',
+    'K2P 1L8',
+    'https://i.imgur.com/Nmx0Qxo.png',
+    false,
+    'password'
+  ),
   (
     'Princess',
     'Peach',
+    'PriP',
     'peach@nintendo.com',
-    'test'
+    '',
+    'https://i.imgur.com/T2WwVfS.png',
+    true,
+    'password'
   ),
   (
     'Princess',
     'Daisy',
+    'Pdaisy',
     'daisy@nintendo.com',
-    'test'
+    'K1N 9J7',
+    'https://i.imgur.com/FK8V841.jpg',
+    false,
+    'password'
+
   ),
-  ('Donkey', 'Kong', 'donkey@nintendo.com', 'test');
+  ('Donkey',
+  'Kong',
+  'DonK',
+  'donkey@nintendo.com',
+  '',
+  'https://i.imgur.com/twYrpay.jpg',
+  true,
+  'password'
+  );

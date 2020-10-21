@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS photos CASCADE;
+CREATE TABLE photos (
+  
+  id SERIAL PRIMARY KEY NOT NULL,
+  photo_url TEXT NOT NULL,
+  venue_id INTEGER REFERENCES venues(id) ON DELETE CASCADE
+
+);

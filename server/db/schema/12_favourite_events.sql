@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS favourite_events CASCADE;
+
+CREATE TABLE favourite_events (
+
+  id SERIAL PRIMARY KEY NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  event_id INTEGER REFERENCES events(id) ON DELETE CASCADE,
+  created_at TIMESTAMP
+
+);
