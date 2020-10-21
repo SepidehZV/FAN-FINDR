@@ -13,13 +13,10 @@ function App() {
   ));
 
   return (
-    <div className='App'>
-      <h1>Users</h1>
-
-      {state.loading && <h3>Loading...</h3>}
-
-      <ul>{!state.loading && userList}</ul>
-    </div>
+    <main className="layout">
+      <section className="sidebar">
+      </section>
+    </main>
   );
 }
 
