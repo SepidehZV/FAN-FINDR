@@ -1,0 +1,32 @@
+
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
+$blue-color: #1762A7 ;
+$orange-color: #FF8A00;
+$nav-background: $blue-color;
+$nav-hover: $orange-color;
+
+
+.navbar{
+  background-color: $nav-background;
+  position: fixed;
+  top: 0;
+  padding : 0 5rem;
+  width: 100%;
+  box-shadow: 0 1px 3px rgba(0,0,30,.3);
+}
+.logo{
+  height: 80px;
+}
+.avatarProfile{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #ffffff;
+}
+.avatarImg{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(0,0,30,.3)
+      }

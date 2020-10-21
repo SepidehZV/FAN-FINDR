@@ -20,9 +20,6 @@ function App() {
   
     <main className="layout">
       <div><NavigationBar/></div>  
-      <section className="sidebar">
-
-      </section>
     </main>
   );
 }
