@@ -5,6 +5,7 @@ import useApplicationData from './hooks/useApplicationData';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import  NavigationBar  from './components/NavigationBar';
+import CoverPhoto from './components/CoverPohto';
 import Sidebar from './components/Sidebar';
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
   return (
   
     <main className="layout">
-      <div><NavigationBar/></div>  
+      <section><NavigationBar/></section>  
+      <section><CoverPhoto/></section>
+      <section><Sidebar/></section>
     </main>
   );
 }

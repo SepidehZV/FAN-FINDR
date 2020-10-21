@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
+$blue-color: #1762A7 ;
+$orange-color: #FF8A00;
+$nav-background: $blue-color;
+$nav-hover: $orange-color;
+$sidebar-background: #77828C;
+
+
+
+.nav  {
+  background-color: $sidebar-background;
+  justify-content: center;
+  height: 100%;
+  width: 20%;
+  
+  .nav-link {
+    color: white;
+    
+  };
+  .seprating-line {
+    color: $orange-color;
+  };
+};
+
+
+
+
+
