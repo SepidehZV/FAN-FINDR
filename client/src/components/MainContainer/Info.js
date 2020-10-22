@@ -24,7 +24,7 @@ function Info(props) {
             </tr>
             <tr>
               <th >Capacity</th>
-              <td>{props.capacity || '20'}</td>
+              <td>{props.venueCapacity || '20'}</td>
             </tr>
             <tr>
               <th >Dress code</th>

@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from 'react';
-import dataReducer, { SET_USERS, SET_VENUES } from '../reducers/dataReducer';
+import dataReducer, { SET_USERS, SET_VENUES, SET_EVENTS } from '../reducers/dataReducer';
 import axios from 'axios';
 
 const useApplicationData = () => {
@@ -27,6 +27,17 @@ const useApplicationData = () => {
       .then(({ data }) => {
         console.log(data);
         dispatch({ type: SET_VENUES, venues: data });
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: 'http://localhost:3001/api/events',
+    })
+      .then(({ data }) => {
+        console.log(data);
+        dispatch({ type: SET_EVENTS, events: data });
       })
       .catch((err) => console.log(err));
   }, []);

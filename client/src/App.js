@@ -21,9 +21,17 @@ function App() {
   const venuesList = state.venues.map(venue => (
     <p key={venue.id}>
       {venue.description} 
+      {venue.capacity} 
+
     </p>
   ));
+  
+  const venuesCapacity = state.venues.map(venue => (
+    <p key={venue.id}>
+      {venue.capacity} 
 
+    </p>
+  ));
 
   return (
   
@@ -32,7 +40,7 @@ function App() {
       <section><CoverPhoto/></section>
       <div className="conrinerforflex">
       <section><Sidebar/></section>
-      <section><MainContainer venueDescription={venuesList[0]}/></section>
+      <section><MainContainer venueDescription={venuesList[0]} venueCapacity={venuesCapacity[0]} /></section>
       </div>
     </main>
   );

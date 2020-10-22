@@ -17,7 +17,7 @@ export default function MainContainer(props) {
         </div>
         <div class="col-md-6">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <Info />
+            <Info venueCapacity={props.venueCapacity}/>
           </div>
         </div>
       </div>

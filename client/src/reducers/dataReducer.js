@@ -1,5 +1,7 @@
 export const SET_USERS = 'SET_USERS';
 export const SET_VENUES = 'SET_VENUES';
+export const SET_EVENTS = 'SET_EVENTS';
+
 
 const dataReducer = (state, action) => {
   switch (action.type) {
@@ -15,9 +17,15 @@ const dataReducer = (state, action) => {
         venues: action.venues,
         loading: false,
       };
+      case SET_EVENTS:
+        return {
+          ...state,
+          venues: action.events,
+          loading: false,
+      };  
     default:
       return state;
-  }
+      };
 };
 
 export default dataReducer;

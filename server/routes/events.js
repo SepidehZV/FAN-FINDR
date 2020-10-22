@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-module.exports = ({ getVenues }) => {
-  /* GET venues listing. */
+module.exports = ({ getEvents }) => {
+  /* GET Events listing. */
   router.get('/', (req, res) => {
-    getVenues()
+    getEvents()
       .then((users) => res.json(users))
       .catch((err) => res.json({ err }));
   });

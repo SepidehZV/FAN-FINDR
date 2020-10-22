@@ -58,12 +58,23 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
+  const getEvents = () => {
+    const query = {
+      text: 'SELECT * FROM Events',
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
 
   return {
     getUsers,
     getUsersPosts,
     getUserByEmail,
     addUser,
-    getVenues
+    getVenues,
+    getEvents
   };
 };
