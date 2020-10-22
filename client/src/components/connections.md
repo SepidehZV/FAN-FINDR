@@ -1,1 +1,57 @@
 # this file for us to copy and past the long codes
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
+$blue-color: #1762A7 ;
+$orange-color: #FF8A00;
+$nav-background: $blue-color;
+$nav-hover: $orange-color;
+$sidebar-background: #77828C;
+
+.container{
+  padding-top: 120px;
+  
+
+}
+.sidenav {
+  height: 100%;
+  width: 350px;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 60px;
+  background-color: $sidebar-background;
+  align-items: center;
+  
+};
+
+.sidenav a {
+  margin-top: 0px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  display: block;
+  padding: 6px 8px 6px 16px;
+
+
+}
+
+
+.seprating-line {
+  border-color: $orange-color;
+  width: 80%;
+  
+
+};
+
+
+.sidenav a:hover {
+  color: rgb(143, 141, 141);
+};
+
+
+
+
+
+

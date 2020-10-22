@@ -1,9 +1,8 @@
 import React from 'react';
-import './LogoPhot.scss';
+import './LogoPhoto.scss';
 export default function LogoPhoto(porps){
   return(
-    <section>
-      <img src= "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="logo"/>
-    </section>
+    <img className="logoImg"
+      src= {porps.logo_url || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"}/>
   );
-}
+};

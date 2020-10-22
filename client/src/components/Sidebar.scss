@@ -6,22 +6,48 @@ $nav-background: $blue-color;
 $nav-hover: $orange-color;
 $sidebar-background: #77828C;
 
-
-
-.nav  {
-  background-color: $sidebar-background;
-  justify-content: center;
-  height: 100%;
-  width: 20%;
+.container{
+  padding-top: 180px;
   
-  .nav-link {
-    color: white;
-    
-  };
-  .seprating-line {
-    color: $orange-color;
-  };
+
+}
+.sidenav {
+  height: 100%;
+  width: 350px;
+  z-index: 1;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 60px;
+  background-color: $sidebar-background;
+  align-items: center;
+  
 };
+
+.sidenav a {
+  margin-top: 0px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  display: block;
+  padding: 6px 8px 6px 16px;
+
+
+}
+
+
+.seprating-line {
+  border-color: $orange-color;
+  width: 80%;
+  
+
+};
+
+
+.sidenav a:hover {
+  color: rgb(143, 141, 141);
+};
+
 
 
 

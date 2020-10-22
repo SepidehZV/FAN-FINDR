@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import  NavigationBar  from './components/NavigationBar';
 import CoverPhoto from './components/CoverPohto';
 import Sidebar from './components/Sidebar';
+import MainContainer from './components/MainContainer'
 
 function App() {
   const { state, dispatch } = useApplicationData();
@@ -22,7 +23,10 @@ function App() {
     <main className="layout">
       <section><NavigationBar/></section>  
       <section><CoverPhoto/></section>
+      <div className="conrinerforflex">
       <section><Sidebar/></section>
+      <section><MainContainer/></section>
+      </div>
     </main>
   );
 }
