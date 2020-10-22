@@ -6,6 +6,7 @@ const useApplicationData = () => {
   const [state, dispatch] = useReducer(dataReducer, {
     users: [],
     venues: [],
+    events: [],
     loading: true,
   });
   useEffect(() => {
