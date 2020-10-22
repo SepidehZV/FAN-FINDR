@@ -10,15 +10,10 @@ export default function Address(props) {
       <div class="col">
         <div> Address </div>
         <hr className="seprating" />
-        000street,zipcode 22222
+        {props.address || 'street'}, {props.country || 'country'}, {props.city || 'city'},{props.province || 'province'}, {props.zip_code || 'zip_code'}
       </div>
       <Map />
-      {/* <div className="mapStyles">
-        <MapWrapped googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
-          process.env.REACT_APP_GOOGLE_KEY
-        }`}
-        />
-      </div> */}
+
     </div>
   );
 }
