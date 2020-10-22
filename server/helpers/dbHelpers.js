@@ -48,11 +48,22 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
+  const getVenues = () => {
+    const query = {
+      text: 'SELECT * FROM venues',
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
 
   return {
     getUsers,
     getUsersPosts,
     getUserByEmail,
     addUser,
+    getVenues
   };
 };

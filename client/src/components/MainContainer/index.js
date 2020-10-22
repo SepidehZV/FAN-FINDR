@@ -10,9 +10,9 @@ export default function MainContainer(props) {
   return (
     <div class="continerforbackgroundcolor">
       <div class="row1 mb-2">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <VenueDescription />
+            <VenueDescription venueDescription={props.venueDescription}/>
           </div>
         </div>
         <div class="col-md-6">
@@ -23,22 +23,23 @@ export default function MainContainer(props) {
       </div>
 
       <div class="row1 mb-2">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <BussniessHours />
           </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-6">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <Photos />
           </div>
         </div>
-
       </div>
-      <div class="row1 mb-8">
-      <div>
-        <Address />
-      </div>
+      <div class="row1 mb-1">
+        <div class="col-md-12">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <Address />
+          </div>
+        </div>
       </div>
 
     </div>);

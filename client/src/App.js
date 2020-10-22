@@ -17,6 +17,13 @@ function App() {
       {user.first_name} {user.last_name} {user.email}
     </li>
   ));
+ 
+  const venuesList = state.venues.map(venue => (
+    <p key={venue.id}>
+      {venue.description} 
+    </p>
+  ));
+
 
   return (
   
@@ -25,10 +32,9 @@ function App() {
       <section><CoverPhoto/></section>
       <div className="conrinerforflex">
       <section><Sidebar/></section>
-      <section><MainContainer/></section>
+      <section><MainContainer venueDescription={venuesList[0]}/></section>
       </div>
     </main>
   );
 }
-
 export default App;

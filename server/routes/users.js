@@ -3,6 +3,7 @@ const router = express.Router();
 
 const {getPostsByUsers} = require('../helpers/dataHelpers');
 
+
 module.exports = ({ getUsers, getUsersPosts }) => {
   /* GET users listing. */
   router.get('/', (req, res) => {
