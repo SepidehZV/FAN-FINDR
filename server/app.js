@@ -10,7 +10,7 @@ const cors = require('cors');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const venuesRouter = require('./routes/venues');
-const venuesRouter = require('./routes/events');
+const eventsRouter = require('./routes/events');
 
 const app = express();
 app.use(cors());
@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter(dbHelpers));
 app.use('/api/venues', venuesRouter(dbHelpers));
-app.use('/api/evenst', venuesRouter(dbHelpers));
+app.use('/api/events', eventsRouter(dbHelpers));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

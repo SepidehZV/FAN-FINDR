@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import  NavigationBar  from './components/NavigationBar';
 import CoverPhoto from './components/CoverPohto';
 import Sidebar from './components/Sidebar';
-import MainContainer from './components/MainContainer'
+import MainContainer from './components/MainContainer';
 
 function App() {
   const { state, dispatch } = useApplicationData();
@@ -21,7 +21,6 @@ function App() {
   const venuesList = state.venues.map(venue => (
     <p key={venue.id}>
       {venue.description} 
-      {venue.capacity} 
 
     </p>
   ));

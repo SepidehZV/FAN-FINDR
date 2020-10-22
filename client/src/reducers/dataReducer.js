@@ -20,7 +20,7 @@ const dataReducer = (state, action) => {
       case SET_EVENTS:
         return {
           ...state,
-          venues: action.events,
+          events: action.events,
           loading: false,
       };  
     default:

@@ -60,7 +60,7 @@ module.exports = (db) => {
   };
   const getEvents = () => {
     const query = {
-      text: 'SELECT * FROM Events',
+      text: 'SELECT * FROM events',
     };
 
     return db
