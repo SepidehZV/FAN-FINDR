@@ -77,7 +77,7 @@ module.exports = (db) => {
       .query(query)
       .then((result) => result.rows)
       .catch((err) => err);
-  };
+  }; 
 
   const getTeams = () => {
     const query = {
@@ -90,6 +90,20 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const getTeamByEventId = (eventId) =>{
+    const query = {
+      text: `SELECT * FROM teams
+        JOIN events ON teams.id = events.team_id
+        WHERE events.id = $1`,
+      values: [eventId],
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+
+  }
+
   return {
     getUsers,
     getUsersPosts,
@@ -98,6 +112,7 @@ module.exports = (db) => {
     getVenues,
     getEvents,
     getSports,
-    getTeams
+    getTeams,
+    getTeamByEventId
   };
 };

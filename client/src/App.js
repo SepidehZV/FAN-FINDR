@@ -12,6 +12,9 @@ import MainContainer from './components/MainContainer';
 import Event from './components/PatronMain/Event';
 import PatronMain from './components/PatronMain/Index';
 import SearchBar from './components/PatronMain/SearchBar';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+
 
 function App() {
   const { state, dispatch } = useApplicationData();
@@ -51,9 +54,12 @@ function App() {
       
       </div>    
  */}
-      <PatronMain events={state.events} teams={state.teams} />
+      {/* <PatronMain events={state.events} teams={state.teams} /> */}
       {/* <SearchBar/>
       <Event/> */}
+
+<Login/>
+
       </main>
   );
 }
