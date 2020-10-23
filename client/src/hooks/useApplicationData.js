@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from 'react';
-import dataReducer, { SET_USERS, SET_VENUES, SET_EVENTS } from '../reducers/dataReducer';
+import dataReducer, { SET_USERS, SET_VENUES, SET_EVENTS, SET_SPORTS, SET_TEAMS } from '../reducers/dataReducer';
 import axios from 'axios';
 
 const useApplicationData = () => {
@@ -7,6 +7,8 @@ const useApplicationData = () => {
     users: [],
     venues: [],
     events: [],
+    sports: [],
+    teams: [],
     loading: true,
   });
   useEffect(() => {
@@ -39,6 +41,28 @@ const useApplicationData = () => {
       .then(({ data }) => {
         console.log(data);
         dispatch({ type: SET_EVENTS, events: data });
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: 'http://localhost:3001/api/sports',
+    })
+      .then(({ data }) => {
+        console.log(data);
+        dispatch({ type: SET_SPORTS, sports: data });
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: 'http://localhost:3001/api/teams',
+    })
+      .then(({ data }) => {
+        console.log(data);
+        dispatch({ type: SET_TEAMS, teams: data });
       })
       .catch((err) => console.log(err));
   }, []);

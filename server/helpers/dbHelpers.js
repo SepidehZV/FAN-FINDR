@@ -68,6 +68,27 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
+  const getSports = () => {
+    const query = {
+      text: 'SELECT * FROM sports',
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
+
+  const getTeams = () => {
+    const query = {
+      text: 'SELECT * FROM teams',
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
 
   return {
     getUsers,
@@ -75,6 +96,8 @@ module.exports = (db) => {
     getUserByEmail,
     addUser,
     getVenues,
-    getEvents
+    getEvents,
+    getSports,
+    getTeams
   };
 };

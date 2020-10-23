@@ -9,6 +9,10 @@ import CoverPhoto from './components/CoverPohto';
 import Sidebar from './components/Sidebar';
 import MainContainer from './components/MainContainer';
 
+import Event from './components/PatronMain/Event';
+import PatronMain from './components/PatronMain/Index';
+import SearchBar from './components/PatronMain/SearchBar';
+
 function App() {
   const { state, dispatch } = useApplicationData();
 
@@ -35,13 +39,22 @@ function App() {
   return (
   
     <main className="layout">
-      <section><NavigationBar/></section>  
+      {/* <section><NavigationBar/></section>  
       <section><CoverPhoto/></section>
       <div className="conrinerforflex">
       <section><Sidebar/></section>
-      <section><MainContainer venueDescription={venuesList[0]} venueCapacity={venuesCapacity[0]} /></section>
-      </div>
-    </main>
+      <section>
+      
+        <MainContainer venueDescription={venuesList[0]} venueCapacity={venuesCapacity[0]} />
+      
+      </section>
+      
+      </div>    
+ */}
+      <PatronMain events={state.events} teams={state.teams} />
+      {/* <SearchBar/>
+      <Event/> */}
+      </main>
   );
 }
 export default App;
