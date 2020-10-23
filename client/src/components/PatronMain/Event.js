@@ -3,17 +3,17 @@ import React from 'react';
 export default function Event(props) {
   return (
     <div className="card" >
-      <img src="https://techcrunch.com/wp-content/uploads/2018/07/Logo-1.png" alt="Avatar" class="avatar"/>
+      <img src={props.teamUlogoUrl} alt="Avatar" class="avatar"/>
       <div className="sport_name">
-      <h1 className="sport-title">{props.event.name}</h1>
-      <h5 className="time-title">Oct20</h5>
+      <h1 className="sport-title">{props.eventName}</h1>
+      <h5 className="time-title">{props.startDate}</h5>
 </div>
-    <img className="card-img-top" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png" alt="Card image cap"/>
+    <img className="card-img-top" src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"} alt="Card image cap"/>
     <div className="card-body">
-      <h5 className="card-title">{props.team}</h5>
+      <h5 className="card-title">{props.teamName}</h5>
       <hr className="seprating" />
 
-      <p className="card-text">On this day you will have child free meal.</p>
+      <p className="card-text">{props.description}</p>
    
     </div>
           <table class="table">
@@ -22,9 +22,9 @@ export default function Event(props) {
                 <th >offer</th>
               </tr>
              
-                <th >Resturant Name</th>
+                <th >{props.venueName}</th>
 
-                <th >60% discount</th>
+                <th >{props.offer}</th>
              
           </table>
   </div>

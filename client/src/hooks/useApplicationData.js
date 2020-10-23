@@ -1,75 +1,42 @@
-import { useEffect, useReducer } from 'react';
-import dataReducer, { SET_USERS, SET_VENUES, SET_EVENTS, SET_SPORTS, SET_TEAMS } from '../reducers/dataReducer';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const useApplicationData = () => {
-  const [state, dispatch] = useReducer(dataReducer, {
-    users: [],
-    venues: [],
-    events: [],
-    sports: [],
-    teams: [],
-    loading: true,
-  });
+  const [state , setState] = useState(
+    {
+      user_type : false ,
+      user_id : '',
+      events :[],
+      venues : [],
+      users : [],
+    }
+  )
+  
+  const setType = (user_type)=>{
+    setState({...state,user_type})
+  };
+  const setUser = (user_id)=>{
+    setState({...state, user_id})
+  }
+  // const addNewuser= ()=>{
+  //   axios.put
+  // }
   useEffect(() => {
-    axios({
-      method: 'GET',
-      url: 'http://localhost:3001/api/users',
+    Promise.all([
+      axios.get('http://localhost:3001/api/events'),
+      axios.get('http://localhost:3001/api/venues'),
+      axios.get('http://localhost:3001/api/users')
+     
+    ]).then(all => {
+      setState(prev => ({ ...prev, events: all[0].data, venues: all[1].data, users: all[2] }));
     })
-      .then(({ data }) => {
-        console.log(data);
-        dispatch({ type: SET_USERS, users: data });
+      .catch(err => {
+        // console.log(err)
       })
-      .catch((err) => console.log(err));
   }, []);
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: 'http://localhost:3001/api/venues',
-    })
-      .then(({ data }) => {
-        console.log(data);
-        dispatch({ type: SET_VENUES, venues: data });
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: 'http://localhost:3001/api/events',
-    })
-      .then(({ data }) => {
-        console.log(data);
-        dispatch({ type: SET_EVENTS, events: data });
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: 'http://localhost:3001/api/sports',
-    })
-      .then(({ data }) => {
-        console.log(data);
-        dispatch({ type: SET_SPORTS, sports: data });
-      })
-      .catch((err) => console.log(err));
-  }, []);
-  useEffect(() => {
-    axios({
-      method: 'GET',
-      url: 'http://localhost:3001/api/teams',
-    })
-      .then(({ data }) => {
-        console.log(data);
-        dispatch({ type: SET_TEAMS, teams: data });
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
+  
   return {
-    state,
-    dispatch,
+    state
   };
 };
 

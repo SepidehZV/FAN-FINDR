@@ -3,23 +3,21 @@ import Event from './Event';
 
 export default function EventList(props) {
   const teams = props.teams;
-  
   const events = props.events.map(event => {
-    const teamName = 'hello';
+    // const venueName = getVenuName(props.events);
+    console.log(event.event_name);
+  
     
-    //console.log(event.team_id)
-    for( const team in teams){
-      
-      if (event.team_id === team[event.team_id]) {
-        console.log(team[event.team_id]);
-        teamName = team[event.team_id].name;
-      }
-    }
-    
-    // if (event.team_id === teams[event.team_id]) {
-    //   teamName = teams[event.team_id].name;
-    // }
-    return(<Event key={event.id} event={event} team={teamName}/>)
+    return(<Event 
+      key={event.id} 
+      eventName={event.event_name} 
+      description={event.event_description}
+      teamName={event.team_name} 
+      venueName= {event.venue_name}
+      offer={event.offers}
+      teamUlogoUrl={event.team_logo_url}
+      startDate ={event.start_date}
+      />)
     
     
 

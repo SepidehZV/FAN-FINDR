@@ -4,7 +4,7 @@ INSERT INTO
     last_name,
     username,
     email,
-    zip_code,
+    user_zip_code,
     avatar_url,
     user_type,
     password

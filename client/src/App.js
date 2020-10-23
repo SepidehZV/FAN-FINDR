@@ -12,18 +12,19 @@ import MainContainer from './components/MainContainer';
 import Event from './components/PatronMain/Event';
 import PatronMain from './components/PatronMain/Index';
 import SearchBar from './components/PatronMain/SearchBar';
-import SignUp from './components/SignUp';
+import SignUpOwner from './components/SignUpOwner';
 import Login from './components/Login';
+import SignUpPatron from './components/SignUpPatron';
 
 
 function App() {
   const { state, dispatch } = useApplicationData();
 
-  const userList = state.users.map(user => (
-    <li key={user.email}>
-      {user.first_name} {user.last_name} {user.email}
-    </li>
-  ));
+  // const userList = state.users.map(user => (
+  //   <li key={user.email}>
+  //     {user.first_name} {user.last_name} {user.email}
+  //   </li>
+  // ));
  
   const venuesList = state.venues.map(venue => (
     <p key={venue.id}>
@@ -57,8 +58,7 @@ function App() {
       {/* <PatronMain events={state.events} teams={state.teams} /> */}
       {/* <SearchBar/>
       <Event/> */}
-
-<Login/>
+<SignUpPatron/>
 
       </main>
   );

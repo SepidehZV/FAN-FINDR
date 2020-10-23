@@ -1,5 +1,5 @@
 INSERT INTO
-  teams(name, team_logo_url, sport_id)
+  teams(team_name, team_logo_url, sport_id)
 VALUES
   ('NBA','https://www.google.com/url?sa=i&url=https%3A%2F%2Ftheundefeated.com%2Ffeatures%2Fhall-of-fame-jerry-west-designer-alan-siegel-nba-logo%2F&psig=AOvVaw2grSyz-JVKq7qQD1wgQ49t&ust=1603320467029000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPixn6mgxOwCFQAAAAAdAAAAABAD',2),
   ('Los Angeles Lakers','https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FLos_Angeles_Lakers&psig=AOvVaw1aiMIS90gRd1Iyf3QzcCnc&ust=1603320559100000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDn-dSgxOwCFQAAAAAdAAAAABAD',2),

@@ -1,5 +1,5 @@
 INSERT INTO
-  sports(name,photo_url)
+  sports(sport_name,photo_url)
 VALUES
   ('Chess','https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Chess_board_opening_staunton.jpg/435px-Chess_board_opening_staunton.jpg'),
   ('Basketball','https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Basketball.png/170px-Basketball.png'),

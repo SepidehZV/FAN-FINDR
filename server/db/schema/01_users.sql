@@ -5,7 +5,7 @@ CREATE TABLE users (
   last_name VARCHAR(255) NOT NULL,
   username VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
-  zip_code VARCHAR(20),
+  user_zip_code VARCHAR(20),
   avatar_url text,
   user_type BOOLEAN NOT NULL,
   password VARCHAR(255) NOT NULL

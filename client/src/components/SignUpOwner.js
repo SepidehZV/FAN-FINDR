@@ -1,63 +1,69 @@
 import React from 'react'
-
+import './Signup.scss';
 export default function SignUp() {
     return (
-        <div>
-             <div class="container">
-                 <div><img className= "logo"src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-23-at-11.51.27-AM.png"/></div>
+        <div className ="blue-back-ground">
+             <div className="container">
+                 <div>
+             <img className="logo" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-23-at-11.51.27-AM.png"/>
+
+<h2 className="text-center">Find your best team near you</h2>
+
+</div>
         <form>
-            <h2 class="text-center">Find your best team near you</h2>
-        <div class="row jumbotron">
-            <div class="col-sm-6 form-group">
+       
+
+        <div className="row jumbotron">
+            <div className="col-sm-6 form-group">
                 <label for="name-f">First Name</label>
-                <input type="text" class="form-control" name="fname" id="name-f" placeholder="First name" required/>
+                <input type="text" className="form-control" name="fname" id="name-f" placeholder="First name" required/>
             </div>
-            <div class="col-sm-6 form-group">
+            <div className="col-sm-6 form-group">
                 <label for="name-l">Last name</label>
-                <input type="text" class="form-control" name="lname" id="name-l" placeholder="Last name" required/>
+                <input type="text" className="form-control" name="lname" id="name-l" placeholder="Last name" required/>
             </div>
 
-            <div class="col-sm-6 form-group">
+            <div className="col-sm-6 form-group">
                 <label for="name-l">Username</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="username" required/>
+                <input type="text" className="form-control" name="username" id="username" placeholder="username" required/>
             </div>
             
 
- <div class="col-sm-6 form-group">
+ <div className="col-sm-6 form-group">
                 <label for="pass">Password</label>
-                <input type="Password" name="password" class="form-control" id="pass" placeholder="Password." required/>
+                <input type="Password" name="password" className="form-control" id="pass" placeholder="Password." required/>
             </div>
-            <div class="col-sm-6 form-group">
+            <div className="col-sm-6 form-group">
                 <label for="pass2">Confirm Password</label>
-                <input type="Password" name="cnf-password" class="form-control" id="pass2" placeholder="Re-enter your password." required/>
+                <input type="Password" name="cnf-password" className="form-control" id="pass2" placeholder="Re-enter your password." required/>
             </div>
 
-            <div class="col-sm-6 form-group">
+            <div className="col-sm-6 form-group">
                 <label for="name-l">Venue Name</label>
-                <input type="text" class="form-control" name="venue name" id="venue name" placeholder="venue name" required/>
+                <input type="text" className="form-control" name="venue name" id="venue name" placeholder="venue name" required/>
             </div>
 
-            <div class="col-sm-6 form-group">
+            <div className="col-sm-6 form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" name="email" id="email" placeholder="Email" required/>
+                <input type="email" className="form-control" name="email" id="email" placeholder="Email" required/>
             </div>
 
-            <div class="col-sm-6 form-group">
+            <div className="col-sm-6 form-group">
                 <label for="email">Confirm email</label>
-                <input type="email" class="form-control" name="confirm email" id="confirm email" placeholder="confirm email" required/>
+                <input type="email" className="form-control" name="confirm email" id="confirm email" placeholder="confirm email" required/>
             </div>
 
 
 
-            <div class="col-sm-6 form-group">
+            <div className="col-sm-6 form-group">
                 <label for="address-1">Street</label>
-                <input type="address" class="form-control" name="Locality" id="address-1" placeholder="Locality/House/Street no." required/>
+                <input type="address" className="form-control" name="Locality" id="address-1" placeholder="Locality/House/Street no." required/>
             </div>
 
 
-            <div class="col-sm-6 form-group">
+            <div className="col-sm-6 form-group">
                 <label for="Country">Country</label>
-                <select class="form-control custom-select browser-default">
+                <select className="form-control custom-select browser-default">
                     <option value="Afghanistan">Afghanistan</option>
 <option value="Åland Islands">Åland Islands</option>
 <option value="Albania">Albania</option>
@@ -297,33 +303,33 @@ export default function SignUp() {
                 </select>
             </div>
         
-            <div class="col-sm-2 form-group">
+            <div className="col-sm-2 form-group">
                 <label for="zip">Postal-Code</label>
-                <input type="zip" class="form-control" name="Zip" id="zip" placeholder="Postal-Code" required/>
+                <input type="zip" className="form-control" name="Zip" id="zip" placeholder="Postal-Code" required/>
             </div>
 
 
 
            
-            <div class="col-sm-4 form-group">
+            <div className="col-sm-4 form-group">
                 <label for="State">State</label>
                 
-                <select class="form-control">
+                <select className="form-control">
                                                         <option>...</option>
                                                     </select>            </div>
             
-            <div class="col-sm-4 form-group">
+            <div className="col-sm-4 form-group">
                 <label for="tel">City</label>
-                <input type="tel" name="city" class="form-control" id="tel" placeholder="city" required/>
+                <input type="tel" name="city" className="form-control" id="tel" placeholder="city" required/>
             </div>
            
-            <div class="col-sm-12">
-                <input type="checkbox" class="form-check d-inline" id="chb" required/><label for="chb" class="form-check-label">&nbsp;I accept all terms and conditions.
+            <div className="col-sm-12">
+                <input type="checkbox" className="form-check d-inline" id="chb" required/><label for="chb" className="form-check-label">&nbsp;I accept all terms and conditions.
                 </label>
             </div>
 
-            <div class="col-sm-12 form-group mb-0">
-               <button class="btn btn-primary float-right">Submit</button>
+            <div className="col-sm-12 form-group mb-0">
+               <button className="btn btn-primary float-right">Submit</button>
             </div>
             
         </div>

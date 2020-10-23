@@ -1,5 +1,5 @@
 INSERT INTO
-  venue_categories(name)
+  venue_categories(categorie_name)
 VALUES
   ('Sport Bar'),
   ('hotel bar'),

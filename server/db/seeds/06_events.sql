@@ -1,7 +1,7 @@
 INSERT INTO
   events (
-    name,
-    description,
+    event_name,
+    event_description,
     offers,
     start_date,
     end_date,

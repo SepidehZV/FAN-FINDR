@@ -1,18 +1,18 @@
 INSERT INTO
   venues (
     owner_id,
-    name, 
+    venue_name, 
     street,
     city,
     province,
     country,
-    zip_code,
-    description,
+    venue_zip_code,
+    venue_description,
     phone,
     capacity,
     age_restriction,
     dress_code,
-    logo_url,
+    venue_logo_url,
     category_id,
     cover_url
   )

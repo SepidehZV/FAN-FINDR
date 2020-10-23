@@ -1,9 +1,9 @@
 INSERT INTO
   menu_items
   (
-  name ,
+  item_name ,
   price ,
-  description,
+  item_description,
   venue_id  
   )
 VALUES 
