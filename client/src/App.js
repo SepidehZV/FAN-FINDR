@@ -18,7 +18,7 @@ import SignUpPatron from './components/SignUpPatron';
 
 
 function App() {
-  const { state, dispatch } = useApplicationData();
+  const { state } = useApplicationData();
 
   // const userList = state.users.map(user => (
   //   <li key={user.email}>

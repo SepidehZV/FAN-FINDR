@@ -1,11 +1,11 @@
 import React from 'react'
 import './Signup.scss';
-export default function SignUp() {
+export default function SignUpOwner() {
     return (
         <div className ="blue-back-ground">
              <div className="container">
                  <div>
-             <img className="logo" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-23-at-11.51.27-AM.png"/>
+                 <img className="logo" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-23-at-11.51.27-AM.png"/>
 
 <h2 className="text-center">Find your best team near you</h2>
 
