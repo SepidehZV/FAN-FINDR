@@ -1,4 +1,5 @@
 import React from 'react';
+import StateContext from './StateContext';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import logo from './logo.svg';
 import './App.scss';
@@ -9,13 +10,14 @@ import useApplicationData from './hooks/useApplicationData';
 /* importing components */
 import NavigationBar from './components/NavigationBar';
 import PatronMain from './components/PatronMain/Index';
-import VenuePage from './components/VenuePage/MainContainer';
+import VenuePage from './components/VenuePage';
 import VenueEvents from './components/VenueEvents';
 import VenueMenu from './components/VenueMenu';
 import Favourites from './components/Favourites';
 import Login from './components/Login';
 import SignUpOwner from './components/SignUpOwner';
 import SignUpPatron from './components/SignUpPatron';
+import VenueAnalytics from './components/VenueAnalytics';
 
 
 function App() {
@@ -42,10 +44,12 @@ function App() {
   ));
 
   return (
-
+    // <main className="layout">
     // <Router>
+    //   <NavigationBar/>
+    //   <StateContext.Provider value={state}>
     //   <Switch>
-    //     <NavigationBar/>
+
     //     <Route exact path='/'>
     //       {!state.user_type && <PatronMain />}
     //       {state.user_type && <VenuePage />}
@@ -59,11 +63,15 @@ function App() {
     //     <Route path='/analytics'>  /*owner route*/
     //       <VenueAnalytics/>
     //     </Route>
-    //     <Route path='/venues/:id'>  /*patron route*/
+    //     <Route exact path='/venues/:id'>  /*patron route*/
     //       <VenuePage/>
     //     </Route>
     //     <Route path='/venues/:id/events'>  /*patron route*/
     //       <VenueEvents/>
+    //     </Route>
+    //     </Route>
+    //     <Route path='/venues/:id/menu'>  /*patron route*/
+    //       <VenueMenu/>
     //     </Route>
     //     
     //     <Route path='/favourites'>  /*patron route*/
@@ -88,15 +96,15 @@ function App() {
     //     <Route path="*">
     //       <h3>404 - Not Found</h3>
     //     </Route>
-
-
     //   </Switch>
+    //   </StateContext.Provider>
     // </Router>
+    // </main>
     <Router>
        <main className="layout">
       <section><NavigationBar /></section>
       
-        <VenuePage/>
+        <VenueAnalytics/>
       {/* <PatronMain events={state.events} teams={state.teams} /> */}
       {/* <SearchBar/>
          <Event/> */}

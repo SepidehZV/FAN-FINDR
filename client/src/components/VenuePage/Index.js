@@ -11,12 +11,9 @@ export default function VenuePage(props) {
         <section><CoverPhoto /></section>
         <div className="conrinerforflex">
           <section><Sidebar /></section>
-          
-            
+          <MainContainer/>
         </div>
       </div>
   )
-  
-  
 }
 

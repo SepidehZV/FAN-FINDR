@@ -306,6 +306,16 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
+  const getFavouritesEvents = () =>{
+    const query = {
+      text: 'SELECT * FROM favourite_events;',
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
 
   return {
     getUsers,
@@ -327,6 +337,7 @@ module.exports = (db) => {
     addNewPhoto,
     addNewMenuItems,
     addNewFavouriteEvent,
-    getVenueById
+    getVenueById,
+    getFavouritesEvents
   };
 };
