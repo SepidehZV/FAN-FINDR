@@ -9,7 +9,11 @@ module.exports = ({ getVenues }) => {
       .catch((err) => res.json({ err }));
   });
 
-
+  router.get('/:id',(req,res) =>{
+    getVenueById(req.params.id)
+    .then((user) => res.json(user))
+    .catch((err) => res.json({ err }));
+  });
   
 
   return router;

@@ -16,6 +16,10 @@ function Sidebar(props) {// we can use this in resutrent owner
               <a className="nav-link" href="#">Events</a>
               <hr className="seprating-line" />
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Menu</a>
+              <hr className="seprating-line" />
+            </li>
             
           </ul>
         </div>

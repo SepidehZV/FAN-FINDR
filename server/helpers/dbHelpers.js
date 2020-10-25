@@ -251,7 +251,17 @@ module.exports = (db) => {
   };
 
 
+  const getVenueById =(id) =>{
+    const query = {
+      text: 'SELECT * FROM venues WHERE id = $1',
+      values :[id],
+    };
 
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => err);
+  };
   const getVenues = () => {
     const query = {
       text: 'SELECT * FROM venues JOIN users on users.id = owner_id',
@@ -316,6 +326,7 @@ module.exports = (db) => {
     addNewEvent,
     addNewPhoto,
     addNewMenuItems,
-    addNewFavouriteEvent
+    addNewFavouriteEvent,
+    getVenueById
   };
 };

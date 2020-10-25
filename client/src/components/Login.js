@@ -7,7 +7,7 @@ export default function Login() {
             <div class="container">
       <div class="login">
          <div class="container">
-         <img className="logo" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-23-at-11.51.27-AM.png"/>
+         <img className="logologin" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-23-at-11.51.27-AM.png"/>
 
          <hr className="seprating" />
 

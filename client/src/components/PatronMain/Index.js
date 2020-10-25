@@ -4,7 +4,7 @@ import EventList from './EventList';
 import SearchBar from './SearchBar';
 
 
-export default function PatronMain(props) {
+export default function VenuePage(props) {
   return (
 
     <div className="continerforbackgroundcolor">

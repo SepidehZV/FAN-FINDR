@@ -1,19 +1,20 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import logo from './logo.svg';
 import './App.scss';
-import useApplicationData from './hooks/useApplicationData';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import  NavigationBar  from './components/NavigationBar';
-import CoverPhoto from './components/CoverPohto';
-import Sidebar from './components/Sidebar';
-import MainContainer from './components/MainContainer';
+/* importing hooks*/
+import useApplicationData from './hooks/useApplicationData';
 
-import Event from './components/PatronMain/Event';
+/* importing components */
+import NavigationBar from './components/NavigationBar';
 import PatronMain from './components/PatronMain/Index';
-import SearchBar from './components/PatronMain/SearchBar';
-import SignUpOwner from './components/SignUpOwner';
+import VenuePage from './components/VenuePage/MainContainer';
+import VenueEvents from './components/VenueEvents';
+import VenueMenu from './components/VenueMenu';
+import Favourites from './components/Favourites';
 import Login from './components/Login';
+import SignUpOwner from './components/SignUpOwner';
 import SignUpPatron from './components/SignUpPatron';
 
 
@@ -25,42 +26,85 @@ function App() {
   //     {user.first_name} {user.last_name} {user.email}
   //   </li>
   // ));
- 
+
   const venuesList = state.venues.map(venue => (
     <p key={venue.id}>
-      {venue.description} 
+      {venue.description}
 
     </p>
   ));
-  
+
   const venuesCapacity = state.venues.map(venue => (
     <p key={venue.id}>
-      {venue.capacity} 
+      {venue.capacity}
 
     </p>
   ));
 
   return (
-  
-    <main className="layout">
-      {/* <section><NavigationBar/></section>  
-      <section><CoverPhoto/></section>
-      <div className="conrinerforflex">
-      <section><Sidebar/></section>
-      <section>
+
+    // <Router>
+    //   <Switch>
+    //     <NavigationBar/>
+    //     <Route exact path='/'>
+    //       {!state.user_type && <PatronMain />}
+    //       {state.user_type && <VenuePage />}
+    //     </Route>
+    //     <Route path='/events'>  /*owner route*/ 
+    //       <VenueEvents/>
+    //     </Route>
+    //     <Route path='/menu'>  /*owner route*/
+    //       <VenueMenu/>
+    //     </Route>
+    //     <Route path='/analytics'>  /*owner route*/
+    //       <VenueAnalytics/>
+    //     </Route>
+    //     <Route path='/venues/:id'>  /*patron route*/
+    //       <VenuePage/>
+    //     </Route>
+    //     <Route path='/venues/:id/events'>  /*patron route*/
+    //       <VenueEvents/>
+    //     </Route>
+    //     
+    //     <Route path='/favourites'>  /*patron route*/
+    //       <Favourites/>
+    //     </Route>
+
+    //     <Route path='/profile'>  /*patron  & owner route*/
+    //       {!state.user_type && <ProfilePatron/>}
+    //       {state.user_type && <ProfileOwner/>}
+    //     </Route>
+
+    //     <Route path='/login'>
+    //       <Login />
+    //     </Route>
+    //     <Route path= '/register/patron'>
+    //       <SignUpPatron/>
+    //     </Route>
+    //     <Route path='/register/owner'>
+    //       <SignUpOwner/>
+    //     </Route>
+
+    //     <Route path="*">
+    //       <h3>404 - Not Found</h3>
+    //     </Route>
+
+
+    //   </Switch>
+    // </Router>
+    <Router>
+       <main className="layout">
+      <section><NavigationBar /></section>
       
-        <MainContainer venueDescription={venuesList[0]} venueCapacity={venuesCapacity[0]} />
-      
-      </section>
-      
-      </div>    
- */}
+        <VenuePage/>
       {/* <PatronMain events={state.events} teams={state.teams} /> */}
       {/* <SearchBar/>
-      <Event/> */}
-<SignUpPatron/>
+         <Event/> */}
+      {/* <SignUpPatron/>*/}
 
-      </main>
+    </main>
+    </Router>
+   
   );
 }
 export default App;

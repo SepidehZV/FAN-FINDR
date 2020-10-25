@@ -10,7 +10,13 @@ export default function Event(props) {
 </div>
     <img className="card-img-top" src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"} alt="Card image cap"/>
     <div className="card-body">
-      <h5 className="card-title">{props.teamName}</h5>
+          <div className="edit-and-delete" >
+            <div><h5 className="card-title">{props.team || 'hiteam name'}</h5> </div>
+            <div className="edit-and-delete"> 
+              <div className="delete" ><i class="far fa-trash-alt"></i>Delete </div>
+              <div className="eidt" ><i class="far fa-edit"></i>Eidt</div>
+            </div>
+          </div>
       <hr className="seprating" />
 
       <p className="card-text">{props.description}</p>

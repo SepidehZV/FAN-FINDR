@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './NavigationBar.scss';
 
  function NavigationBar(props) {// we will need a props to use props.username for the greeting and the props.avatar_url
@@ -19,9 +20,9 @@ import './NavigationBar.scss';
               <img className="avatarImg" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" loading="lazy" />
             </li>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-              <a className="dropdown-item" href="#">Profile</a>
-              <a className="dropdown-item" href="#">My faviortes</a>
-              <a className="dropdown-item" href="#"><hr/> Logout</a>
+              <li className="dropdown-item" ><Link to='/profile'>Profile</Link></li>
+              <li className="dropdown-item" ><Link to='/favourites'>My favourites</Link></li>
+              <li className="dropdown-item" ><hr/> Logout</li>
               </div>
         </div>
           

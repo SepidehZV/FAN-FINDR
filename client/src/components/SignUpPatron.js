@@ -3,7 +3,7 @@ import './Signup.scss';
 export default function SignUp_Patron() {
     return (
         <div className="blue-back-ground">
-            <img className="logo" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-23-at-11.51.27-AM.png" />
+            <img className="logosingup" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-23-at-11.51.27-AM.png" />
 
 
             <div className="container">

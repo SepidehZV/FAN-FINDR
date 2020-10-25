@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.scss';
+
 import VenueDescription from './VenueDescription';
 import Info from './Info';
 import BussniessHours from './BussniessHours';
