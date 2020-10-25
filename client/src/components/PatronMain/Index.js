@@ -1,17 +1,32 @@
-import React from 'react';
-import './Index.scss';
+import React, { useContext } from 'react';
+
+import './index.scss';
 import EventList from './EventList';
 import SearchBar from './SearchBar';
+import StateContext from '../../StateContext';
+import NavigationBar from '../NavigationBar';
+import Map from './Map'
 
-
-export default function VenuePage(props) {
+export default function PatronMain(props) {
+  const state = useContext(StateContext);
   return (
-
-    <div className="continerforbackgroundcolor">
-      <SearchBar/>
-      <EventList events={props.events} teams={props.teams}/>
-
-    </div>
-
+    <>
+     
+      <section className="patron-page-flex-col">
+      <section><NavigationBar /></section>
+        <div className="continerforbackgroundcolor">
+        <section className="patron-page-flex-row">
+           
+            <section className="patron-page-flex-col">
+              <SearchBar />
+              <EventList events={state.events} teams={state.teams} />
+            </section>
+            
+            <Map />     
+            </section>
+            </div>
+            </section>
+        
+    </>
   );
 }

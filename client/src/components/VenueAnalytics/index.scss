@@ -1,0 +1,22 @@
+$orange-color: #FF8A00;
+$lightgraybackground :#EDEFF0;
+$whaitbackground :#ffff;
+
+.continerforbackgroundcolor{
+  background-color: $lightgraybackground;
+}
+.row1{
+  padding-left: 2rem;
+  padding-top: 2rem;
+  padding-right: 2rem;
+  display: flex;
+}
+
+.conrinerforPadding{
+  padding-left: 0;
+  padding-top: 2rem;
+  padding-right: 0;
+  padding-bottom: 1rem;
+  width: 100%;
+  background-color: $whaitbackground;
+}

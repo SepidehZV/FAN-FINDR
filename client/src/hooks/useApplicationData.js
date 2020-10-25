@@ -1,11 +1,49 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+////////for demo
+const mockuser={
+"id": 1,
+"first_name": "Mario",
+"last_name": "Bros",
+"username": "MariB",
+"email": "mario@nintendo.com",
+"user_zip_code": "",
+"avatar_url": "https://i.imgur.com/LpaY82x.png",
+"user_type": true,
+"password": "password"
+};
+const venue ={
+    "id": 1,
+    "owner_id": 1,
+    "venue_name": "Sens House",
+    "street": "73 York St",
+    "country": "Canada",
+    "venue_zip_code": "K1N 5T2",
+    "province": "Ontario",
+    "venue_description": "this is a description",
+    "phone": "(613) 241-5434",
+    "capacity": 50,
+    "age_restriction": 18,
+    "dress_code": "casual",
+    "venue_logo_url": "",
+    "category_id": 1,
+    "cover_url": "",
+    "city": "Ottawa",
+    "first_name": "Mario",
+    "last_name": "Bros",
+    "username": "MariB",
+    "email": "mario@nintendo.com",
+    "user_zip_code": "",
+    "avatar_url": "https://i.imgur.com/LpaY82x.png",
+    "user_type": true,
+    "password": "password"
+  }
 
 const useApplicationData = () => {
   const [state , setState] = useState(
     {
       user_type : false ,
-      user:{},
+      user:{mockuser},
       events :[],
       venues : [],
       users : []

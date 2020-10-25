@@ -3,16 +3,29 @@ import React from 'react';
 import Empty from '../Empty';
 import Confirm from '../Confirm';
 import Form from './Form';
+import Sidebar from '../Sidebar';
+import CoverPhoto from '../CoverPohto';
+import NavigationBar from '../NavigationBar';
 
 export default function VenueEvents(props) {
 
   return (
-    <section>
+  <main className="layout">
+  <div>
+    <section><NavigationBar /></section>
+    <section><CoverPhoto /></section>
+    <div className="conrinerforflex">
+    
+      <Sidebar />
+      {/* <EventList /> */}
+
       {/* <Confirm />  */}
       
       <Empty />
-      <Form />
-    </section>
-
+      {/* <Form /> */}
+    
+    </div>
+    </div>
+    </main>
   );
 }

@@ -50,6 +50,10 @@ padding-bottom: 20px;
   height: 200px;
 }
 
+.venueMenu-flex-col{
+  display: flex;
+  flex-direction: column;
+}
 .avatar{
   height: 150px;
   width: 150px;

@@ -253,7 +253,8 @@ module.exports = (db) => {
 
   const getVenueById =(id) =>{
     const query = {
-      text: 'SELECT * FROM venues WHERE id = $1',
+      text: `SELECT * FROM venues 
+            WHERE id = $1`,
       values :[id],
     };
 
@@ -274,9 +275,12 @@ module.exports = (db) => {
   };
   const getEvents = () => {
     const query = {
-      text: `Select *  from events JOIN venues on events.venue_id = venues.id
-      Join teams on events.team_id = teams.id
-      ORDER BY events.start_date;`,
+      text: `Select events.id as event_id ,event_name,offers,start_date,end_date, venue_id,team_id,venue_name, venue_description, team_logo_url,sport_id, count(favourite_events.id) as favourite_count
+      FROM events JOIN venues on events.venue_id = venues.id 
+            Join teams on events.team_id = teams.id
+            Join favourite_events on events.id = event_id
+            GROUP BY events.id ,venues.venue_name,venue_description,team_name ,team_logo_url,sport_id
+            ORDER BY events.start_date ;`,
     };
 
     return db
@@ -308,7 +312,39 @@ module.exports = (db) => {
   };
   const getFavouritesEvents = () =>{
     const query = {
-      text: 'SELECT * FROM favourite_events;',
+      text: `SELECT * FROM favourite_events;`,
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
+  const getFavouritesEventsCountForDayByVenueId = (venue_id) =>{
+    const query = {
+      text: `SELECT count(*) as  favourites_number , venues.id as venue_id , created_at::date as day
+      FROM favourite_events 
+      JOIN events on event_id = events.id 
+      JOIN venues ON venues.id = venue_id
+      WHERE venues.id = $1
+      Group by created_at ,venues.id;`,
+      values: [venue_id],
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
+  const getEventFavForDayByEventId =(event_id)=>{
+    const query = {
+      text: `SELECT count(*) as  favourites_number , events. event_name as events_name , created_at::date as day
+      FROM favourite_events 
+      JOIN events on event_id = events.id 
+      WHERE events.id = $1
+      Group by created_at ,events.id
+      ORDER BY day;`,
+      values: [event_id],
     };
 
     return db
@@ -338,6 +374,8 @@ module.exports = (db) => {
     addNewMenuItems,
     addNewFavouriteEvent,
     getVenueById,
-    getFavouritesEvents
+    getFavouritesEvents,
+    getFavouritesEventsCountForDayByVenueId,
+    getEventFavForDayByEventId
   };
 };
