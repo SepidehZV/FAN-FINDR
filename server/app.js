@@ -16,7 +16,7 @@ const sportsRouter = require('./routes/sports');
 const teamsRouter = require('./routes/teams');
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
-const favouriteEventRouter = require('./routes/favouriteEvents');
+const favouriteEventsRouter = require('./routes/favouriteEvents');
 
 const app = express();
 app.use(cors());
@@ -44,7 +44,7 @@ app.use('/api/sports', sportsRouter(dbHelpers));
 app.use('/api/teams', teamsRouter(dbHelpers));
 app.use('/api/register',registerRouter(dbHelpers));
 app.use('/api/login',loginRouter(dbHelpers));
-app.use('/api/favouriteEvents',favouriteEventRouter(dbHelpers));
+app.use('/api/favouriteEvents',favouriteEventsRouter(dbHelpers));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
