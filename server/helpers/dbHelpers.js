@@ -265,7 +265,7 @@ module.exports = (db) => {
   };
   const getVenues = () => {
     const query = {
-      text: 'SELECT * FROM venues JOIN users on users.id = owner_id',
+      text: 'SELECT * FROM venues;',
     };
 
     return db
