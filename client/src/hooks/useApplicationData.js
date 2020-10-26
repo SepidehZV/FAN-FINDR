@@ -42,8 +42,8 @@ const venue ={
 const useApplicationData = () => {
   const [state , setState] = useState(
     {
-      user_type : false ,
-      user:{mockuser},
+      user_type : null ,
+      user:{},
       events :[],
       venues : [],
       users : []
@@ -90,7 +90,8 @@ const useApplicationData = () => {
   return {
     state,
     setType,
-    setUser
+    setUser,
+    setState
     //addUserPatron
   };
 };

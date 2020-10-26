@@ -18,7 +18,7 @@ VALUES
     '',
     'https://i.imgur.com/LpaY82x.png',
     true,
-    'password'
+    '$2b$10$MhKTEmeJTB/Q2YbqLd7uXejgByEuIBb7p0Gy4huu6ktKLNZl38JxC'
   ),
   (
     'Luigi',
@@ -28,7 +28,7 @@ VALUES
     'K2P 1L8',
     'https://i.imgur.com/Nmx0Qxo.png',
     false,
-    'password'
+    '$2b$10$MhKTEmeJTB/Q2YbqLd7uXejgByEuIBb7p0Gy4huu6ktKLNZl38JxC'
   ),
   (
     'Princess',
@@ -38,7 +38,7 @@ VALUES
     '',
     'https://i.imgur.com/T2WwVfS.png',
     true,
-    'password'
+    '$2b$10$MhKTEmeJTB/Q2YbqLd7uXejgByEuIBb7p0Gy4huu6ktKLNZl38JxC'
   ),
   (
     'Princess',
@@ -48,7 +48,7 @@ VALUES
     'K1N 9J7',
     'https://i.imgur.com/FK8V841.jpg',
     false,
-    'password'
+    '$2b$10$MhKTEmeJTB/Q2YbqLd7uXejgByEuIBb7p0Gy4huu6ktKLNZl38JxC'
 
   ),
   ('Donkey',
@@ -58,5 +58,5 @@ VALUES
   '',
   'https://i.imgur.com/twYrpay.jpg',
   true,
-  'password'
+  '$2b$10$MhKTEmeJTB/Q2YbqLd7uXejgByEuIBb7p0Gy4huu6ktKLNZl38JxC'
   );
