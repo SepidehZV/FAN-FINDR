@@ -70,8 +70,7 @@ module.exports = (db) => {
         city,
         province,
         country,
-        venue_zip_code,
-        
+        venue_zip_code
       ) 
     VALUES
       (
@@ -265,7 +264,7 @@ module.exports = (db) => {
   };
   const getVenues = () => {
     const query = {
-      text: 'SELECT * FROM venues JOIN users on users.id = owner_id',
+      text: 'SELECT * FROM venues;',
     };
 
     return db
@@ -275,12 +274,7 @@ module.exports = (db) => {
   };
   const getEvents = () => {
     const query = {
-      text: `Select events.id as event_id ,event_name,offers,start_date,end_date, venue_id,team_id,venue_name, venue_description, team_logo_url,sport_id, count(favourite_events.id) as favourite_count
-      FROM events JOIN venues on events.venue_id = venues.id 
-            Join teams on events.team_id = teams.id
-            Join favourite_events on events.id = event_id
-            GROUP BY events.id ,venues.venue_name,venue_description,team_name ,team_logo_url,sport_id
-            ORDER BY events.start_date ;`,
+      text: `SELECT * FROM events;`,
     };
 
     return db
@@ -352,6 +346,18 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
+  const addSport = (sport_name,photo_url) => {
+    const query = {
+      text: `INSERT INTO sports (sport_name,photo_url) 
+        VALUES ($1, $2) RETURNING *`,
+      values: [sport_name,photo_url],
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
 
   return {
     getUsers,
@@ -376,6 +382,7 @@ module.exports = (db) => {
     getVenueById,
     getFavouritesEvents,
     getFavouritesEventsCountForDayByVenueId,
-    getEventFavForDayByEventId
+    getEventFavForDayByEventId,
+    addSport
   };
 };

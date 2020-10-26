@@ -16,6 +16,7 @@ const sportsRouter = require('./routes/sports');
 const teamsRouter = require('./routes/teams');
 //const registerRouter = require('./routes/register');
 const favouriteEventsRouter = require('./routes/favouriteEvents');
+const jwtAuthRouter = require("./routes/jwtAuth");
 
 
 
@@ -49,7 +50,7 @@ app.use('/api/teams', teamsRouter(dbHelpers));
 app.use('/api/favouriteEvents',favouriteEventsRouter(dbHelpers));
 
 
-app.use("/api/auth", require("./routes/jwtAuth"));
+app.use("/api/auth", jwtAuthRouter);
 
 
 // catch 404 and forward to error handler
