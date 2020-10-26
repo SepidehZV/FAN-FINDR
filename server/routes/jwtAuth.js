@@ -11,7 +11,7 @@ const client = require("../db/index.js");
 
 
 
-//authorizeentication
+/* registration for patron */
 
 router.post("/patron", validInfo, async (req, res) => {
 
@@ -53,16 +53,11 @@ RETURNING *`,
 
 
 
-
-
-
-
-
-
+/* registration for owner */
 router.post("/owner", validInfo, async (req, res) => {
 
   try {
-
+    
     const { first_name, last_name, username, email, password,
       venue_name, street, city, province, country, venue_zip_code } = req.body;
 
@@ -101,8 +96,7 @@ router.post("/owner", validInfo, async (req, res) => {
         city,
         province,
         country,
-        venue_zip_code,
-        
+        venue_zip_code
       ) 
       VALUES
       (
