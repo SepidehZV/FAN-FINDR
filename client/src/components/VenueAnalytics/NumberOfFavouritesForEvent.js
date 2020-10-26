@@ -1,29 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import axios from "axios";
+import {Link} from 'react-router-dom';
 
 export default function NumberOfFavouritesForEvent(props) {
+  
   const [chartData, setChartData] = useState({});
-  const user= props.user;
-  const venues = props.venues;
-  // const getVenueByUserId =(user, venues) =>{
-  //   const venue = venues.find((venue)=> venue.owner_id === user.id);
-  //   return venue.id;
-  // };
-  // const venue_id = getVenueByUserId (user, venues);
-  let eventList = props.events.map((ev) =>
-        <a class="dropdown-item" href="#" key={ev.event_name}> {ev.event_name}</a>
-      );
-  const chart = () => {
+
+  const chart = (ev_id) => {
     let faveCount = [];
     let days = [];
     axios
-      .get(`http://localhost:3001/api/events/${props.event_id}`)
+      .get(`http://localhost:3001/api/events/${ev_id}`)
       .then(res => {
-        // console.log(res);
         for (const event of res.data) {
           faveCount.push(parseInt(event.favourites_number));
-          days.push(parseInt(event.day));
+          days.push(parseInt(event.day.substring(8, 10)));
         }
         setChartData({
           labels: days,
@@ -40,12 +32,20 @@ export default function NumberOfFavouritesForEvent(props) {
       .catch(err => {
         console.log(err);
       });
-    console.log(faveCount, days);
   };
-
-  useEffect(() => {
-    chart();
-  }, []);
+  
+  const clickAction=(id) => {
+    console.log({id});
+    chart(id)
+  }
+  const eventList = props.events.map((ev) =>
+  <li class="dropdown-item" key={ev.event_name} event_id ={ev.event_id} onClick={() => clickAction(ev.event_id)}>{ev.event_name} </li>
+  
+);
+  // useEffect(() => {
+  //   chart();
+   
+  // }, []);
   return (
     <div className="conrinerforPadding">
       <div class="col">
@@ -53,7 +53,7 @@ export default function NumberOfFavouritesForEvent(props) {
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            choose an event
     </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id ="eventChart">
             {eventList}
           </div>
         </div>
@@ -79,21 +79,17 @@ export default function NumberOfFavouritesForEvent(props) {
                 ],
                 xAxes: [
                   {
+                    // type: 'time',
+                    //   time: {
+                    //     displayFormats: {
+                    //       day: 'MMM DD'
+                    //   },
                     gridLines: {
                       display: false
                     }
                   }
-                  // {
-                  //   type: 'time',
-                  //     time: {
-                  //       displayFormats: {
-                  //         day: 'MMM YYYY'
-                  //     }
-                  //     },
-                  //   gridLines: {
-                  //     display: false
-                  //   }
-                  // }
+                // }
+                  
                 ]
               }
             }}

@@ -8,22 +8,19 @@ export default function NumberOfFavouritesForDay(props) {
   const state = useContext(StateContext);
   const user= state.user;
   const venues = state.venues;
-  // const getVenueByUserId =(user, venues) =>{
-  //   const venue = venues.find((venue)=> venue.owner_id === user.id);
-  //   return venue.id;
-  // };
-  // const venue_id = getVenueByUserId (user, venues);
+/// i need the venue id 
 
   const chart = () => {
     let faveCount = [];
     let days = [];
     axios
-      .get(`http://localhost:3001/api/favouriteEvents/1`)
+      .get(`http://localhost:3001/api/favouriteEvents/${props.venue_id}`)
       .then(res => {
         // console.log(res);
         for (const dataObj of res.data) {
           faveCount.push(parseInt(dataObj.favourites_number));
-          days.push(parseInt(dataObj.day));
+          days.push(parseInt(dataObj.day.substring(8, 10)));
+          // console.log(dataObj.day);
         }
         setChartData({
           labels: days,
@@ -49,9 +46,7 @@ export default function NumberOfFavouritesForDay(props) {
   return (
     <div className="conrinerforPadding">
       <div class="col">
-            <h1>favourite</h1>
-            
-            <div>
+            <div >
               <Line
                 data={chartData}
                 options={{

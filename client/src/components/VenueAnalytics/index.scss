@@ -20,3 +20,10 @@ $whaitbackground :#ffff;
   width: 100%;
   background-color: $whaitbackground;
 }
+.analyticspage-flex-col{
+  display: flex;
+  flex-direction: column;
+}
+.line-fo-resizing{
+  width: 80%;
+}
