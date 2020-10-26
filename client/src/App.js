@@ -1,5 +1,6 @@
 import React from 'react';
 import StateContext from './StateContext';
+import SetStateContext from './SetStateContext';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import logo from './logo.svg';
 import './App.scss';
@@ -19,11 +20,12 @@ import SignUpOwner from './components/SignUpOwner';
 import SignUpPatron from './components/SignUpPatron';
 import VenueAnalytics from './components/VenueAnalytics';
 import Profile from './components/Profile';
+import PrivateRoute from './PrivateRoute';
 
 
 
 function App() {
-  const { state } = useApplicationData();
+  const { state, setState } = useApplicationData();
 
 
   // const userList = state.users.map(user => (
@@ -49,6 +51,7 @@ function App() {
   return (
     <Router>
       <StateContext.Provider value={state}>
+        <SetStateContext.Provider value={setState}>
         <Switch>
           <Route exact path='/login'>
             <Login />
@@ -59,10 +62,11 @@ function App() {
           <Route exact path='/register/owner'>
             <SignUpOwner />
           </Route>
-          <Route exact path='/'>
+          <PrivateRoute path='/'>
+          
             {!state.user_type && <PatronMain />}
             {state.user_type && <VenuePage />}
-          </Route>
+          </PrivateRoute>
           <Route path='/events'>
             <VenueEvents />
           </Route>
@@ -90,6 +94,7 @@ function App() {
             <Profile />
           </Route>
         </Switch>
+        </SetStateContext.Provider>
       </StateContext.Provider>
     </Router>
 
