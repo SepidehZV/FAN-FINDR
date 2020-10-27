@@ -81,6 +81,7 @@ const useApplicationData = () => {
      
     ]).then(all => {
       setState(prev => ({ ...prev, events: all[0].data, venues: all[1].data, users: all[2] }));
+      localStorage.clear();
     })
       .catch(err => {
         // console.log(err)
