@@ -5,9 +5,7 @@ import StateContext from '../../StateContext';
 
 export default function NumberOfFavouritesForDay(props) {
   const [chartData, setChartData] = useState({});
-  const state = useContext(StateContext);
-  const user= state.user;
-  const venues = state.venues;
+
 /// i need the venue id 
 
   const chart = () => {
