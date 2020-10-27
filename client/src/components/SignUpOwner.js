@@ -1,7 +1,25 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import './SignUpOwner.scss';
+import { Alert } from 'react-bootstrap';
+import axios from 'axios';
+import SetStateContext from '../SetStateContext';
+
 export default function SignUpOwner() {
+
+  const setState = useContext(SetStateContext);
+  const history = useHistory();
+  const { state } = useLocation();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [first_name, setFirstName] = useState('');
+  const [last_name, setLastName] = useState('');
+  const [username, setUsername] = useState('');
+  const [user_zip_code, setZipCode] = useState('');
+  const [alert, setAlert] = useState(null);
+
     return (
       <div className="containerr">
       <div className="row">
@@ -39,18 +57,13 @@ export default function SignUpOwner() {
                 </div>
 
                 <div className="form-label-group">
+                  <input type="password" id="inputConfirmPassword" className="form-control" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
+                  <label for="inputConfirmPassword">Confirm Password</label>
+                </div>
+
+                <div className="form-label-group">
                   <input type="Venue name" id="Venue name" className="form-control" placeholder="Venue name"  required/>
                   <label for="Venue name">Venue Name</label>
-                </div>
-
-                <div className="form-label-group">
-                  <input type="Zip-Code" id="Zip-Code" className="form-control" placeholder="Zip-Code"  required/>
-                  <label for="Zip-Code">Zip-Code</label>
-                </div>
-
-                <div className="form-label-group">
-                <select className=" form-control custom-select browser-default">
-                    <option value="Afghanistan">Afghanistan</option></select> 
                 </div>
 
                 <div className="form-label-group">
@@ -60,8 +73,19 @@ export default function SignUpOwner() {
 
                 <div className="form-label-group">
                 <select className=" form-control custom-select browser-default">
-                    <option value="Provinve">Ottawa</option></select> 
+                    <option value="Provinve">Ontario</option></select> 
                 </div>
+
+                <div className="form-label-group">
+                <select className=" form-control custom-select browser-default">
+                    <option value="Canada">Canada</option></select> 
+                </div>
+
+                <div className="form-label-group">
+                  <input type="Zip-Code" id="Zip-Code" className="form-control" placeholder="Zip-Code"  required/>
+                  <label for="Zip-Code">Zip-Code</label>
+                </div>
+
                 </form>
 
 
