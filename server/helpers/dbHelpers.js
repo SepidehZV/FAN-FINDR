@@ -274,7 +274,11 @@ module.exports = (db) => {
   };
   const getEvents = () => {
     const query = {
-      text: `SELECT * FROM events;`,
+      text: `SELECT events.id, teams.team_name, teams.team_logo_url, events.offers, events.start_date :: date, events.end_date :: date, events.venue_id, events.event_description, events.team_id,venues.venue_name
+      FROM events
+      JOIN teams ON teams.id = team_id
+      JOIN venues ON events.venue_id = venues.id
+      ORDER BY events.start_date;`,
     };
 
     return db
@@ -359,6 +363,23 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const searchForEvent = (name)=>{
+    const query = {
+      text: `SELECT events.id, teams.team_name, teams.team_logo_url, events.offers, events.start_date, events.end_date, events.venue_id, events.event_description, events.team_id 
+      FROM sports 
+      JOIN teams ON sports.id = teams.sport_id 
+      JOIN events ON teams.id = team_id
+      WHERE events.event_name like $1 OR sports.sport_name like $1 OR teams.team_name like $1 ;`,
+      values: [`%${name}%`],
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+
+  }
+
   return {
     getUsers,
     getUserByEmail,
@@ -383,6 +404,7 @@ module.exports = (db) => {
     getFavouritesEvents,
     getFavouritesEventsCountForDayByVenueId,
     getEventFavForDayByEventId,
-    addSport
+    addSport,
+    searchForEvent
   };
 };
