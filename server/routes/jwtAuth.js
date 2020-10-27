@@ -14,9 +14,9 @@ const client = require("../db/index.js");
 /* registration for patron */
 
 router.post("/patron", validInfo, async (req, res) => {
+  const { first_name, last_name, username, email, user_zip_code, password } = req.body;
 
   try {
-    const { first_name, last_name, username, email, user_zip_code, password } = req.body;
 
     const user = await client.query("SELECT * FROM users WHERE email = $1", [
       email
@@ -29,7 +29,7 @@ router.post("/patron", validInfo, async (req, res) => {
     const salt = await bcrypt.genSalt(saltRound);
     const bcryptPassword = await bcrypt.hash(password, salt);
 
-    const newUser = await client.query(
+    let newUser = await client.query(
       `INSERT INTO
 users(first_name,last_name,username,email, user_zip_code, user_type,password)
 VALUES
@@ -42,7 +42,7 @@ RETURNING *`,
 
     const jwtToken = jwtGenerator(newUser.rows[0].id);
 
-    res.json({ jwtToken });
+    return res.json({ jwtToken });
 
   } catch (err) {
     console.error(err.message);
@@ -55,12 +55,12 @@ RETURNING *`,
 
 /* registration for owner */
 router.post("/owner", validInfo, async (req, res) => {
+  const { first_name, last_name, username, email, password,
+    venue_name, street, city, province, country, venue_zip_code } = req.body;
 
   try {
     
-    const { first_name, last_name, username, email, password,
-      venue_name, street, city, province, country, venue_zip_code } = req.body;
-
+  
 
     const user = await client.query("SELECT * FROM users WHERE email = $1", [
       email
@@ -83,7 +83,6 @@ router.post("/owner", validInfo, async (req, res) => {
       RETURNING id;`,
       [first_name, last_name, username, email, bcryptPassword]
     )
-    const token = jwtGenerator(newUser.rows[0].id);
     
 
     /*add new venue*/
@@ -105,8 +104,12 @@ router.post("/owner", validInfo, async (req, res) => {
       RETURNING *`,
       [newUser.rows[0].id, venue_name, street, city, province, country, venue_zip_code ]
     )
-     res.json({ token })
-    
+
+
+
+    const jwtToken = jwtGenerator(newUser.rows[0].user_id);
+
+    return res.json({ jwtToken });
 
   } catch (err) {
     console.error(err.message);
@@ -118,20 +121,13 @@ router.post("/owner", validInfo, async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
 //login route
 
 router.post("/login", validInfo, async (req, res) => {
+  const { email, password } = req.body;
+
   try {
 
-    const { email, password } = req.body;
 
     const user = await client.query("SELECT * FROM users WHERE email = $1", [
       email
@@ -148,8 +144,8 @@ router.post("/login", validInfo, async (req, res) => {
     }
 
 
-    const token = jwtGenerator(user.rows[0].id);
-    return res.json({ token });
+    const jwtToken = jwtGenerator(user.rows[0].user_id);
+    return res.json({ jwtToken });
 
   } catch (err) {
     console.error(err.message);
