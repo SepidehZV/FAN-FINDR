@@ -106,7 +106,7 @@ export default function SignUp_Patron() {
               </form>
 
               <form className="form-createOwner">
-                <button className="btn btn-lg btn-primary btn-block text-uppercase" > <Link to='/login'>Login Page</Link></button>
+                <button className="btn btn-lg btn-primary btn-block text-uppercase" > <Link to='/login' className="link">Login Page</Link></button>
               </form>
 
             </div>
