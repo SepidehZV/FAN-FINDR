@@ -1,5 +1,6 @@
 import React from 'react';
 import StateContext from './StateContext';
+import SetStateContext from './SetStateContext';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import logo from './logo.svg';
 import './App.scss';
@@ -19,11 +20,12 @@ import SignUpOwner from './components/SignUpOwner';
 import SignUpPatron from './components/SignUpPatron';
 import VenueAnalytics from './components/VenueAnalytics';
 import Profile from './components/Profile';
+import PrivateRoute from './PrivateRoute';
 
 
 
 function App() {
-  const { state } = useApplicationData();
+  const { state, setState } = useApplicationData();
 
 
   // const userList = state.users.map(user => (
@@ -49,6 +51,7 @@ function App() {
   return (
     <Router>
       <StateContext.Provider value={state}>
+        <SetStateContext.Provider value={setState}>
         <Switch>
           <Route exact path='/login'>
             <Login />
@@ -59,37 +62,38 @@ function App() {
           <Route exact path='/register/owner'>
             <SignUpOwner />
           </Route>
-          <Route exact path='/'>
+          <PrivateRoute exact path='/'>
             {!state.user_type && <PatronMain />}
             {state.user_type && <VenuePage />}
-          </Route>
-          <Route path='/events'>
+          </PrivateRoute>
+          <PrivateRoute path='/events'>
             <VenueEvents />
-          </Route>
-          <Route path='/menu'>
+          </PrivateRoute>
+          <PrivateRoute path='/menu'>
             <VenueMenu />
-          </Route>
-          <Route path='/analytics'>
+          </PrivateRoute>
+          <PrivateRoute path='/analytics'>
             <VenueAnalytics />
-          </Route>
-          <Route exact path='/venues/:id'>
+          </PrivateRoute>
+          <PrivateRoute exact path='/venues/:id'>
             <VenuePage />
-          </Route>
-          <Route path='/venues/:id/events'>
+          </PrivateRoute>
+          <PrivateRoute path='/venues/:id/events'>
             <VenueEvents />
-          </Route>
+          </PrivateRoute>
 
-          <Route path='/venues/:id/menu'>
+          <PrivateRoute path='/venues/:id/menu'>
             <VenueMenu />
-          </Route>
+          </PrivateRoute>
 
-          <Route path='/favourites'>
+          <PrivateRoute path='/favourites'>
             <Favourites />
-          </Route>
-          <Route path='/profile'>
+          </PrivateRoute>
+          <PrivateRoute path='/profile'>
             <Profile />
-          </Route>
+          </PrivateRoute>
         </Switch>
+        </SetStateContext.Provider>
       </StateContext.Provider>
     </Router>
 
