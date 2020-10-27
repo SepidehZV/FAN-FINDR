@@ -62,37 +62,36 @@ function App() {
           <Route exact path='/register/owner'>
             <SignUpOwner />
           </Route>
-          <PrivateRoute path='/'>
-          
+          <PrivateRoute exact path='/'>
             {!state.user_type && <PatronMain />}
             {state.user_type && <VenuePage />}
           </PrivateRoute>
-          <Route path='/events'>
+          <PrivateRoute path='/events'>
             <VenueEvents />
-          </Route>
-          <Route path='/menu'>
+          </PrivateRoute>
+          <PrivateRoute path='/menu'>
             <VenueMenu />
-          </Route>
-          <Route path='/analytics'>
+          </PrivateRoute>
+          <PrivateRoute path='/analytics'>
             <VenueAnalytics />
-          </Route>
-          <Route exact path='/venues/:id'>
+          </PrivateRoute>
+          <PrivateRoute exact path='/venues/:id'>
             <VenuePage />
-          </Route>
-          <Route path='/venues/:id/events'>
+          </PrivateRoute>
+          <PrivateRoute path='/venues/:id/events'>
             <VenueEvents />
-          </Route>
+          </PrivateRoute>
 
-          <Route path='/venues/:id/menu'>
+          <PrivateRoute path='/venues/:id/menu'>
             <VenueMenu />
-          </Route>
+          </PrivateRoute>
 
-          <Route path='/favourites'>
+          <PrivateRoute path='/favourites'>
             <Favourites />
-          </Route>
-          <Route path='/profile'>
+          </PrivateRoute>
+          <PrivateRoute path='/profile'>
             <Profile />
-          </Route>
+          </PrivateRoute>
         </Switch>
         </SetStateContext.Provider>
       </StateContext.Provider>
