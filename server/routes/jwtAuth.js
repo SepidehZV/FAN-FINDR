@@ -22,7 +22,7 @@ router.post("/patron", validInfo, async (req, res) => {
       email
     ]);
 
-    if (user.rows.length > 0) {
+    if (user.rows.length !==0) {
       return res.status(401).send("User already exist.");
     }
     const saltRound = 10;
@@ -42,7 +42,7 @@ RETURNING *`,
 
     const jwtToken = jwtGenerator(newUser.rows[0].id);
 
-    return res.json({ jwtToken });
+    res.json({ jwtToken });
 
   } catch (err) {
     console.error(err.message);
@@ -109,7 +109,7 @@ router.post("/owner", validInfo, async (req, res) => {
 
     const jwtToken = jwtGenerator(newUser.rows[0].user_id);
 
-    return res.json({ jwtToken });
+     res.json({ jwtToken });
 
   } catch (err) {
     console.error(err.message);
@@ -145,7 +145,7 @@ router.post("/login", validInfo, async (req, res) => {
 
 
     const token = jwtGenerator(user.rows[0].id);
-    res.json({ user:user.rows[0], token });
+    res.json({token });
 
   } catch (err) {
     console.error(err.message);

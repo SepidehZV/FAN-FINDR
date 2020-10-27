@@ -1,74 +1,71 @@
-import React from 'react'
-import './Signup.scss';
+import React, {useState, useContext} from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import './SignupPatron.scss';
 export default function SignUp_Patron() {
+    const history = useHistory();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const handleSignup = (event) => {
+        event.preventDefault();
+
+    }
     return (
-        <div className="blue-back-ground">
-            <img className="logosingup" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-23-at-11.51.27-AM.png" />
+      <div className="containerr">
+      <div className="row">
+        <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+          <div className="card card-signin my-5">
+            <div className="card-body">
+              <h5 className="card-title text-center"><span className="text-color">F</span>AN <span className="text-color">F</span>INDR</h5>
+              <hr className="seprating" />
+              <h5 className="text-center pb-4">Find your best team near you</h5>
 
+              <form className="form-signin">
+                <div className="form-label-group">
+                  <input type="First Name" id="First Name" className="form-control" placeholder="First Name"  required/>
+                  <label for="First Name">First Name</label>
+                </div>
 
-            <div className="container">
-                <form>
+                <div className="form-label-group">
+                  <input type="Last Name" id="Last Name" className="form-control" placeholder="Last Name"  required/>
+                  <label for="Last Name">Last  Name</label>
+                </div>
 
-                    <h2 className="text-center">Find your best team near you</h2>
+                <div className="form-label-group">
+                  <input type="Username" id="Username" className="form-control" placeholder="Username"  required/>
+                  <label for="Username">Username</label>
+                </div>
 
+                <div className="form-label-group">
+                  <input type="email" id="inputEmail" className="form-control" placeholder="Email address"  required autofocus/>
+                  <label for="inputEmail">Email address</label>
+                </div>
+               
+                <div className="form-label-group">
+                  <input type="password" id="inputPassword" className="form-control" placeholder="Password"  required/>
+                  <label for="inputPassword">Password</label>
+                </div>
 
+                <div className="form-label-group">
+                  <input type="Zip-Code" id="Zip-Code" className="form-control" placeholder="Zip-Code"  required/>
+                  <label for="Zip-Code">Zip-Code</label>
+                </div>
+              </form>
 
-                    <div className="row jumbotron">
-                        <div className="col-sm-6 form-group">
-                            <label for="name-f">First Name</label>
-                            <input type="text" className="form-control" name="fname" id="name-f" placeholder="First name" required />
-                        </div>
-                        <div className="col-sm-6 form-group">
-                            <label for="name-l">Last name</label>
-                            <input type="text" className="form-control" name="lname" id="name-l" placeholder="Last name" required />
-                        </div>
+              <form className="form-createPtron">
+              <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit"> Create An account</button>
+               </form>
 
-                        <div className="col-sm-6 form-group">
-                            <label for="name-l">Username</label>
-                            <input type="text" className="form-control" name="username" id="username" placeholder="username" required />
-                        </div>
+              <form className="form-createOwner">
+              <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit"> <Link to='/login'>Login Page</Link></button>
+              </form>
 
-
-                        <div className="col-sm-6 form-group">
-                            <label for="pass">Password</label>
-                            <input type="Password" name="password" className="form-control" id="pass" placeholder="Password." required />
-                        </div>
-                        <div className="col-sm-6 form-group">
-                            <label for="pass2">Confirm Password</label>
-                            <input type="Password" name="cnf-password" className="form-control" id="pass2" placeholder="Re-enter your password." required />
-                        </div>
-
-
-                        <div className="col-sm-2 form-group">
-                            <label for="zip">Postal-Code</label>
-                            <input type="zip" className="form-control" name="Zip" id="zip" placeholder="Postal-Code" required />
-                        </div>
-
-                        <div className="col-sm-6 form-group">
-                            <label for="email">Email</label>
-                            <input type="email" className="form-control" name="email" id="email" placeholder="Email" required />
-                        </div>
-
-                        <div className="col-sm-6 form-group">
-                            <label for="email">Confirm email</label>
-                            <input type="email" className="form-control" name="confirm email" id="confirm email" placeholder="confirm email" required />
-                        </div>
-
-
-                        <div className="col-sm-12">
-                            <input type="checkbox" className="form-check d-inline" id="chb" required /><label for="chb" className="form-check-label">&nbsp;I accept all terms and conditions.
-                </label>
-                        </div>
-
-                        <div className="col-sm-12 form-group mb-0">
-                            <button className="btn btn-primary float-right">Submit</button>
-                        </div>
-
-                    </div>
-                </form>
             </div>
-
-
+          </div>
         </div>
+      </div>
+    </div>
     )
 }
