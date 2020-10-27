@@ -80,7 +80,7 @@ router.post("/owner", validInfo, async (req, res) => {
       (
       $1,$2,$3,$4,true,$5
       )
-      RETURNING id;`,
+      RETURNING *;`,
       [first_name, last_name, username, email, bcryptPassword]
     )
     
@@ -107,9 +107,9 @@ router.post("/owner", validInfo, async (req, res) => {
 
 
 
-    const jwtToken = jwtGenerator(newUser.rows[0].user_id);
+    const jwtToken = jwtGenerator(newUser.rows[0].id);
 
-     res.json({ jwtToken });
+     res.json({ user:newUser.rows[0],newVenue:newVenue.rows[0], jwtToken });
 
   } catch (err) {
     console.error(err.message);

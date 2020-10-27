@@ -74,14 +74,14 @@ const useApplicationData = () => {
   //     });
   // }
   useEffect(() => {
+    localStorage.clear();
     Promise.all([
       axios.get('http://localhost:3001/api/events'),
       axios.get('http://localhost:3001/api/venues'),
       axios.get('http://localhost:3001/api/users'),
      
     ]).then(all => {
-      setState(prev => ({ ...prev, events: all[0].data, venues: all[1].data, users: all[2] }));
-      localStorage.clear();
+      setState(prev => ({ ...prev, events: all[0].data, venues: all[1].data, users: all[2].data }));   
     })
       .catch(err => {
         // console.log(err)
