@@ -73,13 +73,12 @@ export default function Login() {
             </div>
           </div>
         </div>
-      </div>
-
-
-
-      <div className="container2">
+        <div className="container2">
          <img  className="img_login" src={loginImg} width="700" height="570" alt="img"/>
       </div>
+
+      </div>
+    
       </div>
 
     )

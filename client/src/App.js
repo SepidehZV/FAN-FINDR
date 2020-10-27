@@ -4,7 +4,6 @@ import SetStateContext from './SetStateContext';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import logo from './logo.svg';
 import './App.scss';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 /* importing hooks*/
 import useApplicationData from './hooks/useApplicationData';
 
