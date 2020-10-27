@@ -48,7 +48,6 @@ app.use('/api/favouriteEvents',favouriteEventsRouter(dbHelpers));
 
 
 app.use("/api/auth", jwtAuthRouter);
-app.use("/api/dashboard", require("./routes/dashboard"));
 
 
 // catch 404 and forward to error handler
