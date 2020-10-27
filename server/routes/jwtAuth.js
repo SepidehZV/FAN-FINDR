@@ -42,7 +42,7 @@ RETURNING *`,
 
     const jwtToken = jwtGenerator(newUser.rows[0].id);
 
-    res.json({ jwtToken });
+    res.json({ user:newUser.rows[0], jwtToken });
 
   } catch (err) {
     console.error(err.message);
