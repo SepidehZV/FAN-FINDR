@@ -29,8 +29,8 @@ import StateContext from '../StateContext';
               <img className="avatarImg" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" loading="lazy" />
             </li>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-              <li className="dropdown-item" ><Link to='/profile'>Profile</Link></li>
-              <li className="dropdown-item" ><Link to='/favourites'>My favourites</Link></li>
+              <li className="dropdown-item" ><Link to='/profile' className="link">Profile</Link></li>
+              <li className="dropdown-item" ><Link to='/favourites' className="link">My favourites</Link></li>
               <li className="dropdown-item" onClick={logout}><hr/> Logout</li>
               </div>
         </div>

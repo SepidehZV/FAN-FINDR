@@ -96,7 +96,7 @@ export default function SignUpOwner() {
                </form>
 
               <form className="form-createOwner">
-              <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit"><Link to='/login'> Login page</Link></button>
+              <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit"><Link to='/login' className="link"> Login page</Link></button>
               </form>
             
 

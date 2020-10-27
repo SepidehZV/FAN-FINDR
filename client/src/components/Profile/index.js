@@ -24,12 +24,8 @@ export default function VenueEvents(props) {
           <div class="continerforbackgroundcolor">
             <section className ="profile-page-padding">
           <div class="row1 mb-2">
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <Info venueDescription={props.venueDescription}/>
-          </div>
-        </div>
-        <div class="col-md-6">
+       
+        <div class="col-md-12">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <Info venueCapacity={props.venueCapacity}/>
           </div>
