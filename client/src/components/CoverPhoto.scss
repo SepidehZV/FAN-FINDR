@@ -1,5 +1,17 @@
 .coverphoto {
   width: 100%;
   height: 30%;
-  
+  position: relative; 
+}
+
+$lightgraybackground :#EDEFF0;
+.logoPatron-owner{
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  border: 5px solid $lightgraybackground;
+  box-shadow: 0 1px 3px rgba(0,0,30,.3);
+  position: absolute;
+  top:35%;
+  left: 8%;
 }
