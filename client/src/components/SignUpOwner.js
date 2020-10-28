@@ -54,7 +54,7 @@ export default function SignUpOwner() {
       })
 
       .catch(error => {
-        setAlert('User already exists!');
+        setAlert(error.response.data);
         console.log(error);
 
       });

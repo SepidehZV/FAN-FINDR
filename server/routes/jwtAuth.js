@@ -140,7 +140,7 @@ router.post("/login", validInfo, async (req, res) => {
       user.rows[0].password
     );
     if (!validPassword) {
-      return res.status(401).json("Invalid Credential");
+      return res.status(401).json("Invalid Password");
     }
 
 
