@@ -13,7 +13,7 @@ module.exports = ({ getVenues ,getVenueById, addVenue, getPhotos,getMenuItems,ge
 
   router.get('/:id',(req,res) =>{
     getVenueById(req.params.id)
-    .then((venue) => res.json(getVenueData(venue)))
+    .then((venue) => res.json(venue))
     .catch((err) => res.json({ err }));
   });
   router.post('/', (req,res) => {

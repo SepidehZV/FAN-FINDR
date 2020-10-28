@@ -5,12 +5,12 @@ import loginImg from '../imgLogin.jpg';
 import { Alert } from 'react-bootstrap';
 import axios from 'axios';
 import SetStateContext from '../SetStateContext';
-
+import StateContext from '../StateContext';
 export default function Login() {
   const setState = useContext(SetStateContext);
-
+  const state = useContext(StateContext)
   const history = useHistory();
-  const { state } = useLocation();
+  const { location } = useLocation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [alert, setAlert] = useState('');
@@ -29,24 +29,26 @@ export default function Login() {
     axios
       .post('http://localhost:3001/api/auth/login', { email, password })
       .then(res => {
-        console.log(res.data)
+        //console.log(res.data)
         localStorage.setItem('token', res.data.token);
-        history.push((state && state.from) || '/');
+        
         const user = res.data.user;
         if (user.user_type) {
           const venueId = state.venues.find(venue => venue.owner_id === user.id).id;
           axios
-            .get(`http://localhost:3001/api/venues/:${venueId}`)
+            .get(`http://localhost:3001/api/venues/${venueId}`)
             .then(res => {
-              const venue = res.data.venue;
+              //console.log(res);
+              const venue = {id: venueId, ...res.data[0]};
               return setState((prev) => ({ ...prev, user, user_type: user.user_type, venue }));
             })
         }
+        history.push((location && location.from) || '/');
         setState((prev) => ({ ...prev, user_type: res.data.user.user_type, user: res.data.user }));
       })
 
       .catch(error => {
-        console.log(error.response.data);
+        console.log(error.response);
         setAlert(error.response.data);
 
       });
