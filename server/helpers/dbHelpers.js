@@ -162,7 +162,8 @@ module.exports = (db) => {
 
   const getBussniessHours = (venue_id) => {
     const query = {
-      text: `SELECT business_hours.* FROM business_hours 
+      text: `SELECT business_hours.id,day,open_time,close_time 
+      FROM business_hours 
       JOIN venues ON venue_id = venues.id 
       WHERE venues.id = $1;
       `,
@@ -171,7 +172,7 @@ module.exports = (db) => {
 
     return db
       .query(query)
-      .then((result) => result.rows[0])
+      .then((result) => result.rows)
       .catch((err) => err);
   };
 
@@ -186,7 +187,7 @@ module.exports = (db) => {
 
     return db
       .query(query)
-      .then((result) => result.rows[0])
+      .then((result) => result.rows)
       .catch((err) => err);
   };
   
@@ -206,7 +207,7 @@ module.exports = (db) => {
   };
   const getPhotos = (venue_id) => {
     const query = {
-      text: `SELECT * FROM photos
+      text: `SELECT photos.id as photo_id ,photo_url  FROM photos
       JOIN venues ON venue_id = venues.id 
       WHERE venues.id = $1;      
       `,
@@ -215,7 +216,7 @@ module.exports = (db) => {
 
     return db
       .query(query)
-      .then((result) => result.rows[0])
+      .then((result) => result.rows)
       .catch((err) => err);
   };
 
@@ -252,14 +253,33 @@ module.exports = (db) => {
 
   const getVenueById =(id) =>{
     const query = {
-      text: `SELECT * FROM venues 
-            WHERE id = $1`,
+      text: `SELECT
+      venues.id
+      owner_id,
+      venue_name, 
+      street,
+      city,
+      province,
+      country,
+      venue_zip_code,
+      venue_description,
+      phone,
+      capacity,
+      age_restriction,
+      dress_code,
+      venue_logo_url,
+      cover_url,  
+      venue_categories.categorie_name 
+      FROM venues
+   JOIN venue_categories ON venue_categories.id = venues.category_id
+      WHERE venues.id = $1
+      GROUP BY venues.id, venue_categories.categorie_name;`,
       values :[id],
     };
 
     return db
       .query(query)
-      .then((result) => result.rows[0])
+      .then((result) => result.rows)
       .catch((err) => err);
   };
   const getVenues = () => {
