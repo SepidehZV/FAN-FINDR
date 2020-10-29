@@ -31,7 +31,7 @@ $whaitbackground :#ffff;
 
 .card{
 margin: 12px;
-width: 800px;
+width: 50%;
 
 }
 
@@ -103,17 +103,24 @@ $lightgraybackground :#EDEFF0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  text-decoration:none;
 }
 svg {
   margin-block: 4px;
+  font-size: 22px;
 }
-.like svg :hover {
-  fill: red;
-}
-.like-selected svg {
+svg:hover {
   fill: red;
 }
 
-svg:hover {
-  box-shadow: 5px 5px 3px grey;
-}
+
+
+.navLink {
+  color: blue;
+  text-decoration: none;
+  }
+  
+  
+  
+
+

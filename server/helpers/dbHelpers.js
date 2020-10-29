@@ -164,7 +164,7 @@ module.exports = (db) => {
       )
     VALUES 
     ($1,$2, $3)
-      RETURNING *;`,
+      RETURNING event_id, created_at;`,
 
       values: [user_id, event_id,created_at],
     };
@@ -343,9 +343,11 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
-  const getFavouritesEvents = () =>{
+  const getFavouritesEventsByUserId = (id) =>{
     const query = {
-      text: `SELECT * FROM favourite_events;`,
+      text: `SELECT event_id, created_at FROM favourite_events 
+      WHERE user_id = $1;`,
+      values: [id]
     };
 
     return db
@@ -436,7 +438,7 @@ module.exports = (db) => {
     addNewMenuItems,
     addNewFavouriteEvent,
     getVenueById,
-    getFavouritesEvents,
+    getFavouritesEventsByUserId,
     getFavouritesEventsCountForDayByVenueId,
     getEventFavForDayByEventId,
     addSport,

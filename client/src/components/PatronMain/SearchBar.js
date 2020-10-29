@@ -5,7 +5,7 @@ import EventList from './EventList';
 import StateContext from '../../StateContext';
 import queryString from 'query-string';
 
-function SearchBar() {
+function SearchBar(props) {
   const state = useContext(StateContext);
   const [searchContent, setSearchContent] = useState('');
   // keep the hisory 
@@ -35,7 +35,7 @@ function SearchBar() {
         
         <div className="search-result">
         {eventDetails &&
-        <EventList events ={eventDetails}/>}
+        <EventList events ={eventDetails} addFav={props.addFav}/>}
         
           
         </div>
@@ -51,20 +51,29 @@ function SearchBar() {
   
 
     return (
-      <>
-        <form onSubmit={handleSubmit}>
-          <input
-            name="name"
-            type="search"
-            value={searchContent}
-            onChange={(event) => setSearchContent(event.target.value)}
-          />
-  
-          <input type="submit" value="Search" />
-        </form>
-  
-        {name && <SearchResult name={name} />}
-      </>
+      <div class="container">
+      <h2>Enter your Favorite Team,Event ..</h2>
+
+<form onSubmit={handleSubmit}> 
+
+<div class="row">
+<div class="col-12">
+    <div class="input-group">
+    <input class="form-control border-secondary py-2" name="name" type="search"
+  value={searchContent}
+  onChange={(event) => setSearchContent(event.target.value)}/>
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" value="Search">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</div>
+</div>
+{name && <SearchResult name={name} />}                 
+
+</form>
+</div>
   );
 }
 

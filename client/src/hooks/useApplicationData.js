@@ -65,6 +65,18 @@ const useApplicationData = () => {
       .then(res => setState(prev => ({...prev, user: updatedUser})))
   }
 
+  function addFav (event_id, state) {
+    const newFavouriteEvent = {
+      created_at: new Date().format('m-d-Y h:i:s'),
+      event_id
+    }
+    const newFavouriteEvents = state.favouriteEvents.push(newFavouriteEvent);
+    return axios
+      .post('http://localhost:3001//api/favouriteEvents', {...newFavouriteEvent, user_id: state.user.id} )
+      .then(res => setState(prev => ({...prev,favouriteEvents:newFavouriteEvents })))
+
+  }
+
   
   useEffect(() => {
     localStorage.clear();
@@ -86,7 +98,8 @@ const useApplicationData = () => {
     setType,
     setUser,
     setState,
-    editPatronProfile
+    editPatronProfile,
+    addFav
     //addUserPatron
   };
 };

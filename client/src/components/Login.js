@@ -43,7 +43,15 @@ export default function Login() {
               setState((prev) => ({ ...prev, user, user_type: user.user_type, venue }));
             })
         } else {
-          setState((prev) => ({ ...prev, user_type: res.data.user.user_type, user: res.data.user }));
+          axios
+            .get(`http://localhost:3001/api/favouriteEvents/user/${user.id}`)
+            .then(res => {
+              
+              const favouriteEvents = res.data;
+              setState((prev) => 
+                ({ ...prev, user_type: user.user_type, user, favouriteEvents }));
+            })
+          
         }
         history.push((location && location.from) || '/');
         

@@ -9,14 +9,13 @@ export default function EventList(props) {
     
     return(<Event 
       key={event.id}
-      id= {event.id} 
-      event_name={event.event_name} 
+      id= {event.id}  
       event_description={event.event_description}
       team_name={event.team_name} 
-      venue_name= {event.venue_name}
       offers={event.offers}
       eam_logo_url={event.team_logo_url}
       start_date ={event.start_date}
+      addFav ={props.addFav}
       />)
     
     
