@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 
-module.exports = ({ getUsers, getUserById }) => {
+module.exports = ({ getUsers, getUserById,editUserById }) => {
   /* GET users listing. */
   router.get('/', (req, res) => {
     getUsers()
@@ -24,6 +24,15 @@ module.exports = ({ getUsers, getUserById }) => {
     .catch((err) => res.json({ err }));
   });
   
+  router.put('/:id', (req, res) => {
+    const {first_name,last_name, username, email, user_zip_code } = req.body;
+    console.log(req.body);
+
+
+    editUserById(req.params.id, first_name,last_name, username, email, user_zip_code ) 
+      .then((user) => res.json(user))
+      .catch((err) => res.json({ err }));
+  })
   return router;
   
 };

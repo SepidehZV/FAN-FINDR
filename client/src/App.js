@@ -1,7 +1,7 @@
 import React from 'react';
 import StateContext from './StateContext';
 import SetStateContext from './SetStateContext';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import logo from './logo.svg';
 import './App.scss';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -25,7 +25,7 @@ import PrivateRoute from './PrivateRoute';
 
 
 function App() {
-  const { state, setState } = useApplicationData();
+  const { state, setState, editPatronProfile } = useApplicationData();
 
 
   // const userList = state.users.map(user => (
@@ -53,8 +53,8 @@ function App() {
       <StateContext.Provider value={state}>
         <SetStateContext.Provider value={setState}>
         <Switch>
-          <Route exact path='/login'>
-            <Login />
+        <Route exact path='/login'>
+            {localStorage.getItem('token')? <Redirect to='/'/> : <Login />}
           </Route>
           <Route exact path='/register/patron'>
             <SignUpPatron />
@@ -90,7 +90,7 @@ function App() {
             <Favourites />
           </PrivateRoute>
           <PrivateRoute path='/profile'>
-            <Profile />
+            <Profile editPatronProfile = {editPatronProfile} />
           </PrivateRoute>
         </Switch>
         </SetStateContext.Provider>

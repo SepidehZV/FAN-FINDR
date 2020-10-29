@@ -57,22 +57,15 @@ const useApplicationData = () => {
     setState({...state, user_id})
   }
   
+  function editPatronProfile (id, first_name,last_name, username, email, user_zip_code) {
+    //console.log('user,userId: ',user,userId)
+    const updatedUser = {id, first_name,last_name, username, email, user_zip_code};
+    return axios
+      .put(`http://localhost:3001/api/users/${id}`, {first_name,last_name, username, email, user_zip_code})
+      .then(res => setState(prev => ({...prev, user: updatedUser})))
+  }
+
   
-
-  // function addUserPatron(user) {
-
-  //   axios
-  //     .post('http://localhost:3001/api/register/patron', { user.first_name, user.last_name, user.username, user.email, user.user_zip_code, user.password })
-  //     .then(res => {
-  //       console.log("server says", res.data)
-  //       setState(prev => ({ ...prev, user_id: res.data.id }))
-
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //       setAlert('User already exists!');
-  //     });
-  // }
   useEffect(() => {
     localStorage.clear();
     Promise.all([
@@ -92,7 +85,8 @@ const useApplicationData = () => {
     state,
     setType,
     setUser,
-    setState
+    setState,
+    editPatronProfile
     //addUserPatron
   };
 };

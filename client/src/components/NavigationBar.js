@@ -26,7 +26,10 @@ import StateContext from '../StateContext';
           <li className="avatarProfile">Hello! {state.user.username || "geust"}.
           <div className="dropdown mr-4">
             <li className="btn " id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-              <img className="avatarImg" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" loading="lazy" />
+              {!state.user_type && !state.user.avatar_url && <img className="avatarImg" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" loading="lazy" />}
+              {!state.user_type && state.user.avatar_url && <img className="avatarImg" src={state.user.avatar_url} alt="" loading="lazy" />}
+              {state.user_type && !state.venue.venue_logo_url && <img className="avatarImg" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.03.09-AM.png" alt="" loading="lazy" />}
+              {state.user_type && state.venue.venue_logo_url && <img className="avatarImg" src={state.venue.venue_logo_url} alt="" loading="lazy" />}
             </li>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuOffset">
               <li className="dropdown-item" ><Link to='/profile' className="link">Profile</Link></li>

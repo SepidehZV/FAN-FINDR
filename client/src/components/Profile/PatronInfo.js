@@ -1,14 +1,18 @@
-import React from 'react';
-import './ProfilPatron.scss';
+import React, { useContext, useState } from 'react';
+import './PatronInfo.scss';
+import StateContext from '../../StateContext';
 
 
-function Info(props) {
+function PatronInfo(props) {
+  const state = useContext(StateContext);
+
   return (
     <div className="container-patron">
     <div class="row">
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-muted">My Profile</span>
+        <span class="text-muted">My Profile</span>      <button type="submit" class="btn btn-primary" onClick={props.onEdit} >Edit</button>
+
       </h4>
       <hr className="seprating" />
 
@@ -17,31 +21,31 @@ function Info(props) {
           <div>
             <h6 class="my-0">First name</h6>
           </div>
-          <span class="text-muted">zainab</span>
+          <span class="text-muted">{state.user.first_name}</span>
         </li>
         <li class="list-group-item d-flex justify-content-between lh-condensed">
           <div>
             <h6 class="my-0">Last Name</h6>
           </div>
-          <span class="text-muted">RR</span>
+  <span class="text-muted">{state.user.last_name}</span>
         </li>
         <li class="list-group-item d-flex justify-content-between lh-condensed">
           <div>
             <h6 class="my-0">Username</h6>
           </div>
-          <span class="text-muted">zia</span>
+          <span class="text-muted">{state.user.username}</span>
         </li>
         <li class="list-group-item d-flex justify-content-between lh-condensed">
           <div>
             <h6 class="my-0">Email</h6>
           </div>
-          <span class="text-muted">User@example.com</span>
+          <span class="text-muted">{state.user.email}</span>
         </li>
         <li class="list-group-item d-flex justify-content-between lh-condensed">
           <div>
             <h6 class="my-0">Zip Code</h6>
           </div>
-          <span class="text-muted">K7A 1A2</span>
+          <span class="text-muted">{state.user.user_zip_code}</span>
         </li>
         <li class="list-group-item d-flex justify-content-between lh-condensed">
           <div>
@@ -57,6 +61,7 @@ function Info(props) {
         </li>
       </ul>
       </div>
+
       </div>
       </div>
 
@@ -65,4 +70,4 @@ function Info(props) {
 
 
 };
-export default Info;
+export default PatronInfo;

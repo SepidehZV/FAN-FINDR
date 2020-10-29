@@ -1,14 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
 import './CoverPhoto.scss';
+import LogoPhoto from './LogoPhoto';
+import StateContext from '../StateContext';
 
 export default function CoverPhoto(porps){
+  const state = useContext(StateContext);
+
   return (
-   
-<div class="image">
-<img src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-27-at-11.55.08-PM-1024x244.png"} className="coverphoto" alt="Responsive image"/>
+    <div>
+    <LogoPhoto/>
+    {state.user_type && !state.venue.cover_url && <img src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-21-at-3.58.19-PM.png"} className="coverphoto" alt="Responsive image"/>}
+    {state.user_type && state.venue.cover_url && <img src={state.venue.cover_url} className="coverphoto" alt="Responsive image"/>}
+    {!state.user_type && <img src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-28-at-2.38.38-PM-1024x245.png"} className="coverphoto" alt="Responsive image"/>}
+  </div>
 
-<img className="logoPatron-owner" src= {"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.03.09-AM.png"}/>
-
-</div>
-)
-}
+  )
+} 
+  
+  

@@ -8,7 +8,7 @@ import SetStateContext from '../SetStateContext';
 import StateContext from '../StateContext';
 export default function Login() {
   const setState = useContext(SetStateContext);
-  const state = useContext(StateContext)
+  const state = useContext(StateContext);
   const history = useHistory();
   const { location } = useLocation();
   const [email, setEmail] = useState('');
@@ -38,18 +38,20 @@ export default function Login() {
           axios
             .get(`http://localhost:3001/api/venues/${venueId}`)
             .then(res => {
-              //console.log(res);
+              console.log(res);
               const venue = {id: venueId, ...res.data[0]};
-              return setState((prev) => ({ ...prev, user, user_type: user.user_type, venue }));
+              setState((prev) => ({ ...prev, user, user_type: user.user_type, venue }));
             })
+        } else {
+          setState((prev) => ({ ...prev, user_type: res.data.user.user_type, user: res.data.user }));
         }
         history.push((location && location.from) || '/');
-        setState((prev) => ({ ...prev, user_type: res.data.user.user_type, user: res.data.user }));
+        
       })
 
       .catch(error => {
-        console.log(error.response);
-        setAlert(error.response.data);
+        console.log(error);
+        setAlert(error.data);
 
       });
 

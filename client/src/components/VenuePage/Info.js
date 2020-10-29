@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Info(props) {
+
   return (
     <div className="conrinerforPadding">
       <div class="col">
@@ -10,7 +11,7 @@ function Info(props) {
           <thead>
             <tr>
               <th >Email</th>
-              <th >{props.email || 'Logoresturent@example.com'}</th>
+              <th >{props.email|| 'Logoresturent@example.com'}</th>
             </tr>
           </thead>
           <tbody>

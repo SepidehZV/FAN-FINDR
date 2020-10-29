@@ -38,8 +38,23 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
+  const editUserById = (id, first_name,last_name, username, email, user_zip_code) => {
+    
+    const query = {
+      text: `UPDATE users SET first_name = $1,last_name = $2,username = $3,
+        email = $4,user_zip_code = $5
+        WHERE id = $6  RETURNING *`,
+      values: [first_name,last_name,username,email,user_zip_code, id],
+    };
+    console.log(query);
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => console.log(err));
 
+  }
 
+  
   const addUserOwner = (first_name, last_name, username, email, password) => {
     const query = {
       text: `INSERT INTO
@@ -425,6 +440,7 @@ module.exports = (db) => {
     getFavouritesEventsCountForDayByVenueId,
     getEventFavForDayByEventId,
     addSport,
-    searchForEvent
+    searchForEvent,
+    editUserById
   };
 };
