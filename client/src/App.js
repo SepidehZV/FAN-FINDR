@@ -25,7 +25,7 @@ import PrivateRoute from './PrivateRoute';
 
 
 function App() {
-  const { state, setState, editPatronProfile, addFav } = useApplicationData();
+  const { state, setState, editPatronProfile, addFav, removeFav } = useApplicationData();
 
 
   // const userList = state.users.map(user => (
@@ -63,7 +63,7 @@ function App() {
             <SignUpOwner />
           </Route>
           <PrivateRoute exact path='/'>
-            {!state.user_type && <PatronMain addFav={addFav}/>}
+            {!state.user_type && <PatronMain addFav={addFav} removeFav={removeFav}/>}
             {state.user_type && <VenuePage />}
           </PrivateRoute>
           <PrivateRoute path='/events'>

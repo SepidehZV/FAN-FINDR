@@ -3,7 +3,13 @@ const router = express.Router();
 
 const {getVenueData} = require ('../helpers/dataHelpers')
 
-module.exports = ({ getVenues ,getVenueById, addVenue, getPhotos,getMenuItems,getBussniessHours}) => {
+module.exports = ({ getVenues,
+  getVenueById,
+  addVenue,
+  getPhotos,
+  getMenuItems,
+  getBussniessHours,
+  getFavouritesEventsCountForDayByVenueId}) => {
   /* GET venues listing. */
   router.get('/', (req, res) => {
     getVenues()
@@ -37,6 +43,13 @@ module.exports = ({ getVenues ,getVenueById, addVenue, getPhotos,getMenuItems,ge
     getBussniessHours(req.params.id)
     .then((openinghours) => res.json(openinghours))
     .catch((err) => res.json({ err }));
+  });
+
+  router.get('/:id/favouriteEvents',(req,res) =>{
+    getFavouritesEventsCountForDayByVenueId(req.params.id)
+      .then((favourite) => res.json(favourite))
+      .catch((err) => res.json({ err }));
+      console.log(req.params.id)
   });
 
 

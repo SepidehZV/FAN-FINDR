@@ -12,7 +12,7 @@ export default function NumberOfFavouritesForDay(props) {
     let faveCount = [];
     let days = [];
     axios
-      .get(`http://localhost:3001/api/favouriteEvents/${props.venue_id}`)
+      .get(`http://localhost:3001/api/venues/${props.venue_id}/favouriteEvents`)
       .then(res => {
         // console.log(res);
         for (const dataObj of res.data) {

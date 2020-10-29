@@ -163,8 +163,8 @@ module.exports = (db) => {
       created_at
       )
     VALUES 
-    ($1,$2, $3)
-      RETURNING event_id, created_at;`,
+    ($1,$2,$3)
+      RETURNING *;`,
 
       values: [user_id, event_id,created_at],
     };
@@ -345,7 +345,7 @@ module.exports = (db) => {
   };
   const getFavouritesEventsByUserId = (id) =>{
     const query = {
-      text: `SELECT event_id, created_at FROM favourite_events 
+      text: `SELECT * FROM favourite_events 
       WHERE user_id = $1;`,
       values: [id]
     };
@@ -355,6 +355,19 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
+
+  const removeFavouriteEventById = (id) => {
+    const query = {
+      text: `DELETE * FROM favourite_events 
+      WHERE id = $1;`,
+      values: [id]
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  }
   const getFavouritesEventsCountForDayByVenueId = (venue_id) =>{
     const query = {
       text: `SELECT count(*) as  favourites_number , venues.id as venue_id , created_at::date as day
@@ -443,6 +456,7 @@ module.exports = (db) => {
     getEventFavForDayByEventId,
     addSport,
     searchForEvent,
-    editUserById
+    editUserById,
+    removeFavouriteEventById
   };
 };

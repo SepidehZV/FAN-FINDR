@@ -9,7 +9,7 @@ export default function Event(props) {
   const state = useContext(StateContext);
   const event = state.events.find(event => props.id === event.id);
   
-  const initial = state.favouriteEvents.find(fav => fav.event_id === event.id) ? true : false;
+  const initial = (state.favouriteEvents.find(fav => fav.event_id === event.id)) || false;
   const [select, setSelect] = useState(initial);
   const likeClass = classnames("bi bi-heart-fill", { "bi bi-heart-fill text-danger": select });
 
@@ -18,8 +18,11 @@ export default function Event(props) {
     console.log('heart clicked');
     if (select) {
       setSelect(false);
+      props.removeFav(event.id, state);
+      
     } else {
       setSelect(true);
+      props.addFav(event.id, state);
     }
   }
 

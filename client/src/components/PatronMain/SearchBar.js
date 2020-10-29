@@ -35,7 +35,7 @@ function SearchBar(props) {
         
         <div className="search-result">
         {eventDetails &&
-        <EventList events ={eventDetails} addFav={props.addFav}/>}
+        <EventList events ={eventDetails} addFav={props.addFav} removeFav={props.removeFav}/>}
         
           
         </div>

@@ -1,43 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-////////for demo
-const mockuser={
-"id": 1,
-"first_name": "Mario",
-"last_name": "Bros",
-"username": "MariB",
-"email": "mario@nintendo.com",
-"user_zip_code": "",
-"avatar_url": "https://i.imgur.com/LpaY82x.png",
-"user_type": true,
-"password": "password"
-};
-const venue ={
-    "id": 1,
-    "owner_id": 1,
-    "venue_name": "Sens House",
-    "street": "73 York St",
-    "country": "Canada",
-    "venue_zip_code": "K1N 5T2",
-    "province": "Ontario",
-    "venue_description": "this is a description",
-    "phone": "(613) 241-5434",
-    "capacity": 50,
-    "age_restriction": 18,
-    "dress_code": "casual",
-    "venue_logo_url": "",
-    "category_id": 1,
-    "cover_url": "",
-    "city": "Ottawa",
-    "first_name": "Mario",
-    "last_name": "Bros",
-    "username": "MariB",
-    "email": "mario@nintendo.com",
-    "user_zip_code": "",
-    "avatar_url": "https://i.imgur.com/LpaY82x.png",
-    "user_type": true,
-    "password": "password"
-  }
+
 
 const useApplicationData = () => {
   const [state , setState] = useState(
@@ -67,13 +30,30 @@ const useApplicationData = () => {
 
   function addFav (event_id, state) {
     const newFavouriteEvent = {
-      created_at: new Date().format('m-d-Y h:i:s'),
+      created_at: new Date().toLocaleString(),
       event_id
     }
-    const newFavouriteEvents = state.favouriteEvents.push(newFavouriteEvent);
+    const newFavouriteEvents = [...state.favouriteEvents, newFavouriteEvent];
     return axios
-      .post('http://localhost:3001//api/favouriteEvents', {...newFavouriteEvent, user_id: state.user.id} )
+      .post('http://localhost:3001/api/favouriteEvents', {...newFavouriteEvent, user_id: state.user.id} )
       .then(res => setState(prev => ({...prev,favouriteEvents:newFavouriteEvents })))
+      .catch(err => {
+        console.log(err)
+      })
+  };
+
+  function removeFav (event_id, state) {
+    const removedFavouriteEvent = state.favouriteEvents
+    .find(fav => fav.event_id === event_id);
+
+    const updatedFavouriteEvents = state.favouriteEvents
+      .filter(fav => fav.event_id !== event_id);
+    return axios
+      .delete(`http://localhost:3001/api/favouriteEvents/${removedFavouriteEvent.id}`,removedFavouriteEvent )
+      .then(res => setState(prev => ({...prev, favouriteEvents: updatedFavouriteEvents})))
+      .catch(err => {
+        console.log(err)
+      })
 
   }
 
@@ -89,7 +69,7 @@ const useApplicationData = () => {
       setState(prev => ({ ...prev, events: all[0].data, venues: all[1].data, users: all[2].data }));   
     })
       .catch(err => {
-        // console.log(err)
+        console.log(err)
       })
   }, []);
   
@@ -99,8 +79,9 @@ const useApplicationData = () => {
     setUser,
     setState,
     editPatronProfile,
-    addFav
-    //addUserPatron
+    addFav,
+    removeFav
+    
   };
 };
 
