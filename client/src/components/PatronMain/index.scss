@@ -92,3 +92,28 @@ $lightgraybackground :#EDEFF0;
   display: flex;
   flex-direction : row;
 }
+.edit-and-delete{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.moreInfo-and-like{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+svg {
+  margin-block: 4px;
+}
+.like svg :hover {
+  fill: red;
+}
+.like-selected svg {
+  fill: red;
+}
+
+svg:hover {
+  box-shadow: 5px 5px 3px grey;
+}

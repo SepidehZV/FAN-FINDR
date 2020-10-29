@@ -8,7 +8,8 @@ export default function EventList(props) {
   
     
     return(<Event 
-      key={event.id} 
+      key={event.id}
+      id= {event.id} 
       event_name={event.event_name} 
       event_description={event.event_description}
       team_name={event.team_name} 

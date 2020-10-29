@@ -19,7 +19,7 @@ function SearchBar() {
   const { search } = useLocation();
   const {name} = queryString.parse(search);
 
-  console.log("name", name);
+  //console.log("name", name);
   const SearchResult = ({ name }) => {
     // using the custom hook to get the data
     const { eventDetails, loading, error } = useSearch(name);
