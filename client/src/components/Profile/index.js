@@ -24,10 +24,10 @@ export default function PatronProfile(props) {
   );
 
 
-  function save (id,first_name, last_name, username, email, user_zip_code) {
+  function save (id,first_name, last_name, username, email, user_zip_code, userObj) {
 
     transition(SAVING);
-    props.editPatronProfile(id, first_name,last_name, username, email, user_zip_code)
+    props.editPatronProfile(id, first_name,last_name, username, email, user_zip_code, userObj)
       .then(() => transition(SHOW))
 
        

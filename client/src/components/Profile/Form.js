@@ -19,7 +19,7 @@ export default function Form (props) {
     }
     else {
       setError("");
-      props.onSave(state.user.id, first_name, last_name, username, email, user_zip_code);
+      props.onSave(state.user.id, first_name, last_name, username, email, user_zip_code, state.user);
     }
     
   };

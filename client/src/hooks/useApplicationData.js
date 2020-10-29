@@ -57,9 +57,9 @@ const useApplicationData = () => {
     setState({...state, user_id})
   }
   
-  function editPatronProfile (id, first_name,last_name, username, email, user_zip_code) {
+  function editPatronProfile (id, first_name,last_name, username, email, user_zip_code, userObj) {
     //console.log('user,userId: ',user,userId)
-    const updatedUser = {id, first_name,last_name, username, email, user_zip_code};
+    const updatedUser = {...userObj, first_name,last_name, username, email, user_zip_code};
     return axios
       .put(`http://localhost:3001/api/users/${id}`, {first_name,last_name, username, email, user_zip_code})
       .then(res => setState(prev => ({...prev, user: updatedUser})))
