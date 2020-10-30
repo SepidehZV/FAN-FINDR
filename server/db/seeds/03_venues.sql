@@ -20,7 +20,7 @@ INSERT INTO
 VALUES
 (
   1,
-  'Sens House',
+  'Ralphs Sports Bar',
   '73 York St',
   'Ottawa',
   'Ontario',

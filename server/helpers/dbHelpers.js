@@ -219,7 +219,16 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
-  
+  const getAllMenues = () => {
+    const query = {
+      text: `SELECT menu_items.* FROM menu_items;`,
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
   const getVenueCategories = (venue_id) => {
     const query = {
       text: `SELECT categorie_name FROM venue_categories
@@ -485,6 +494,7 @@ module.exports = (db) => {
     editUserById,
     removeFavouriteEventById,
     deleteMenuItem,
-    eidtMenuItems
+    eidtMenuItems,
+    getAllMenues
   };
 };

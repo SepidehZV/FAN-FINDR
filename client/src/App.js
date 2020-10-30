@@ -12,8 +12,11 @@ import useApplicationData from './hooks/useApplicationData';
 import NavigationBar from './components/NavigationBar';
 import PatronMain from './components/PatronMain';
 import VenuePage from './components/VenuePage';
+import VenuePagePatron from './components/VenuePagePatron';
+import PatronVenueEvents from './components/PatronVenueEvents';
 import VenueEvents from './components/VenueEvents';
 import VenueMenu from './components/VenueMenu';
+import PatronVenueMenu from './components/PatronVenueMenu';
 import Favourites from './components/Favourites';
 import Login from './components/Login';
 import SignUpOwner from './components/SignUpOwner';
@@ -76,14 +79,14 @@ function App() {
             <VenueAnalytics />
           </PrivateRoute>
           <PrivateRoute exact path='/venues/:id'>
-            <VenuePage />
+            <VenuePagePatron />
           </PrivateRoute>
           <PrivateRoute path='/venues/:id/events'>
-            <VenueEvents />
+            <PatronVenueEvents />
           </PrivateRoute>
 
           <PrivateRoute path='/venues/:id/menu'>
-            <VenueMenu />
+            <PatronVenueMenu />
           </PrivateRoute>
 
           <PrivateRoute path='/favourites'>

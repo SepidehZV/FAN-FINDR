@@ -12,17 +12,17 @@ function Sidebar(props) {// we can use this in resutrent owner
         <ul className="nav flex-column">
           <li className="nav-item">
             {state.user_type && <li className="nav-link"><Link to='/'> Main</Link></li>}
-            {!state.user_type && <li className="nav-link"><Link to='/Venues/:id'> Main</Link></li>}
+            {!state.user_type && <li className="nav-link"><Link to={`/venues/${props.currentVenueId}`}> Main</Link></li>}
             <hr className="seprating-line" />
           </li>
           <li className="nav-item">
             {state.user_type && <li className="nav-link" ><Link to='/events'> Events</Link></li>}
-            {!state.user_type && <li className="nav-link" ><Link to='/venues/:id/events'> Events</Link></li>}
+            {!state.user_type && <li className="nav-link" ><Link to={`/venues/${props.currentVenueId}/events`}> Events</Link></li>}
             <hr className="seprating-line" />
           </li>
           <li className="nav-item">
             {state.user_type && <li className="nav-link" ><Link to='/menu'>Menu</Link></li>}
-            {!state.user_type && <li className="nav-link" ><Link to='/venues/:id/menu'>Menu</Link></li>}
+            {!state.user_type && <li className="nav-link" ><Link to={`/venues/${props.currentVenueId}/menu`}>Menu</Link></li>}
             <hr className="seprating-line" />
           </li>
           {state.user_type &&

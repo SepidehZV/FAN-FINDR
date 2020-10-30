@@ -63,7 +63,7 @@ export default function SignUp_Patron() {
             <div className="card-body">
               <h5 className="card-title text-center"><span className="text-color">F</span>AN <span className="text-color">F</span>INDR</h5>
               <hr className="seprating" />
-              <h5 className="text-center pb-4">Find your best team near you</h5>
+              <h5 className="text-center pb-4">Registertion for patron account </h5>
 
               <form className="form-signin" >
                 <div className="form-label-group">

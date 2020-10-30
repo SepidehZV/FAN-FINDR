@@ -64,9 +64,10 @@ const useApplicationData = () => {
       axios.get('http://localhost:3001/api/events'),
       axios.get('http://localhost:3001/api/venues'),
       axios.get('http://localhost:3001/api/users'),
+      axios.get('http://localhost:3001/api/menus')
      
     ]).then(all => {
-      setState(prev => ({ ...prev, events: all[0].data, venues: all[1].data, users: all[2].data }));   
+      setState(prev => ({ ...prev, events: all[0].data, venues: all[1].data, users: all[2].data, menus: all[3].data }));   
     })
       .catch(err => {
         console.log(err)

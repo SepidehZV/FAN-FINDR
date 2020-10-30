@@ -13,7 +13,7 @@ export default function PatronMain(props) {
     <div>
      
     <NavigationBar />
-    <SearchBar addFav={props.addFav}/>
+    <SearchBar addFav={props.addFav} removeFav={props.removeFav}/>
     {/* <EventList events={state.events} teams={state.teams} /> */}
     <main role="main" class="container">
 

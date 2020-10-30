@@ -1,0 +1,15 @@
+$lightgraybackground :#EDEFF0;
+.logoImg{
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  border: 5px solid $lightgraybackground;
+  box-shadow: 0 1px 3px rgba(0,0,30,.3);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+  top:35%;
+  z-index:2;
+  margin-left: 2.5%;
+}

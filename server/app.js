@@ -16,7 +16,8 @@ const sportsRouter = require('./routes/sports');
 const teamsRouter = require('./routes/teams');
 const favouriteEventsRouter = require('./routes/favouriteEvents');
 const jwtAuthRouter = require("./routes/jwtAuth");
-const searchRouter = require('./routes/search')
+const searchRouter = require('./routes/search');
+const menusRouter = require('./routes/menus');
 
 
 
@@ -48,6 +49,7 @@ app.use('/api/teams', teamsRouter(dbHelpers));
 app.use('/api/search',searchRouter(dbHelpers));
 //app.use('/api/register',registerRouter(dbHelpers));
 //app.use('/api/login',loginRouter(dbHelpers));
+app.use('/api/menus', menusRouter(dbHelpers));
 app.use('/api/favouriteEvents',favouriteEventsRouter(dbHelpers));
 
 

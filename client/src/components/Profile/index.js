@@ -40,7 +40,7 @@ export default function PatronProfile(props) {
   return (
     <div>
       <NavigationBar />
-      <CoverPhoto />
+      <CoverPhoto  />
       
       {mode === SHOW && <PatronInfo onEdit={() => transition(EDIT)}/>}
       {mode === SAVING && <Status message='Saving'/>}
