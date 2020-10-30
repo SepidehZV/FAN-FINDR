@@ -1,38 +1,39 @@
+
 $orange-color: #FF8A00;
 $lightgraybackground :#EDEFF0;
 $whaitbackground :#ffff;
+$blue-color: #1762A7 ;
 
-.continerforbackgroundcolor{
-  background-color: $lightgraybackground;
+.container{
+  padding-top: 180px;
+  width: 800px;
+  
 }
 
-.row1{
-  padding-left: 2rem;
-  padding-top: 2rem;
-  padding-right: 2rem;
-  display: flex;
-}
-.conrinerforPadding{
-  padding-left: 0;
-  padding-top: 2rem;
-  padding-right: 0;
-  padding-bottom: 1rem;
-  width: 100%;
-  background-color: $whaitbackground;
-}
-.mapStyles{
-  width: 100%;
-  height: 100%;
+
+.card-img-right{
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  border: 5px solid $lightgraybackground;  
+  position: absolute;
+  top:5%;
+  right: 2%;
 }
 
-.inputSearch{
-  width: 500px;
+
+.card-title-event{
+  position: absolute;
+  top:15%;
+  left: 2%;
+  font-size: 35px;
 }
 
-.card{
-margin: 12px;
-width: 50%;
-
+.card-title-date{
+  position: absolute;
+  top: 30%;
+  left: 2%;
+  font-size: 18px;
 }
 
 .seprating{
@@ -40,87 +41,49 @@ width: 50%;
   border-color: $orange-color;
 }
 
-.card-body{
-padding-bottom: 20px;
 
-
-}
-
-.card-img-top{
-
-  height: 200px;
-}
-
-$lightgraybackground :#EDEFF0;
-.avatar{
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  border: 5px solid $lightgraybackground;
-  box-shadow: 0 1px 3px rgba(0,0,30,.3);
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
-  top:5%;
-  z-index:2;
-  margin-left: 75%;
-
-}
-
-.sport-title{
-  position: absolute;
-  top:20%;
-  margin-left: 2.5%;
-
-}
-
-.time-title{
-  position: absolute;
-  top:35%;
-  margin-left: 2.5%;
-  text-align:center;
-  padding-left: 8%;
-
-}
-.patron-page-flex-col{
-  padding-top: 4rem;
-  display: flex;
-  flex-direction : column;
-}
-.patron-page-flex-row{
-  display: flex;
-  flex-direction : row;
-}
-.edit-and-delete{
+.info-and-fav{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
+.moreInfo{
+  margin-top: -2px;
+  margin-right: 20px;
+}
 
-.moreInfo-and-like{
+.moreInfo:hover{
+  text-decoration: none; 
+
+
+}
+
+
+.infolink{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   text-decoration:none;
 }
+
+
 svg {
   margin-block: 4px;
   font-size: 22px;
 }
+
+
 svg:hover {
   fill: red;
 }
 
-
-
 .navLink {
-  color: blue;
+  color: $blue-color;
   text-decoration: none;
   }
   
-  
-  
-
-
+.mapimg{
+  padding: 3rem 1.5rem;
+  text-align: center;
+}

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import classnames from 'classnames';
 import StateContext from '../../StateContext';
+import './index.scss';
 
 export default function Event(props) {
 
@@ -22,27 +23,24 @@ export default function Event(props) {
       setSelect(true);
     }
   }
-
-
   return (
-    <div className="card" >
-      <img src={props.team_logo_url} alt="team logo" class="avatar" />
-      <div className="sport_name">
-        <h1 className="sport-title">{event.event_name || 'event name'}</h1>
-        <h5 className="time-title">{props.start_date}</h5>
-      </div>
-      <img className="card-img-top" src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"} alt="Card image cap" />
-      <div className="card-body">
-        <div className="edit-and-delete" >
-          <div><h5 className="card-title">{props.team_name || 'team name'}</h5> </div>
+  <div className="event-card">
+    <div class="card">
+  <img src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"} class="card-img-top" alt="..." />
+    <img src={props.team_logo_url} class="card-img-right" alt="..." />
+    <h1 class="card-title-event">{event.event_name || 'event name'}</h1>
+    <h1 class="card-title-date">{props.start_date}</h1>
+
+  <div class="card-body">
+  <div className="info-and-fav" >
+          <h1 className="card-title-team">{props.team_name || 'team name'}</h1> 
           {!state.user_type &&
-            <div className="moreInfo-and-like">
+            <div className="infolink">
               <div className="moreInfo" >
-                <span class="badge badge-info"><Link className="navLink" to={`/venues/${event.venue_id}`}>Venue Info</Link></span>
+                <h4><span class="badge pr-2"><Link className="navLink" to={`/venues/${event.venue_id}`}>Venue Info</Link></span></h4>
               </div>
 
-
-              <div className="like"  >
+              <div className="favlink"  >
                 <svg width="1em" height="1em" viewBox="0 0 16 16" className={likeClass} fill="currentColor" xmlns="http://www.w3.org/2000/svg" onClick={liked} >
                   <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
                 </svg>
@@ -51,12 +49,10 @@ export default function Event(props) {
             </div>}
 
         </div>
-        <hr className="seprating" />
-
-        <p className="card-text">{props.event_description}</p>
-
-      </div>
-      <table class="table">
+                
+    <hr className="seprating" />
+    <p class="card-text-left">{props.event_description}</p>
+    <table class="table">
         <tr>
           <th >hosted by</th>
           <th >{event.venue_name || 'venue name'}</th>
@@ -65,7 +61,8 @@ export default function Event(props) {
         <th >offer</th>
         <th >{event.offers || 'offers'}</th>
 
-      </table>
-    </div>
+      </table>  </div>
+</div>
+</div>
   )
 }

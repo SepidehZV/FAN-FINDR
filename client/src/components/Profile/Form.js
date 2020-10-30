@@ -1,6 +1,8 @@
 import React, {useState, useContext} from 'react';
 import StateContext from '../../StateContext';
 import { Alert } from 'react-bootstrap';
+import './index.scss';
+
 
 export default function Form (props) {
   const state = useContext(StateContext);
@@ -25,36 +27,62 @@ export default function Form (props) {
   };
 
   return(
-    <div>
-      <form onSubmit={(event) => event.preventDefault()}>
-  <div class="form-group">
-    <label for="exampleInputEmail1">First Name</label>
-    <input class="form-control" type="text" placeholder="Default input" value={first_name} onChange={(e) => setFirstName(e.target.value)}/>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Last Name</label>
-    <input class="form-control" type="text" placeholder="Default input" value={last_name} onChange={(e) => setLastName(e.target.value)}/>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Username</label>
-    <input class="form-control" type="text" placeholder="Default input" value={username} onChange={(e) => setUsername(e.target.value)}/>
-  </div>
-
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email</label>
-    <input class="form-control" type="text" placeholder="Default input" value={email} onChange={(e) => setEmail(e.target.value)}/>
-  </div>
-
-<div class="form-group">
-    <label for="exampleInputEmail1">Zip-Code</label>
-    <input class="form-control" type="text" placeholder="Default input" value={user_zip_code} onChange={(e) => setZipcode(e.target.value)}/>
-  </div>
+    <div class="formcontainer">
+    <form onSubmit={(event) => event.preventDefault()}>
+      <h2>Edit Profile</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="first">First Name</label>
+            <input type="text" class="form-control" placeholder="" id="first" value={first_name} onChange={(e) => setFirstName(e.target.value)}/>
+          </div>
+        </div>
   
-  {error && <Alert variant='danger'> {error} </Alert> }
-  <button type="submit" class="btn btn-primary" onClick={validate}>Save</button>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="last">Last Name</label>
+            <input type="text" class="form-control" placeholder="" id="last" value={last_name} onChange={(e) => setLastName(e.target.value)}/>
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" placeholder="" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+          </div>
+  
+  
+        </div>
+  
+        <div class="col-md-6">
+  
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          </div>
+        </div>
+      </div>
+  
+  
+      <div class="row">
+        <div class="col-md-6">
+  
+          <div class="form-group">
+            <label for="zip-code">Zip-Code</label>
+            <input type="zip-code" class="form-control" id="zip-code" placeholder="zip-code" value={user_zip_code} onChange={(e) => setZipcode(e.target.value)}/>
+          </div>
+        </div>
+      </div>  
 
-  <button type="submit" class="btn btn-primary">Cancel</button>
-</form>
-    </div>
+      {error && <Alert variant='danger'> {error} </Alert> }
+
+      <button type="submit" class="btn btn-primary" onClick={validate}>Save</button>
+      <button type="submit" class="btn btn-danger" >Cancel</button>
+
+    </form>
+  </div>
   )
 }

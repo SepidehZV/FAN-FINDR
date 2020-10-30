@@ -10,22 +10,13 @@ import NavigationBar from '../NavigationBar';
 export default function VenueEvents(props) {
 
   return (
-  <main className="layout">
   <div>
-    <section><NavigationBar /></section>
-    <section><CoverPhoto /></section>
-    <div className="conrinerforflex">
-    
+    <NavigationBar />
+    <CoverPhoto />
       <Sidebar />
-      {/* <EventList /> */}
-
-      {/* <Confirm />  */}
-      
-      <Empty />
-      {/* <Form /> */}
+       <Form /> 
     
     </div>
-    </div>
-    </main>
+   
   );
 }

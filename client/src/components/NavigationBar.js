@@ -33,8 +33,8 @@ import StateContext from '../StateContext';
           </li>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuOffset">
             <li className="dropdown-item" ><Link to='/profile' className="navLink">Profile</Link></li>
-            <li className="dropdown-item" ><Link to='/favourites' className="navLink">My favourites</Link></li>
-            <li className="dropdown-item" onClick={logout}><hr/> Logout</li>
+            <li className="dropdown-item" ><Link to='/favourites' className="navLink">My favourites</Link></li><hr/>
+            <li className="dropdown-item" onClick={logout}> Logout</li>
             </div>
       </div>
         

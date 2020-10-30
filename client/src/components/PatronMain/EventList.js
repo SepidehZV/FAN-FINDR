@@ -13,7 +13,7 @@ export default function EventList(props) {
       event_description={event.event_description}
       team_name={event.team_name} 
       offers={event.offers}
-      eam_logo_url={event.team_logo_url}
+      team_logo_url={event.team_logo_url}
       start_date ={event.start_date}
       addFav ={props.addFav}
       />)

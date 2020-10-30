@@ -53,7 +53,6 @@ function SearchBar(props) {
     return (
       <div class="container">
       <h2>Enter your Favorite Team,Event ..</h2>
-
 <form onSubmit={handleSubmit}> 
 
 <div class="row">
@@ -70,10 +69,12 @@ function SearchBar(props) {
     </div>
 </div>
 </div>
-{name && <SearchResult name={name} />}                 
 
 </form>
+{name && <SearchResult name={name} />}                 
+
 </div>
+
   );
 }
 

@@ -7,25 +7,21 @@ import StateContext from '../../StateContext';
 import NavigationBar from '../NavigationBar';
 import Map from './Map'
 
+
+
 export default function PatronMain(props) {
   const state = useContext(StateContext);
   return (
-    <>
+    <div>
      
-      <section className="patron-page-flex-col">
-      <section><NavigationBar /></section>
-        <div className="continerforbackgroundcolor">
-        <section className="patron-page-flex-row">
-           
-            <section className="patron-page-flex-col">
-              <SearchBar addFav={props.addFav}/>
-              {/* <EventList events={state.events} teams={state.teams} /> */}
-              <Map />  
-            </section>
-            </section>
-            </div>
-            </section>
-        
-    </>
+      <NavigationBar />
+      <SearchBar addFav={props.addFav}/>
+      {/* <EventList events={state.events} teams={state.teams} /> */}
+      <main role="main" class="container">
+
+<div class="mapimg"> <Map />  </div>
+      
+           </main>
+    </div>
   );
 }

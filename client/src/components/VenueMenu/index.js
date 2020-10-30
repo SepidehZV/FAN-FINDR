@@ -7,19 +7,14 @@ import Sidebar from '../Sidebar';
 
 export default function VenueMenu(props) {
   return (
-    <main className="layout">
-      <div>
-        <section><NavigationBar /></section>
-        <section><CoverPhoto /></section>
-        <div className="conrinerforflex">
+    <div>
+        <NavigationBar />
+        <CoverPhoto />
 
           <Sidebar />
-          <div className ="venueMenu-flex-col">
           <MenuList />
-          </div>
+    </div>
           
-        </div>
-      </div>
-    </main>
+       
   );
 }

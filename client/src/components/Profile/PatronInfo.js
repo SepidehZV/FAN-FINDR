@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import './PatronInfo.scss';
+import './index.scss';
 import StateContext from '../../StateContext';
 
 
