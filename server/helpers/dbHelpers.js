@@ -293,6 +293,7 @@ module.exports = (db) => {
       venue_zip_code,
       venue_description,
       phone,
+      venue_email,
       capacity,
       age_restriction,
       dress_code,

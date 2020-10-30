@@ -31,7 +31,7 @@ export default function Event(props) {
     <div className="card" >
       <img src={props.team_logo_url} alt="team logo" class="avatar" />
       <div className="sport_name">
-        <h1 className="sport-title">{event.event_name || 'event name'}</h1>
+        <h1 className="sport-title">{props.event_name || 'event name'}</h1>
         <h5 className="time-title">{props.start_date}</h5>
       </div>
       <img className="card-img-top" src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"} alt="Card image cap" />
@@ -41,7 +41,7 @@ export default function Event(props) {
           {!state.user_type &&
             <div className="moreInfo-and-like">
               <div className="moreInfo" >
-                <span class="badge badge-info"><Link className="navLink" to={`/venues/${event.venue_id}`}>Venue Info</Link></span>
+                <span class="badge badge-info"><Link className="navLink" to={`/venues/${props.venue_id}`}>Venue Info</Link></span>
               </div>
 
 
@@ -62,11 +62,11 @@ export default function Event(props) {
       <table class="table">
         <tr>
           <th >hosted by</th>
-          <th >{event.venue_name || 'venue name'}</th>
+          <th >{props.venue_name || 'venue name'}</th>
         </tr>
 
         <th >offer</th>
-        <th >{event.offers || 'offers'}</th>
+        <th >{props.offers || 'offers'}</th>
 
       </table>
     </div>

@@ -10,6 +10,7 @@ CREATE TABLE venues (
   province VARCHAR(255) NOT NULL,
   venue_description TEXT,
   phone VARCHAR(20),
+  venue_email VARCHAR(255),
   capacity INTEGER,
   age_restriction  INTEGER,
   dress_code VARCHAR(255),

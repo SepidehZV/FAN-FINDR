@@ -1,6 +1,17 @@
 import React from 'react'
 
-export default function BussniessHours() {
+export default function BussniessHours(props) {
+const hours= props.hours.map(e => {
+  return (
+    <tr>
+    <th >{e.day}</th>
+    <td>{e.open_time} </td>
+  <td>{e.close_time}</td>
+
+  </tr>
+  );
+})
+
   return (
     <div className="conrinerforPadding">
      
@@ -15,38 +26,9 @@ export default function BussniessHours() {
                 <th >To</th>
               </tr>
             </thead>
+            {hours}
             <tbody>
-              <tr>
-                <th >Monday</th>
-                <td>2:00 PM</td>
-                <td>1:00 PM</td>
-
-              </tr>
-              <tr>
-                <th >Tuesday</th>
-                <td>2:00 PM</td>
-                <td>1:00 PM</td>
-              </tr>
-              <tr>
-                <th >Wednesday</th>
-                <td>2:00 PM</td>
-                <td>1:00 PM</td>              </tr>
-              <tr>
-                <th >Tursday</th>
-                <td>2:00 PM</td>
-                <td>1:00 PM</td>               </tr>
-              <tr>
-                <th >Friday</th>
-                <td>2:00 PM</td>
-                <td>1:00 PM</td>               </tr>
-              <tr>
-                <th >Saturday</th>
-                <td>2:00 PM</td>
-                <td>1:00 PM</td>               </tr>
-              <tr>
-                <th >Sunday</th>
-                <td>2:00 PM</td>
-                <td>1:00 PM</td>               </tr>
+              
             </tbody>
           </table>
 

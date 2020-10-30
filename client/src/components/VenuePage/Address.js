@@ -10,7 +10,7 @@ export default function Address(props) {
       <div class="col">
         <div> Address </div>
         <hr className="seprating" />
-        {props.address || 'street'}, {props.country || 'country'}, {props.city || 'city'},{props.province || 'province'}, {props.zip_code || 'zip_code'}
+        {props.address || 'street'}, {props.country || 'country'}, {props.city || 'city'},{props.province || 'province'}, {props.venue_zip_code || 'zip_code'}
       </div>
       <Map />
 

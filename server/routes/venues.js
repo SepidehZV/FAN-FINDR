@@ -72,6 +72,11 @@ module.exports = ({ getVenues,
     .then((openinghours) => res.json(openinghours))
     .catch((err) => res.json({ err }));
   });
+  router.get('/:id/photos',(req,res) =>{
+    getPhotos(req.params.id)
+      .then((photos) => res.json(photos))
+      .catch((err) => res.json({ err }));
+  });
 
   router.get('/:id/favouriteEvents',(req,res) =>{
     getFavouritesEventsCountForDayByVenueId(req.params.id)
@@ -80,6 +85,7 @@ module.exports = ({ getVenues,
       console.log(req.params.id)
   });
 
+  
 
   return router;
 };

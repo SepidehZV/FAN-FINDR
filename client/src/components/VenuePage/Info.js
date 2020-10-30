@@ -11,29 +11,29 @@ function Info(props) {
           <thead>
             <tr>
               <th >Email</th>
-              <th >{props.email|| 'Logoresturent@example.com'}</th>
+              <th >{props.venue_email}</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th >Phone</th>
-              <td>{props.phone || '555-555'}</td>
+              <td>{props.phone }</td>
             </tr>
             <tr>
-              <th >Categorie</th>
-              <td>{props.categorie || 'resturent'}</td>
+              <th >Category</th>
+              <td>{props.categorie_name}</td>
             </tr>
             <tr>
               <th >Capacity</th>
-              <td>{props.venueCapacity || '20'}</td>
+              <td>{props.capacity }</td>
             </tr>
             <tr>
               <th >Dress code</th>
-              <td>{props.dress_code || 'formal'}</td>
+              <td>{props.dress_code }</td>
             </tr>
             <tr>
               <th >Age restriction</th>
-              <td>{props.age_restriction || '16'}</td>
+              <td>{props.age_restriction}</td>
             </tr>
           </tbody>
         </table>

@@ -19,7 +19,7 @@ export default function PatronMain(props) {
            
             <section className="patron-page-flex-col">
               <SearchBar addFav={props.addFav} removeFav={props.removeFav}/>
-              {/* <EventList events={state.events} teams={state.teams} /> */}
+              {/* <EventList events={state.events} /> */}
               <Map />  
             </section>
             </section>

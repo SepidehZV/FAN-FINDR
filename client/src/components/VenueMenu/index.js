@@ -87,7 +87,7 @@ export default function VenueMenu(props) {
         <section><CoverPhoto /></section>
         <div className="conrinerforflex">
 
-          <Sidebar />
+          <section><Sidebar /></section>
           <div className ="venueMenu-flex-col">
           {menuList}
           <Empty onClick={ () => transition(CREATE)}/>

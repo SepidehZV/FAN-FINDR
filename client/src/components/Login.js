@@ -40,12 +40,21 @@ export default function Login() {
             .then(res => {
               console.log(res);
               const venue = {id: venueId, ...res.data[0]};
-              setState((prev) => ({ ...prev, user, user_type: user.user_type, venue }));
-              axios
-                .get(`http://localhost:3001/api/venues/${venueId}/menu`)
-                .then(res => {
-                  const menuList = res.data;
-                  setState(prev => ({...prev, menuList}));
+              Promise.all([
+                axios.get(`http://localhost:3001/api/venues/${venueId}/menu`),
+                axios.get(`http://localhost:3001/api/venues/${venueId}/hours`),
+                axios.get(`http://localhost:3001/api/venues/${venueId}/photos`),
+               
+              ]).then(all => {
+                setState(prev => ({ ...prev, user,
+                  user_type: user.user_type, 
+                  venue,
+                  menuList: all[0].data,
+                  venueHours: all[1].data, 
+                  venuePhotos: all[2].data }));   
+              })
+                .catch(err => {
+                  console.log(err)
                 })
             })
         } else {
