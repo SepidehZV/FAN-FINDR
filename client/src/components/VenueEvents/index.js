@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Empty from '../Empty';
-import Confirm from '../Confirm';
 import Form from './Form';
 import Sidebar from '../Sidebar';
 import CoverPhoto from '../CoverPohto';

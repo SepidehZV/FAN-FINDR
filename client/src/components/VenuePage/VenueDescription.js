@@ -1,21 +1,22 @@
-import React from 'react';
+import React ,{useContext}from 'react';
+import StateContext from '../../StateContext';
 
 
 
 export default function VenueDescription(props) {
+  const state = useContext(StateContext);
+  const venue = state.venues.map(e => e.id === state.venue.id)
+
   return (
 
     <div className="conrinerforPadding">
       <div class="col">
         <section>
-          Venue description
+          {venue.name }
         <hr className="seprating" />
         </section>
         <section>
-          {props.venueDescription || `enjoy your meal wihle  whatching you faveouvirt team playing live. 
-the events will be showing here. dont miss our spical events and our imazing deals. 
-we are wating to see here.
-bring you frinds `}
+          {/* { venue.d|| } */}
         </section>
       </div>
     </div>
