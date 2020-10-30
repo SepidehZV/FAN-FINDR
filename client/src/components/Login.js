@@ -41,6 +41,12 @@ export default function Login() {
               console.log(res);
               const venue = {id: venueId, ...res.data[0]};
               setState((prev) => ({ ...prev, user, user_type: user.user_type, venue }));
+              axios
+                .get(`http://localhost:3001/api/venues/${venueId}/menu`)
+                .then(res => {
+                  const menuList = res.data;
+                  setState(prev => ({...prev, menuList}));
+                })
             })
         } else {
           axios
