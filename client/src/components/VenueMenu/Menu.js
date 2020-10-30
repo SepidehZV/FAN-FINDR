@@ -1,27 +1,54 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react';
+import Show from './Show';
+import Empty from '../Empty';
+import Form from './Form';
+import Confirm from './Confirm';
+import useVisualMode from "../../hooks/useVisualMode";
 
 export default function Menu(props) {
+  const EMPTY = "EMPTY";
+  const SHOW = "SHOW";
+  const CREATE = "CREATE";
+  const SAVING = "SAVING";
+  const DELETING = "DELETING";
+  const CONFIRM = "CONFIRM";
+  const EDIT = "EDIT";
+  const ERROR_SAVE = "ERROR_SAVE";
+  const ERROR_DELETE = "ERROR_DELETE";
+  const { mode, transition, back } = useVisualMode(SHOW);
+
+
   return (
-    <div className="row1">
-      <div className="card" >
-        <img className="card-img-top" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png" alt="Card image cap" />
-        <div className="card-body">
-          <div className="sport_name">
-            <h1 className="sport-title">{props.menu_name || "Menu-item"}</h1>
-            <h5 className="time-title">{props.price}</h5>
-          </div>
-        </div>
-        <div></div>
-        <div className="card-body">
-          <div className="edit-and-delete" >
-          <p className="card-text">{props.menu_description  || 'here gose the menu description'}</p>
-            <div className="edit-and-delete">
-              <div className="delete" ><i class="far fa-trash-alt"></i>Delete </div>
-              <div className="eidt" ><i class="far fa-edit"></i>Eidt</div>
-            </div>
-          </div>
-        </div >
-      </div>
-    </div>
-  );
-}
+    <>
+        {mode === SHOW && (
+          <Show
+            id={props.id}
+            item_name={props.item_name}
+            item_description={props.item_description}
+            price={props.price}
+            venue_id = {props.venue_id}
+            deleteMenu= {() => transition(CONFIRM)}
+            onEdit={() => transition(EDIT)}
+          />
+        )}
+        {mode === CREATE && <Form item_name={props.item_name}
+            item_description={props.item_description}
+            price={props.price}
+          onSave={ props.addMenuItem } onCancel={() => back()} mode ={"CREATE"}/>}
+        
+        
+        {mode === CONFIRM && <Confirm message={"Are you sure you would like to delete?"}
+          id={props.id}
+          onCancel={() => back()}
+          onConfirm={props.deleteMenu}
+        />}
+        {mode === EDIT && <Form item_name={props.item_name}
+            item_description={props.item_description}
+            price={props.price}
+          onUpdate={ props.updateMenu } onCancel={() => back()} mode ={"EDIT"}/>}
+      
+      
+
+    </>
+  )
+  }       

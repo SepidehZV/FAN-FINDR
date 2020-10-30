@@ -8,7 +8,7 @@ export default function Empty(props) {
         <img className="card-img-top" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png" alt="Card image cap" />
         <div className="add">
 
-          <p className="card-text"><img src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-11.49.25-PM.png" /></p>
+          <p className="card-text"><div className = "add" onClick = {() => props.onClick}><img src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-11.49.25-PM.png" /></div></p>
 
         </div>
       </div >

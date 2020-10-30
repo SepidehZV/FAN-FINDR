@@ -139,13 +139,27 @@ module.exports = (db) => {
       text: `INSERT INTO
       menu_items
       (
-      item_name , price , item_description, venue_id  
+        item_name, price,item_description,venue_id  
       )
     VALUES 
       ( $1, $2, $3, $4 )
       RETURNING *;`,
 
       values: [item_name, price,item_description,venue_id],
+    };
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+
+  };
+  const eidtMenuItems = (id,item_name, price,item_description,venue_id) =>{
+    const query = {
+      text: `UPDATE menu_items 
+      SET item_name = $1, price= $2, item_description = $3
+              WHERE id = $4 AND venue_id = $5  RETURNING *;`,
+
+      values: [item_name, price,item_description,id,venue_id],
     };
     return db
       .query(query)
@@ -321,6 +335,17 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
+  const deleteMenuItem = (id,venuId) =>{
+    const query = {
+      text: `DELETE FROM menu_items WHERE id = $1 AND venue_id = $2 ;`,
+      values: [id,venuId],
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
 
   const getSports = () => {
     const query = {
@@ -443,6 +468,8 @@ module.exports = (db) => {
     getEventFavForDayByEventId,
     addSport,
     searchForEvent,
-    editUserById
+    editUserById,
+    deleteMenuItem,
+    eidtMenuItems
   };
 };

@@ -3,7 +3,7 @@ const router = express.Router();
 
 const {getVenueData} = require ('../helpers/dataHelpers')
 
-module.exports = ({ getVenues ,getVenueById, addVenue, getPhotos,getMenuItems,getBussniessHours}) => {
+module.exports = ({ getVenues ,getVenueById, addVenue, getPhotos,getMenuItems,getBussniessHours, deleteMenuItem, addNewMenuItems,eidtMenuItems}) => {
   /* GET venues listing. */
   router.get('/', (req, res) => {
     getVenues()
@@ -33,6 +33,30 @@ module.exports = ({ getVenues ,getVenueById, addVenue, getPhotos,getMenuItems,ge
     .then((menu_items) => res.json(menu_items))
     .catch((err) => res.json({ err }));
   });
+
+  router.delete('/:venuId/menu/:id',(req,res) =>{
+    deleteMenuItem(req.params.id,req.params.venuId)
+    .then((menu_items) => res.json(menu_items))
+    .catch((err) => res.json({ err }));
+  });
+
+  router.put('/:venuId/menu/:id', (req, res) => {
+    const {id,item_name, price,item_description,venue_id} = req.body;
+    eidtMenuItems(id,item_name, price,item_description,venue_id) 
+      .then((menuItem) => {console.log(menuItem);
+        res.json(menuItem)})
+      .catch((err) => res.json({ err }));
+  });
+  router.post('/:id/menu', (req, res) => {
+    const {item_name, price,item_description,venue_id} = req.body;
+    //console.log(req.body);
+
+    addNewMenuItems(item_name, price,item_description,venue_id ) 
+      .then((menuItem) =>{ 
+      console.log(menuItem);res.json(menuItem)})
+      .catch((err) => res.json({ err }));
+  });
+
   router.get('/:id/hours',(req,res) =>{
     getBussniessHours(req.params.id)
     .then((openinghours) => res.json(openinghours))
