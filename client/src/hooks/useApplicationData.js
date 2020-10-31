@@ -9,7 +9,9 @@ const useApplicationData = () => {
       user:{},
       events :[],
       venues : [],
-      users : []
+      users : [],
+      venuePhotos:[],
+      venueHours:[]
     }
   )
   
@@ -36,14 +38,16 @@ const useApplicationData = () => {
       street, country, venue_zip_code , province ,
       venue_description , phone,venue_email, capacity,
       age_restriction, dress_code , categorie_name,city };
-    const category_id = state.categories.filter(category => category.categorie_name === categorie_name).id;
-
+    //console.log(categorie_name.toLowerCase()=== state.categories[1].categorie_name);
+    const category_id = 1;
+    //console.log(category_id);
     return axios
       .put(`http://localhost:3001/api/venues/${id}`,{venue_name,
       street, country, venue_zip_code , province ,
       venue_description , phone,venue_email, capacity,
       age_restriction, dress_code , category_id,city})
       .then(res => {
+        //console.log(res);
         const newVenue = res.data[0];
         const venues = [...state.venues];
         venues[id] = newVenue;

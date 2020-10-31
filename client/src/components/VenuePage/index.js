@@ -20,16 +20,16 @@ export default function VenuePage(props) {
   const state = useContext(StateContext);
   const { mode, transition, back } = useVisualMode(SHOW);
 
-  function save (id,venue_name,
-    street, country,  venue_zip_code , province ,
+  function save (venue_id,venue_name,
+    street, country, venue_zip_code , province ,
     venue_description , phone,venue_email, capacity,
-    age_restriction, dress_code , categorie_name,city,venueObj, state) {
+    age_restriction, dress_code , categorie_name,city,venue, state) {
 
     transition(SAVING);
-    props.editVenuePage(id,venue_name,
-      street, country,  venue_zip_code, province ,
+    props.editVenuePage(venue_id,venue_name,
+      street, country, venue_zip_code , province ,
       venue_description , phone,venue_email, capacity,
-      age_restriction, dress_code , categorie_name,city,venueObj, state)
+      age_restriction, dress_code , categorie_name,city,venue, state)
       .then(() => transition(SHOW))
   
   }

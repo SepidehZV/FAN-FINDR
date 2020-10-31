@@ -34,18 +34,21 @@ export default function Login() {
         
         const user = res.data.user;
         if (user.user_type) {
+          const venue = state.venues.find(venue => venue.owner_id === user.id);
           const venueId = state.venues.find(venue => venue.owner_id === user.id).id;
           axios
             .get(`http://localhost:3001/api/venues/${venueId}`)
             .then(res => {
-              console.log(res);
-              const venue = {id: venueId, ...res.data[0]};
+              //console.log(res);
+              //const venue = {id: venueId, ...res.data[0]};
+              console.log(venue);
               Promise.all([
                 axios.get(`http://localhost:3001/api/venues/${venueId}/menu`),
                 axios.get(`http://localhost:3001/api/venues/${venueId}/hours`),
                 axios.get(`http://localhost:3001/api/venues/${venueId}/photos`),
                
               ]).then(all => {
+                console.log(venue);
                 setState(prev => ({ ...prev, user,
                   user_type: user.user_type, 
                   venue,

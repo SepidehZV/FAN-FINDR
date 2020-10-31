@@ -54,7 +54,7 @@ export default function SignUpOwner() {
       })
 
       .catch(error => {
-        setAlert(error.response.data);
+        setAlert(error);
         console.log(error);});
 
   }
@@ -131,7 +131,7 @@ export default function SignUpOwner() {
 
                 <div className="form-label-group">
                   <select className=" form-control custom-select browser-default" value={country} onChange={(e) => setCountry(e.target.value)}>
-                    <option value="" >Country</option> 
+                    <option value="" selected="selected">Country</option> 
                     <option value="Canada">Canada</option>
                   </select> 
                 </div>
