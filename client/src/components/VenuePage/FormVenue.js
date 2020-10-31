@@ -83,12 +83,12 @@ export default function FormVenue(props) {
           <div className="form-group">
           <label for="categorie">Category</label>
           <select className=" form-control custom-select browser-default" value={categorie_name} onChange={(e) => setCategory(e.target.value)}  selected="selected">
-                    <option value="AB" >Sport Bar</option>
-                    <option value="BC">hotel bar</option>
-                    <option value="ON">bar and grille</option>
-                    <option value="QC">Casino</option>
-                    <option value="QC">Nightclub</option>
-                    <option value="QC">casual or pub</option>
+                    <option value="Sport Bar" >Sport Bar</option>
+                    <option value="Hotel bar">Hotel bar</option>
+                    <option value="Bar and Grille">Bar and Grille</option>
+                    <option value="Casino">Casino</option>
+                    <option value="Nightclub">Nightclub</option>
+                    <option value="Casual or Pub">Casual or Pub</option>
                   </select> 
           </div>
         </div>

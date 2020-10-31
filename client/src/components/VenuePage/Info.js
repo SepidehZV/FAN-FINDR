@@ -19,10 +19,10 @@ function Info(props) {
               <th >Phone</th>
               <td>{props.phone }</td>
             </tr>
-            <tr>
+            {/* <tr>
               <th >Category</th>
               <td>{props.categorie_name}</td>
-            </tr>
+            </tr> */}
             <tr>
               <th >Capacity</th>
               <td>{props.capacity }</td>

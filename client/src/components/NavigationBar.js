@@ -11,7 +11,13 @@ import StateContext from '../StateContext';
     
     localStorage.clear();
     history.push('/login');
-    setState(prev => ({...prev , user:{}, user_type:null}))
+    setState(prev => ({...prev ,favouriteEvents:[],
+      user:{},
+      user_type:null,
+      venue:{},
+      venueHours:[], 
+      venuePhotos:[],
+      menuList:[]}))
   }
   return (
     <nav className="navbar navbar-expand-lg navbar-light fixed-top">
