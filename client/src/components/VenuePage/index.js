@@ -44,6 +44,7 @@ export default function VenuePage(props) {
           <section><CoverPhoto /></section>
           <div className="conrinerforflex">
             <section><Sidebar /></section>
+            
             {mode === EDIT && <FormVenue onSave={ save } onCancel={() => back()}/>}
 
             {mode === SHOW &&<MainContainer

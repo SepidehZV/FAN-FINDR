@@ -50,14 +50,12 @@ export default function SignUpOwner() {
         const venues = [...state.venues, newVenue];
         localStorage.setItem('token', res.data.token);
         history.push((location && location.from) || '/');
-        setState((prev) => ({ ...prev, user_type: res.data.user.user_type, user: res.data.user, venues: venues }));
+        setState((prev) => ({ ...prev, user_type: res.data.user.user_type, user: res.data.user, venues: venues, venue:newVenue }));
       })
 
       .catch(error => {
         setAlert(error.response.data);
-        console.log(error);
-
-      });
+        console.log(error);});
 
   }
 

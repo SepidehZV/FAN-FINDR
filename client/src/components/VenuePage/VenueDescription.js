@@ -12,14 +12,15 @@ export default function VenueDescription(props) {
     <div className="conrinerforPadding">
 
       <div class="col">
-        <section>
+        <h3>
           {props.venue_name}
+        </h3>
         <hr className="seprating" />
-        </section>
-        <section>
+
+        <p className="description-venue">
 
           {props.venue_description}
-        </section>
+        </p>
       </div>
     </div>
 

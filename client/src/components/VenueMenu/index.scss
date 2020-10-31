@@ -27,9 +27,14 @@ $whaitbackground :#ffff;
   background-color: $whaitbackground;
 }
 
+.line-fo-resizing-mune{
+  width: 60%;
+  margin-left: 8%;
+}
+
 .card{
-margin: 12px;
-width: 100%;
+margin: 8px;
+width: 90%;
 }
 .edit-and-delete{
   display: flex;
@@ -51,8 +56,9 @@ padding-bottom: 20px;
 }
 
 .venueMenu-flex-col{
-  display: flex;
-  flex-direction: column;
+ position:absolute;
+  width: 60%;
+  left: 25%;
 }
 .avatar{
   height: 150px;

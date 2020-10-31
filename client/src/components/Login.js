@@ -93,9 +93,9 @@ export default function Login() {
                     <Alert variant='danger'>
                       {alert}
                     </Alert>}
-                  <h1 className="card-title text-center"><span className="text-color">F</span>AN <span className="text-color">F</span>INDR</h1>
-                  <hr className="seprating" />
-                  <h5 className="text-center pb-4">Find your best team near you</h5>
+                  <h1 class="card-title text-center"><span className="text-color">F</span>AN <span className="text-color">F</span>INDR</h1>
+                  <hr class="seprating" />
+                  <h5 class="text-center pb-4">Find your best team near you</h5>
                   <form onSubmit={handleLogin} >
                     <div class="form-label-group">
                       <input type="email" id="inputEmail" class="form-control" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required autofocus />

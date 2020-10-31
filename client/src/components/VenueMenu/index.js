@@ -88,14 +88,14 @@ export default function VenueMenu(props) {
 
 
   return (
-    <main className="layout">
+   
       <div>
         <section><NavigationBar /></section>
         <section><CoverPhoto /></section>
         <div className="conrinerforflex">
 
           <section><Sidebar /></section>
-          <div className="venueMenu-flex-col">
+          <div className ="line-fo-resizing-mune">
             {menuList}
             {mode === SHOW && <button type="submit" type="submit" className="btn btn-primary" onClick={() => transition(CREATE)}>Add New</button>}
 
@@ -112,6 +112,7 @@ export default function VenueMenu(props) {
 
         </div>
       </div>
-    </main>
+      
+  
   );
 }

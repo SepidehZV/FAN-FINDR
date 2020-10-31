@@ -8,7 +8,7 @@ export default function Address(props) {
   return (
     <div className="conrinerforPadding">
       <div class="col">
-        <div> Address </div>
+        <h3> Address </h3>
         <hr className="seprating" />
         {props.street || 'street'}, {props.city || 'city'},{props.province || 'province'}, {props.country || 'country'}, {props.venue_zip_code || 'zip_code'}
       </div>
