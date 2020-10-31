@@ -25,60 +25,60 @@ export default function Form (props) {
   };
 
   return(
-    <div class="formcontainer">
+    <div className="formcontainer">
     <form onSubmit={(event) => event.preventDefault()}>
       <h2>Edit Profile</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
+      <div className="row">
+        <div className="col-md-6">
+          <div className="form-group">
             <label for="first">First Name</label>
-            <input type="text" class="form-control" placeholder="" id="first" value={first_name} onChange={(e) => setFirstName(e.target.value)}/>
+            <input type="text" className="form-control" placeholder="" id="first" value={first_name} onChange={(e) => setFirstName(e.target.value)}/>
           </div>
         </div>
   
-        <div class="col-md-6">
-          <div class="form-group">
+        <div className="col-md-6">
+          <div className="form-group">
             <label for="last">Last Name</label>
-            <input type="text" class="form-control" placeholder="" id="last" value={last_name} onChange={(e) => setLastName(e.target.value)}/>
+            <input type="text" className="form-control" placeholder="" id="last" value={last_name} onChange={(e) => setLastName(e.target.value)}/>
           </div>
         </div>
       </div>
   
   
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
+      <div className="row">
+        <div className="col-md-6">
+          <div className="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" placeholder="" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
+            <input type="text" className="form-control" placeholder="" id="username" value={username} onChange={(e) => setUsername(e.target.value)}/>
           </div>
   
   
         </div>
   
-        <div class="col-md-6">
+        <div className="col-md-6">
   
-          <div class="form-group">
+          <div className="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input type="email" className="form-control" id="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
         </div>
       </div>
   
   
-      <div class="row">
-        <div class="col-md-6">
+      <div className="row">
+        <div className="col-md-6">
   
-          <div class="form-group">
+          <div className="form-group">
             <label for="zip-code">Zip-Code</label>
-            <input type="zip-code" class="form-control" id="zip-code" placeholder="zip-code" value={user_zip_code} onChange={(e) => setZipcode(e.target.value)}/>
+            <input type="zip-code" className="form-control" id="zip-code" placeholder="zip-code" value={user_zip_code} onChange={(e) => setZipcode(e.target.value)}/>
           </div>
         </div>
       </div>  
 
       {error && <Alert variant='danger'> {error} </Alert> }
 
-      <button type="submit" class="btn btn-primary" onClick={validate}>Save</button>
-      <button type="submit" class="btn btn-danger" >Cancel</button>
+      <button type="submit" className="btn btn-primary" onClick={validate}>Save</button>
+      <button type="submit" className="btn btn-danger" onClick={props.onCancel}>Cancel</button>
 
     </form>
   </div>

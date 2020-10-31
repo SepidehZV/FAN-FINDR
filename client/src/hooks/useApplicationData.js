@@ -28,6 +28,32 @@ const useApplicationData = () => {
       .then(res => setState(prev => ({...prev, user: updatedUser})))
   }
 
+  function editVenuePage (id,venue_name,
+    street, country, venue_zip_code , province ,
+    venue_description , phone,venue_email, capacity,
+    age_restriction, dress_code , categorie_name,city,venueObj, state) {
+    const updatedVenue = {...venueObj,venue_name,
+      street, country, venue_zip_code , province ,
+      venue_description , phone,venue_email, capacity,
+      age_restriction, dress_code , categorie_name,city };
+    const category_id = state.categories.filter(category => category.categorie_name === categorie_name).id;
+
+    return axios
+      .put(`http://localhost:3001/api/venues/${id}`,{venue_name,
+      street, country, venue_zip_code , province ,
+      venue_description , phone,venue_email, capacity,
+      age_restriction, dress_code , category_id,city})
+      .then(res => {
+        const newVenue = res.data[0];
+        const venues = [...state.venues];
+        venues[id] = newVenue;
+        setState(prev => ({...prev, venue: updatedVenue, venues}));
+      })
+     
+
+
+  }
+
   function addFav (event_id, state) {
     const newFavouriteEvent = {
       created_at: new Date().toLocaleString(),
@@ -64,10 +90,11 @@ const useApplicationData = () => {
       axios.get('http://localhost:3001/api/events'),
       axios.get('http://localhost:3001/api/venues'),
       axios.get('http://localhost:3001/api/users'),
-      axios.get('http://localhost:3001/api/menus')
+      axios.get('http://localhost:3001/api/menus'),
+      axios.get('http://localhost:3001/api/categories')
      
     ]).then(all => {
-      setState(prev => ({ ...prev, events: all[0].data, venues: all[1].data, users: all[2].data, menus: all[3].data }));   
+      setState(prev => ({ ...prev, events: all[0].data, venues: all[1].data, users: all[2].data, menus: all[3].data, categories:all[4].data}));   
     })
       .catch(err => {
         console.log(err)
@@ -81,7 +108,8 @@ const useApplicationData = () => {
     setState,
     editPatronProfile,
     addFav,
-    removeFav
+    removeFav,
+    editVenuePage
     
   };
 };

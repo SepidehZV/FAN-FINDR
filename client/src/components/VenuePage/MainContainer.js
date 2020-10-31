@@ -11,11 +11,15 @@ export default function MainContainer(props) {
   
   return (
     <div class="continerforbackgroundcolor">
+      <div className="editBtn">
+        <button type="submit" className="btn btn-primary" onClick={props.onEdit} >Edit</button>
+      </div>
       <div class="row1 mb-2">
         <div class="col-md-6">
           <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
            <VenueDescription venue_description={props.venue.venue_description} 
-           venue_name ={props.venue.venue_name}/>
+           venue_name ={props.venue.venue_name}
+           />
           </div>
         </div>
         <div class="col-md-6">

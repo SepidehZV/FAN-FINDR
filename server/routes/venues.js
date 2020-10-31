@@ -12,7 +12,9 @@ module.exports = ({ getVenues,
   getFavouritesEventsCountForDayByVenueId,
   deleteMenuItem, 
   addNewMenuItems,
-  eidtMenuItems}) => {
+  eidtMenuItems,
+  editHours,
+  editVenueById}) => {
 
   /* GET venues listing. */
   router.get('/', (req, res) => {
@@ -31,7 +33,17 @@ module.exports = ({ getVenues,
     addVenue(owner_id, venue_name, street,city, province,country,venue_zip_code)
       .then((venue) => res.json(venue))
       .catch((err) => res.json({ err }));
-  })
+  });
+
+  router.put('/:id', (req,res) => {
+    const {venue_name,street, country, venue_zip_code , province , venue_description , phone,venue_email, capacity, age_restriction, dress_code , category_id,city} = req.body;
+    console.log(req.body);
+    editVenueById(req.params.id,venue_name,street, country, venue_zip_code , province , venue_description , phone,venue_email, capacity, age_restriction, dress_code , category_id,city)
+      .then((venue) => {
+        //console.log(venue);
+        res.json(venue)})
+      .catch((err) => res.json({ err }));
+  });
   
   router.get('/:id/photos',(req,res) =>{
     getPhotos(req.params.id)
@@ -58,10 +70,10 @@ module.exports = ({ getVenues,
       .catch((err) => res.json({ err }));
   });
   router.post('/:id/menu', (req, res) => {
-    const {item_name, price,item_description,venue_id} = req.body;
+    const {item_name, price,item_description} = req.body;
     //console.log(req.body);
 
-    addNewMenuItems(item_name, price,item_description,venue_id ) 
+    addNewMenuItems(item_name, price,item_description,req.params.id ) 
       .then((menuItem) =>{ 
       console.log(menuItem);res.json(menuItem)})
       .catch((err) => res.json({ err }));
@@ -72,6 +84,13 @@ module.exports = ({ getVenues,
     .then((openinghours) => res.json(openinghours))
     .catch((err) => res.json({ err }));
   });
+  router.put('/:id/hours',(req,res)=>{
+    const{day,open_time,close_time} = req.body;
+    editHours(day,open_time,close_time,req.params.id)
+    .then ((newTime)=> res.json(newTime))
+    .catch((err) => res.json({err}));
+  });
+
   router.get('/:id/photos',(req,res) =>{
     getPhotos(req.params.id)
       .then((photos) => res.json(photos))

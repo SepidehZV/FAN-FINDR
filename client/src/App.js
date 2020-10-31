@@ -28,7 +28,12 @@ import PrivateRoute from './PrivateRoute';
 
 
 function App() {
-  const { state, setState, editPatronProfile, addFav, removeFav } = useApplicationData();
+  const { state,
+    setState,
+    editPatronProfile,
+    editVenuePage,
+    addFav,
+    removeFav } = useApplicationData();
 
 
   // const userList = state.users.map(user => (
@@ -37,19 +42,19 @@ function App() {
   //   </li>
   // ));
 
-  const venuesList = state.venues.map(venue => (
-    <p key={venue.id}>
-      {venue.description}
+  // const venuesList = state.venues.map(venue => (
+  //   <p key={venue.id}>
+  //     {venue.description}
 
-    </p>
-  ));
+  //   </p>
+  // ));
 
-  const venuesCapacity = state.venues.map(venue => (
-    <p key={venue.id}>
-      {venue.capacity}
+  // const venuesCapacity = state.venues.map(venue => (
+  //   <p key={venue.id}>
+  //     {venue.capacity}
 
-    </p>
-  ));
+  //   </p>
+  // ));
 
   return (
     <Router>
@@ -67,7 +72,7 @@ function App() {
           </Route>
           <PrivateRoute exact path='/'>
             {!state.user_type && <PatronMain addFav={addFav} removeFav={removeFav}/>}
-            {state.user_type && <VenuePage />}
+            {state.user_type && <VenuePage editVenuePage = {editVenuePage}/>}
           </PrivateRoute>
           <PrivateRoute path='/events'>
             <VenueEvents />

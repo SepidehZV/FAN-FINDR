@@ -464,8 +464,47 @@ module.exports = (db) => {
       .catch((err) => err);
 
   }
+  const editHours = (day,open_time,close_time,venue_id)=>{
+   
+    
+      const query = {
+        text: `UPDATE business_hours SET  open_time =$1 ,close_time = $2
+        WHERE venue_id = $3  AND day = $4 RETURNING *;`,
+        values: [open_time ,close_time, venue_id, day],
+      };
+      console.log(query);
+      return db
+        .query(query)
+        .then((result) => result.rows[0])
+        .catch((err) => console.log(err));
+
+  }
+
+  const editVenueById =(id,venue_name,street, country, venue_zip_code , province , venue_description , phone,venue_email, capacity, age_restriction, dress_code , category_id,city) =>{
+    const query ={
+      text:`UPDATE venues SET  venue_name = $1 ,street =$2, country=$3, venue_zip_code = $4, province = $5, venue_description =$6, phone= $7,venue_email=$8, capacity=$9, age_restriction= $10, dress_code =$11, category_id=$12, city= $13
+      WHERE id = $14 RETURNING *;`,
+      values : [venue_name,street, country, venue_zip_code , province , venue_description , phone,venue_email, capacity, age_restriction, dress_code , category_id,city,id],
+    }
+    
+      return db
+        .query(query)
+        .then((result) => result.rows[0])
+        .catch((err) => console.log(err));
+  }
+  const getCategories = () => {
+    const query = {
+      text: 'SELECT * FROM venue_categories;',
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
 
   return {
+    getCategories,
     getUsers,
     getUserByEmail,
     addUserPatron,
@@ -495,6 +534,8 @@ module.exports = (db) => {
     removeFavouriteEventById,
     deleteMenuItem,
     eidtMenuItems,
-    getAllMenues
+    getAllMenues,
+    editHours,
+    editVenueById
   };
 };

@@ -4,6 +4,7 @@ $whaitbackground :#ffff;
 
 .continerforbackgroundcolor{
   background-color: $lightgraybackground;
+  padding-top: 6%;
 }
 
 .row1{
@@ -78,4 +79,25 @@ $sidebar-background: #77828C;
 .conrinerforflex{
   display: flex;
   flex-direction: row;
+}
+
+
+
+
+.Venueformcontainer{
+
+  width: 500px;
+  position: absolute;
+  top: 52%;
+  left: 35%;
+
+}
+
+
+.editBtn{
+  position: absolute;
+  top:58%;
+  right:10%;
+  font-size: 16px;
+  padding: 15px 32px;
 }

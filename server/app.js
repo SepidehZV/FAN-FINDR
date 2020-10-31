@@ -18,6 +18,7 @@ const favouriteEventsRouter = require('./routes/favouriteEvents');
 const jwtAuthRouter = require("./routes/jwtAuth");
 const searchRouter = require('./routes/search');
 const menusRouter = require('./routes/menus');
+const categoriesRouter = require('./routes/categories');
 
 
 
@@ -51,7 +52,7 @@ app.use('/api/search',searchRouter(dbHelpers));
 //app.use('/api/login',loginRouter(dbHelpers));
 app.use('/api/menus', menusRouter(dbHelpers));
 app.use('/api/favouriteEvents',favouriteEventsRouter(dbHelpers));
-
+app.use('/api/categories', categoriesRouter(dbHelpers));
 
 
 app.use("/api/auth", jwtAuthRouter);
