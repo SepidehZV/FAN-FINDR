@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import './LogoPhoto.scss';
 import StateContext from '../StateContext';
 
 export default function LogoPhoto() {

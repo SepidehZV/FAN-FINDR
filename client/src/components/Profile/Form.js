@@ -76,10 +76,10 @@ export default function Form (props) {
       </div>  
 
       {error && <Alert variant='danger'> {error} </Alert> }
-
+      <div className="btn-patron-profile">
       <button type="submit" className="btn btn-primary" onClick={validate}>Save</button>
       <button type="submit" className="btn btn-danger" onClick={props.onCancel}>Cancel</button>
-
+      </div>
     </form>
   </div>
   )

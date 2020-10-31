@@ -47,7 +47,7 @@ export default function VenueMenu(props) {
         <div className="conrinerforflex">
 
           <section><Sidebar currentVenueId={id}/></section>
-          <div className ="venueMenu-flex-col">
+          <div className ="line-fo-resizing-mune">
           {menuList}
           
           </div>
