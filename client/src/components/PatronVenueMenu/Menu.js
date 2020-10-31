@@ -1,9 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import Show from './Show';
-import Empty from '../Empty';
-import Form from './Form';
-import Confirm from './Confirm';
-import useVisualMode from "../../hooks/useVisualMode";
+
 
 export default function Menu(props) {
   

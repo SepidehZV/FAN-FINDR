@@ -57,6 +57,7 @@ $spacing: 2rem;
 .button--confirm:hover {
   color: $white;
   background-color: $confirm-color;
+  justify-self: center;
 }
 
 .button:last-of-type {

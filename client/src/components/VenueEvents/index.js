@@ -1,6 +1,6 @@
 import React, {useContext}from 'react';
 import Event from './Event';
-import Empty from '../Empty';
+
 import Form from './Form';
 import Sidebar from '../Sidebar';
 import CoverPhoto from '../CoverPohto';
@@ -57,7 +57,7 @@ export default function VenueEvents(props) {
 
             {/* <Confirm />  */}
 
-            <Empty />
+            {/* <Empty /> */}
             {/* <Form /> */}
 
           </div>

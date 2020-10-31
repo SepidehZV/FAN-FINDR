@@ -63,16 +63,16 @@ module.exports = ({ getVenues,
   });
 
   router.put('/:venuId/menu/:id', (req, res) => {
-    const {id,item_name, price,item_description,venue_id} = req.body;
-    eidtMenuItems(id,item_name, price,item_description,venue_id) 
-      .then((menuItem) => {console.log(menuItem);
-        res.json(menuItem)})
+    const {item_name, price,item_description} = req.body;
+    eidtMenuItems(req.params.id,item_name, price,item_description,req.params.venuId) 
+      .then((menuItem) => 
+        res.json(menuItem))
       .catch((err) => res.json({ err }));
   });
+
   router.post('/:id/menu', (req, res) => {
     const {item_name, price,item_description} = req.body;
-    //console.log(req.body);
-
+    console.log(req.body);
     addNewMenuItems(item_name, price,item_description,req.params.id ) 
       .then((menuItem) =>{ 
       console.log(menuItem);res.json(menuItem)})
