@@ -46,7 +46,7 @@ export default function SignUp_Patron() {
 
       .catch(error => {
         setAlert('User already exists!');
-        console.log(error);
+        console.log(error.response.data);
 
       });
 
