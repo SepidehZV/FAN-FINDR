@@ -28,9 +28,18 @@ export default function FormVenue(props) {
       age_restriction, dress_code , categorie_name,city,state.venue, state);
   }
     return (
-        <div className="Venueformcontainer">
+      <div className ="line-fo-resizing-formvenue">
+           <div className="btn-submit1">
+      <button type="submit" className="btn btn-primary" onClick={handleSave} >Save</button>
+      </div>
+      <div className="btn-submit2">
+      <button type="submit" className="btn btn-danger" onClick={props.onCancel}>Cancel</button>
+      </div>
     <form >
       <h2>Edit Venue Profile</h2>
+     
+      <hr className="seprating" />
+
       <div className="row">
 
         <div className="col-md-6">
@@ -72,8 +81,8 @@ export default function FormVenue(props) {
       <div className="row">
         <div className="col-md-6">
           <div className="form-group">
+          <label for="categorie">Category</label>
           <select className=" form-control custom-select browser-default" value={categorie_name} onChange={(e) => setCategory(e.target.value)}  selected="selected">
-                    <option  >Category</option>                    
                     <option value="AB" >Sport Bar</option>
                     <option value="BC">hotel bar</option>
                     <option value="ON">bar and grille</option>
@@ -87,7 +96,7 @@ export default function FormVenue(props) {
         <div className="col-md-6">
           <div className="form-group">
             <label for="capacity">Capacity</label>
-            <input type="capacity" className="form-control" id="capacity" placeholder="capacity" value={capacity} onChange={(e) => setCapacity(e.target.value)} />
+            <input type="text" className="form-control" id="capacity" placeholder="capacity" value={capacity} onChange={(e) => setCapacity(e.target.value)} />
           </div>
         </div>
 
@@ -102,6 +111,7 @@ export default function FormVenue(props) {
   </div>
 </div>
 
+
 <div className="col-md-6">
   <div className="form-group">
     <label for="age">Age restriction</label>
@@ -114,16 +124,20 @@ export default function FormVenue(props) {
 <div className="row">
 
 <div className="col-md-6">
-<div className="form-label-group">
-                  <input type="Street" id="Street" className="form-control" placeholder="Street"  required  value={street} onChange={(e) => setStreet(e.target.value)}/>
-                  <label for="Street">Street</label>
-                </div>
+<div className="form-group">
+<label for="Street">Street</label>
+  <input type="text" id="Street" className="form-control" placeholder=""  required  value={street} onChange={(e) => setStreet(e.target.value)}/>
+    </div>
 </div>
 
+
+
+
+
 <div className="col-md-6">
-<div className="form-label-group">
-<input type="City" id="City" className="form-control" placeholder="City"  required  value={city} onChange={(e) => setCity(e.target.value)}/>
+<div className="form-group">
 <label for="City">City</label>
+<input type="text" id="City" className="form-control" placeholder="City"  required  value={city} onChange={(e) => setCity(e.target.value)}/>
 </div>
 </div>
 
@@ -136,8 +150,8 @@ export default function FormVenue(props) {
 
 <div className="col-md-6">
   <div className="form-group">
+  <label for="province">Province</label>
   <select className=" form-control custom-select browser-default" value={province} onChange={(e) => setProvince(e.target.value)} selected="selected">
-                    <option  >Province</option>                    
                     <option value="AB" >Alberta</option>
                     <option value="BC">British Columbia</option>
                     <option value="ON">Ontario</option>
@@ -148,8 +162,8 @@ export default function FormVenue(props) {
 
 <div className="col-md-6">
   <div className="form-group">
+  <label for="Country">Province</label>
   <select className=" form-control custom-select browser-default" value={country} onChange={(e) => setCountry(e.target.value)}>
-                    <option  >Country</option> 
                     <option value="Canada">Canada</option>
                   </select> 
   </div>
@@ -165,8 +179,8 @@ export default function FormVenue(props) {
 
 <div className="col-md-6">
 <div className="form-group">
-<input type="Zip-Code" id="Zip-Code" className="form-control" placeholder="Zip-Code"  required  value={venue_zip_code} onChange={(e) => setZipCode(e.target.value)}/>
-                  <label for="Zip-Code">Zip-Code</label>
+<label for="Zip-Code">Zip-Code</label>
+<input type="text" id="Zip-Code" className="form-control" placeholder="Zip-Code"  required  value={venue_zip_code} onChange={(e) => setZipCode(e.target.value)}/>
                 </div>
 </div>
 </div>
@@ -186,12 +200,12 @@ export default function FormVenue(props) {
 
 
 
-<div className="row">
 
-<div className="col-md-6">     
+<div className="busnisshours"> 
+<h5 >Business Hours</h5>
+<hr className="seprating" />
+
         <div className="col">
-          <div>Business Hours</div>
-          <hr classNameName="seprating" />
           <table className="table">
             <thead>
               <tr>
@@ -314,12 +328,10 @@ export default function FormVenue(props) {
 
         </div>
     </div>
-    </div>
-
-      <button type="submit" className="btn btn-primary" onClick={handleSave} >Save</button>
-      <button type="submit" className="btn btn-danger" onClick={props.onCancel}>Cancel</button>
+  
 
     </form>
+
   </div>
     )
 }

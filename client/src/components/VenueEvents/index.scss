@@ -27,10 +27,6 @@ $whaitbackground :#ffff;
   background-color: $whaitbackground;
 }
 
-.card{
-margin: 12px;
-width: 100%;
-}
 .edit-and-delete{
   display: flex;
   flex-direction: row;
@@ -65,11 +61,7 @@ padding-bottom: 20px;
   margin-left: 75%;
 }
 
-.sport-title{
-  position: absolute;
-  top:20%;
-  margin-left: 2.5%;
-}
+
 
 .time-title{
   position: absolute;
@@ -83,3 +75,5 @@ padding-bottom: 20px;
   flex-direction: row;
   justify-content: center;
 }
+
+

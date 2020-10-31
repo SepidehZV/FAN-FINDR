@@ -25,14 +25,13 @@ const VenueAnalytics = (props) => {
         <section><Sidebar /></section>
       
         <div className ="line-fo-resizing">
-        <div className="card" >
           <NumberOfFavouritesForDay venue_id={venueForUser.id} />
           <NumberOfFavouritesForEvent events={eventsForVenue} />
         </div>
         </div>
         
       </div>
-    </div>
+    
 
 
   );

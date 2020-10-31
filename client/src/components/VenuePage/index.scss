@@ -81,23 +81,83 @@ $sidebar-background: #77828C;
   flex-direction: row;
 }
 
-
+.busnisshours{
+padding-top: 30px;
+  margin-top: 40px;
+}
 
 
 .Venueformcontainer{
 
-  width: 500px;
+  width: 60%;
   position: absolute;
-  top: 52%;
-  left: 35%;
+  top: 62%;
+  left: 25%;
+}
+
+.profile-venue{
+
+ position: absolute;
+  top:60%;
+  left:20%;
+
 
 }
 
 
-.editBtn{
+.btn-edit-venue{
   position: absolute;
-  top:58%;
-  right:10%;
-  font-size: 16px;
-  padding: 15px 32px;
+  top:60%;
+  left:34%;
+  background-color: #1762A7;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+
+}
+
+.btn-edit-venue:hover{
+  background-color: #FF8A00 ;
+}
+
+.bi {
+  margin-block: 4px;
+  font-size: 22px;
+  margin: 2px;
+}
+
+.bi:hover {
+  fill: white;
+}
+
+
+.description-venue{
+  text-align: justify;
+
+}
+
+.btn-submit1{
+  position: absolute;
+  left:38%;
+  margin-top: 5px;
+  padding-bottom: 60px;
+
+}
+
+.btn-submit2{
+  position: absolute;
+  left:42%;
+  margin-top: 5px;
+  padding-bottom: 60px;
+
+}
+
+
+.line-fo-resizing-formvenue{
+  padding-top: 4%;
+  width: 70%;
+  margin-left: 4%;
 }

@@ -10,20 +10,24 @@ export default function MainContainer(props) {
   //if the user_tpe
   
   return (
-    <div class="continerforbackgroundcolor">
-      <div className="editBtn">
-        <button type="submit" className="btn btn-primary" onClick={props.onEdit} >Edit</button>
-      </div>
-      <div class="row1 mb-2">
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+    <div className="continerforbackgroundcolor">
+      <div>
+      <h1 className="profile-venue">Venue Profile</h1>
+      <button type="button" className="btn-edit-venue " onClick={props.onEdit} ><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+</svg>Edit</button></div>
+
+      <div className="row1 mb-2">
+        <div className="col-md-6">
+          <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
            <VenueDescription venue_description={props.venue.venue_description} 
            venue_name ={props.venue.venue_name}
            />
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div className="col-md-6">
+          <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <Info capacity={props.venue.capacity}
               categorie_name={props.venue.categorie_name}
               age_restriction={props.venue.age_restriction}
@@ -34,21 +38,21 @@ export default function MainContainer(props) {
         </div>
       </div>
 
-      <div class="row1 mb-2">
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div className="row1 mb-2">
+        <div className="col-md-6">
+          <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <BussniessHours hours={props.hours}/>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div className="col-md-6">
+          <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <Photos photos = {props.photos}/>
           </div>
         </div>
       </div>
-      <div class="row1 mb-1">
-        <div class="col-md-12">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div className="row1 mb-1">
+        <div className="col-md-12">
+          <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <Address 
             street={props.venue.street}
             country ={props.venue.country}
