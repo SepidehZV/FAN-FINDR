@@ -4,14 +4,16 @@ $whaitbackground :#ffff;
 
 .continerforbackgroundcolor{
   background-color: $lightgraybackground;
+  padding-top: 1%;
+
 }
 
-.row1{
-  padding-left: 2rem;
-  padding-top: 2rem;
-  padding-right: 2rem;
-  display: flex;
-}
+// .row1{
+//   padding-left: 2rem;
+//   padding-top: 2rem;
+//   padding-right: 2rem;
+//   display: flex;
+// }
 .seprating{
   width: 100%;
   border-color: $orange-color;

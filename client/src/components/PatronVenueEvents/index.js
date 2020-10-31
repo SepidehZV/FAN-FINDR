@@ -21,9 +21,11 @@ export default function VenueEvents(props) {
           <div className="conrinerforflex">
 
             <Sidebar currentVenueId={id}/>
+            <div className ="line-fo-resizing-mune">
+
             <EventList events={events}/>
 
-            
+            </div>
 
             
 

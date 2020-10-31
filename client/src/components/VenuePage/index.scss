@@ -4,15 +4,15 @@ $whaitbackground :#ffff;
 
 .continerforbackgroundcolor{
   background-color: $lightgraybackground;
-  padding-top: 6%;
+  padding-top: 1%;
 }
 
-.row1{
-  padding-left: 2rem;
-  padding-top: 2rem;
-  padding-right: 2rem;
-  display: flex;
-}
+// .row1{
+//   padding-left: 2rem;
+//   padding-top: 2rem;
+//   padding-right: 2rem;
+//   display: flex;
+// }
 .seprating{
   width: 100%;
   border-color: $orange-color;
@@ -25,6 +25,27 @@ $whaitbackground :#ffff;
   width: 100%;
   background-color: $whaitbackground;
 }
+
+.conrinerPadding{
+  padding-left: 0;
+  padding-top: 2rem;
+  padding-right: 0;
+  padding-bottom: 1rem;
+  width: 100%;
+}
+
+
+.conrinerPaddingbtn{
+  left: 4%;
+  padding-left: 0;
+  padding-top: 2rem;
+  padding-right: 0;
+  padding-bottom: 1rem;
+  width: 100%;
+}
+
+
+
 
 
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
@@ -87,41 +108,7 @@ padding-top: 30px;
 }
 
 
-.Venueformcontainer{
 
-  width: 60%;
-  position: absolute;
-  top: 62%;
-  left: 25%;
-}
-
-.profile-venue{
-
- position: absolute;
-  top:60%;
-  left:20%;
-
-
-}
-
-
-.btn-edit-venue{
-  position: absolute;
-  top:60%;
-  left:34%;
-  background-color: #1762A7;
-  border: none;
-  color: white;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 22px;
-
-}
-
-.btn-edit-venue:hover{
-  background-color: #FF8A00 ;
-}
 
 .bi {
   margin-block: 4px;
@@ -157,7 +144,7 @@ padding-top: 30px;
 
 
 .line-fo-resizing-formvenue{
-  padding-top: 4%;
+  padding-top: 0%;
   width: 70%;
   margin-left: 4%;
 }

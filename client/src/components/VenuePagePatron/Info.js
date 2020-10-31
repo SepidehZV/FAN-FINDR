@@ -5,7 +5,7 @@ function Info(props) {
   return (
     <div className="conrinerforPadding">
       <div class="col">
-        <div>Info</div>
+        <h3>Info</h3>
         <hr className="seprating" />
         <table class="table">
           <thead>

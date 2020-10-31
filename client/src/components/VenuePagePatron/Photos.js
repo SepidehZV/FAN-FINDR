@@ -16,7 +16,7 @@ function Photos(props) {
 
 		<div className="conrinerforPadding">
 			<div class="col">
-				<div>Photos</div>
+				<h3>Photos</h3>
 				<hr className="seprating" />
 				<div class="row text-center text-lg-left">
 					{photos}
