@@ -33,8 +33,10 @@ export default function Favourites(props) {
         <div>
             <NavigationBar />
             <CoverPhoto  />
-            
+            <div className=" favourite-events">
             {eventList}
+            </div>
+            
         </div>
     )
 }

@@ -7,11 +7,15 @@ function PatronInfo(props) {
   const state = useContext(StateContext);
 
   return (
+    <>
+    <button type="submit" class="btn edit-avatar " onClick={props.onEditAvatar} >Edit</button>
     <div className="container-patron">
+      
     <div class="row">
+    
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
-        <span class="text-muted">My Profile</span>      <button type="submit" class="btn btn-primary" onClick={props.onEdit} >Edit</button>
+        <span class="text-muted">My Profile</span>      <button type="submit" class="btn edit-info-btn" onClick={props.onEdit} >Edit</button>
 
       </h4>
       <hr className="seprating" />
@@ -64,7 +68,7 @@ function PatronInfo(props) {
 
       </div>
       </div>
-
+    </>
 
   )
 

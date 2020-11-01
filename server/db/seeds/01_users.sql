@@ -16,7 +16,7 @@ VALUES
     'MariB',
     'mario@nintendo.com',
     '',
-    'https://i.imgur.com/LpaY82x.png',
+    'images/avatars/avatar-4.png',
     true,
     '$2b$10$MhKTEmeJTB/Q2YbqLd7uXejgByEuIBb7p0Gy4huu6ktKLNZl38JxC'
   ),
@@ -26,7 +26,7 @@ VALUES
     'LuiB',
     'luigi@nintendo.com',
     'K2P 1L8',
-    'https://i.imgur.com/Nmx0Qxo.png',
+    'images/avatars/avatar-1.png',
     false,
     '$2b$10$MhKTEmeJTB/Q2YbqLd7uXejgByEuIBb7p0Gy4huu6ktKLNZl38JxC'
   ),
@@ -36,17 +36,17 @@ VALUES
     'PriP',
     'peach@nintendo.com',
     '',
-    'https://i.imgur.com/T2WwVfS.png',
+    'images/avatars/avatar-3.png',
     true,
     '$2b$10$MhKTEmeJTB/Q2YbqLd7uXejgByEuIBb7p0Gy4huu6ktKLNZl38JxC'
   ),
   (
     'Princess',
     'Daisy',
-    'Pdaisy',
+    'Daisy',
     'daisy@nintendo.com',
     'K1N 9J7',
-    'https://i.imgur.com/FK8V841.jpg',
+    'images/avatars/avatar-2.png',
     false,
     '$2b$10$MhKTEmeJTB/Q2YbqLd7uXejgByEuIBb7p0Gy4huu6ktKLNZl38JxC'
 
@@ -56,7 +56,7 @@ VALUES
   'DonK',
   'donkey@nintendo.com',
   '',
-  'https://i.imgur.com/twYrpay.jpg',
+  'images/avatars/avatar-5.png',
   true,
   '$2b$10$MhKTEmeJTB/Q2YbqLd7uXejgByEuIBb7p0Gy4huu6ktKLNZl38JxC'
   );

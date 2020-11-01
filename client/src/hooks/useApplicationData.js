@@ -37,6 +37,7 @@ const useApplicationData = () => {
       email,
       user_zip_code,
     };
+    const avatar_url = userObj.avatar_url;
     return axios
       .put(`http://localhost:3001/api/users/${id}`, {
         first_name,
@@ -44,8 +45,16 @@ const useApplicationData = () => {
         username,
         email,
         user_zip_code,
+        avatar_url
       })
       .then((res) => setState((prev) => ({ ...prev, user: updatedUser })));
+  }
+  function editPatronAvatar (avatar_url, state) {
+    const updatedUser = {...state.user, avatar_url};
+    return axios
+      .put(`http://localhost:3001/api/users/${state.user.id}`, {...updatedUser})
+      .then(res => setState(prev => ({...prev, user: updatedUser})))
+
   }
 
   function editVenuePage(
@@ -186,6 +195,8 @@ const useApplicationData = () => {
     addFav,
     removeFav,
     editVenuePage,
+    editPatronAvatar
+    
   };
 };
 
