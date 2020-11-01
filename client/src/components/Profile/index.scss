@@ -59,6 +59,13 @@
   }
   .edit-avatar{
     position: absolute;
-    left: 20%;
-    top: 48%;
+    left: 13%;
+    top: 50%;
+    z-index: 10;
+    background-color:  #1762A7;
+    color: white;
+  }
+  .edit-info-btn {
+    background-color:  #1762A7;
+    color: white;
   }
