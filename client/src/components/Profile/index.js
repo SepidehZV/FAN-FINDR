@@ -10,7 +10,7 @@ import PatronInfo from './PatronInfo';
 import Form from './Form';
 import Status from './Status';
 import Error from './Error';
-
+import Avatar from './Avatar';
 const SHOW = "SHOW";
 const EDIT = "EDIT";
 const SAVING = "SAVING";
@@ -46,6 +46,7 @@ export default function PatronProfile(props) {
       {mode === SAVING && <Status message='Saving'/>}
       {mode === EDIT && <Form onSave={ save } onCancel={() => back()}/>}
       {mode === ERROR_SAVE && <Error message={"Could not save the changes"} onClose={() => back()} />}
+      <Avatar/>
     </div>
 
     
