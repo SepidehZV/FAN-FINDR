@@ -87,7 +87,7 @@ function App() {
             <VenuePagePatron />
           </PrivateRoute>
           <PrivateRoute path='/venues/:id/events'>
-            <PatronVenueEvents />
+            <PatronVenueEvents addFav={addFav} removeFav={removeFav}/>
           </PrivateRoute>
 
           <PrivateRoute path='/venues/:id/menu'>

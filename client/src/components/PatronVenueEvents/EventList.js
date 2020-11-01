@@ -16,6 +16,8 @@ export default function EventList(props) {
       team_logo_url={event.team_logo_url}
       start_date ={event.start_date}
       sport_name={event.sport_name}
+      addFav={props.addFav}
+      removeFav={props.removeFav}
       
       />)
     

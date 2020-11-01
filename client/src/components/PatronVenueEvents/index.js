@@ -24,7 +24,7 @@ export default function VenueEvents(props) {
             <Sidebar currentVenueId={id}/>
             <div className ="line-fo-resizing-mune">
 
-            <EventList events={events}/>
+            <EventList events={events} addFav={props.addFav} removeFav={props.removeFav}/>
 
             </div>
 
