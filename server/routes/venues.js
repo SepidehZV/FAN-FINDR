@@ -15,7 +15,9 @@ module.exports = ({ getVenues,
   eidtMenuItems,
   editHours,
   editVenueById,
-  deleteEvent}) => {
+  deleteEvent,
+  editEvent,
+  addNewEvent}) => {
 
   /* GET venues listing. */
   router.get('/', (req, res) => {
@@ -105,11 +107,28 @@ module.exports = ({ getVenues,
       console.log(req.params.id)
   });
   router.delete('/:venueId/event/:eventId',(req,res) =>{
-    deleteEvent(req.params.eventId , req.params.venuId)
+    deleteEvent(req.params.eventId , req.params.venueId)
       .then((event) => res.json(event))
       .catch((err) => res.json({ err }));
   });
-  
+
+  router.put('/:venueId/event/:eventId',(req,res) =>{
+    const {event_name ,event_description ,offers , team_id} = req.body;
+    console.log(req.body)
+    editEvent(event_name ,event_description ,offers , team_id,
+      req.params.venueId,req.params.eventId)
+      .then((event) => res.json(event))
+      .catch((err) =>{console.log(err);
+        res.json({ err })});
+  });
+
+  router.post('/:venueId/event',(req,res) =>{
+    const {event_name, event_description, offers, team_id} = req.body;
+    console.log(req.body)
+    addNewEvent(event_name, event_description, offers,team_id,req.params.venueId)
+      .then((event) => res.json(event))
+      .catch((err) => res.json({ err }));
+  });
 
   return router;
 };

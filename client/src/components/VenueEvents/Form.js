@@ -1,37 +1,164 @@
-import React from 'react'
+import React, { useContext, useState } from "react";
+import useSportTeam from "../../hooks/useSportTeam";
+import StateContext from "../../StateContext";
 
 export default function Form(props) {
-  return (
+  // const { stateSportTeam } = useSportTeam();
+  const state = useContext(StateContext);
+  const [event_name, setEventName] = useState(props.event_name);
+  const [event_description, setEventDescription] = useState(
+    props.event_description
+  );
+  const { stateSportTeam } = useSportTeam();
+  console.log("render");
+  const [offers, setOffers] = useState(props.offers);
+  const [selectedTeamId, setSelectedTeamId] = useState(props.team_id);
+  // const [sportTeams, setSportTeams] = useState([]);
+  // const teams =[
+  //   {
+  //     "id": 1,
+  //     "team_name": "NBA",
+  //     "team_logo_url": "https://theundefeated.com/wp-content/uploads/2017/06/nbalogo.jpg?w=700",
+  //     "sport_id": 2
+  //   },
+  //   {
+  //     "id": 2,
+  //     "team_name": "Los Angeles Lakers",
+  //     "team_logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Los_Angeles_Lakers_logo.svg/330px-Los_Angeles_Lakers_logo.svg.png",
+  //     "sport_id": 2
+  //   }
+  // ]
 
+  const teamList = stateSportTeam.teams.map((team) => (
+    <li
+      class="dropdown-item"
+      key={team.team_name}
+      team_id={team.id}
+      onClick={() => setSelectedTeamId(team.id)}
+    >
+      {team.team_name}
+    </li>
+  ));
+
+  return (
     <div className="row1">
-      <div className="card" >
-        <img src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-23-at-12.25.25-AM.png" alt="Avatar" className="avatar" />
-        <div className="sport_name">
-          <h1 className="sport-title" ><input placeholder="enter the event name"></input></h1>
-          <h5 className="time-title"></h5>
-        </div>
-        <img className="card-img-top" src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png" alt="Card image cap" />
+      <div className="card">
+        <img
+          className="card-img-top"
+          src="https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"
+          alt="Card image cap"
+        />
         <div className="card-body">
-          <div className="edit-and-delete" >
-            <div><h5 className="card-title"><input placeholder="enter the team name" /></h5></div>
-            <div className="edit-and-delete">
-              <div className="delete" ><i class="far fa-save"></i> Save </div>
+          <div className="col-md-6">
+            <div className="form-group">
+              <label for="VenueName">Game Name</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder=" Game Name"
+                value={event_name}
+                onChange={(e) => setEventName(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="form-group">
+              <label for="VenueName">Description</label>
+              <input
+                type="text"
+                className="form-control"
+                laceholder="item_description"
+                value={event_description}
+                onChange={(e) => setEventDescription(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="form-group">
+              <label for="VenueName">Offers</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Offers if any"
+                value={offers}
+                onChange={(e) => setOffers(e.target.value)}
+              />
             </div>
           </div>
 
-          <hr className="seprating" />
-          <p className="card-text"><input placeholder="enter the descrption " /></p>
+          <div className="col-md-6">
+            <div className="form-group">
+              <div class="dropdown">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="dropdownMenuButton"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  choose Team
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  {teamList}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="card-body">
+            <div className="edit-and-delete">
+              <div
+                className="save"
+                onClick={() => {
+                  props.onSave(
+                    event_name,
+                    event_description,
+                    offers,
+                    selectedTeamId,
+                    props.venue_id,
+                    props.id
+                  );
+                  props.transition("SHOW");
+                }}
+              >
+                <svg
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  class="bi bi-check-circle"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.236.236 0 0 1 .02-.022z"
+                  />
+                </svg>{" "}
+              </div>
+              <div className="canel" onClick={() => props.onCancel()}>
+                <svg
+                  width="1em"
+                  height="1em"
+                  viewBox="0 0 16 16"
+                  class="bi bi-arrow-right-circle-fill"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-11.5.5a.5.5 0 0 1 0-1h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
         </div>
-        <table class="table">
-          <tr>
-            <th >hosted by</th>
-            <th >offer</th>
-          </tr>
-          <th >Resturant Name</th>
-          <th ><input placeholder="enter the offer if any" /></th>
-        </table>
       </div>
     </div>
-
   );
 }

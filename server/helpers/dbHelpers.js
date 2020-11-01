@@ -1,10 +1,10 @@
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 module.exports = (db) => {
   const getUsers = () => {
     const query = {
-      text: 'SELECT * FROM users',
+      text: "SELECT * FROM users",
     };
 
     return db
@@ -17,7 +17,7 @@ module.exports = (db) => {
     const query = {
       text: `SELECT * FROM users
              WHERE id = $1`,
-      values: [id]
+      values: [id],
     };
 
     return db
@@ -38,23 +38,27 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-  const editUserById = (id, first_name,last_name, username, email, user_zip_code) => {
-    
+  const editUserById = (
+    id,
+    first_name,
+    last_name,
+    username,
+    email,
+    user_zip_code
+  ) => {
     const query = {
       text: `UPDATE users SET first_name = $1,last_name = $2,username = $3,
         email = $4,user_zip_code = $5
         WHERE id = $6  RETURNING *`,
-      values: [first_name,last_name,username,email,user_zip_code, id],
+      values: [first_name, last_name, username, email, user_zip_code, id],
     };
     console.log(query);
     return db
       .query(query)
       .then((result) => result.rows[0])
       .catch((err) => console.log(err));
+  };
 
-  }
-
-  
   const addUserOwner = (first_name, last_name, username, email, password) => {
     const query = {
       text: `INSERT INTO
@@ -66,16 +70,29 @@ module.exports = (db) => {
         )
         RETURNING id;`,
 
-      values: [first_name, last_name, username, email, bcrypt.hashSync(password, saltRounds)],
+      values: [
+        first_name,
+        last_name,
+        username,
+        email,
+        bcrypt.hashSync(password, saltRounds),
+      ],
     };
     return db
       .query(query)
       .then((result) => result.rows)
       .catch((err) => err);
-
   };
 
-  const addVenue = (owner_id, venue_name, street, city, province, country, venue_zip_code) => {
+  const addVenue = (
+    owner_id,
+    venue_name,
+    street,
+    city,
+    province,
+    country,
+    venue_zip_code
+  ) => {
     const query = {
       text: `INSERT INTO
       venues (
@@ -92,31 +109,44 @@ module.exports = (db) => {
         $1,$2,$3,$4,$5,$6,$7
       )
              RETURNING *`,
-      values: [owner_id, venue_name, street, city, province, country, venue_zip_code],
+      values: [
+        owner_id,
+        venue_name,
+        street,
+        city,
+        province,
+        country,
+        venue_zip_code,
+      ],
     };
 
     return db
       .query(query)
       .then((result) => result.rows)
       .catch((err) => err);
-
-  }
-  const addNewEvent = (event_name, event_description, offers, start_date, end_date,venue_id, team_id) => {
+  };
+  const addNewEvent = (
+    event_name,
+    event_description,
+    offers,
+    team_id,
+    venue_id
+  ) => {
     const query = {
       text: `INSERT INTO
-      events ( event_name, event_description, offers, start_date, end_date, venue_id, team_id )
+      events ( event_name, event_description, offers, team_id,venue_id)
       VALUES
-      ($1, $2, $3, $4,$5,$6,$7)
+      ($1, $2, $3, $4,$5)
       RETURNING *;`,
 
-      values: [event_name, event_description, offers, start_date, end_date,venue_id, team_id],
+      values: [event_name, event_description, offers, team_id, venue_id],
     };
     return db
       .query(query)
-      .then((result) => result.rows)
+      .then((result) => result.rows[0])
       .catch((err) => err);
-
   };
+
   const addNewPhoto = (photo_url, venue_id) => {
     const query = {
       text: `IINSERT INTO
@@ -132,9 +162,8 @@ module.exports = (db) => {
       .query(query)
       .then((result) => result.rows)
       .catch((err) => err);
-
   };
-  const addNewMenuItems = (item_name, price,item_description,venue_id) => {
+  const addNewMenuItems = (item_name, price, item_description, venue_id) => {
     const query = {
       text: `INSERT INTO
       menu_items
@@ -145,29 +174,27 @@ module.exports = (db) => {
       ( $1, $2, $3, $4 )
       RETURNING *;`,
 
-      values: [item_name, price,item_description,venue_id],
+      values: [item_name, price, item_description, venue_id],
     };
     return db
       .query(query)
       .then((result) => result.rows)
       .catch((err) => err);
-
   };
-  const eidtMenuItems = (id,item_name, price,item_description,venue_id) =>{
+  const eidtMenuItems = (id, item_name, price, item_description, venue_id) => {
     const query = {
       text: `UPDATE menu_items 
       SET item_name = $1, price= $2, item_description = $3
               WHERE id = $4 AND venue_id = $5  RETURNING *;`,
 
-      values: [item_name, price,item_description,id,venue_id],
+      values: [item_name, price, item_description, id, venue_id],
     };
     return db
       .query(query)
       .then((result) => result.rows[0])
       .catch((err) => err);
-
   };
-  const addNewFavouriteEvent = (user_id, event_id,created_at) => {
+  const addNewFavouriteEvent = (user_id, event_id, created_at) => {
     const query = {
       text: `INSERT INTO
       favourite_events
@@ -180,13 +207,12 @@ module.exports = (db) => {
     ($1,$2,$3)
       RETURNING *;`,
 
-      values: [user_id, event_id,created_at],
+      values: [user_id, event_id, created_at],
     };
     return db
       .query(query)
       .then((result) => result.rows)
       .catch((err) => err);
-
   };
 
   const getBussniessHours = (venue_id) => {
@@ -258,7 +284,14 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-  const addUserPatron = (first_name, last_name, username, email, user_zip_code, password) => {
+  const addUserPatron = (
+    first_name,
+    last_name,
+    username,
+    email,
+    user_zip_code,
+    password
+  ) => {
     const query = {
       text: `INSERT INTO
       users(first_name,last_name,username,email, user_zip_code, user_type,password)
@@ -267,7 +300,14 @@ module.exports = (db) => {
         $1,$2,$3,$4,$5,false,$6
       )
              RETURNING *`,
-      values: [first_name, last_name, username, email, user_zip_code, bcrypt.hashSync(password, saltRounds)],
+      values: [
+        first_name,
+        last_name,
+        username,
+        email,
+        user_zip_code,
+        bcrypt.hashSync(password, saltRounds),
+      ],
     };
 
     return db
@@ -288,8 +328,7 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-
-  const getVenueById =(id) =>{
+  const getVenueById = (id) => {
     const query = {
       text: `SELECT
       venues.id
@@ -313,7 +352,7 @@ module.exports = (db) => {
    JOIN venue_categories ON venue_categories.id = venues.category_id
       WHERE venues.id = $1
       GROUP BY venues.id, venue_categories.categorie_name;`,
-      values :[id],
+      values: [id],
     };
 
     return db
@@ -323,7 +362,7 @@ module.exports = (db) => {
   };
   const getVenues = () => {
     const query = {
-      text: 'SELECT * FROM venues;',
+      text: "SELECT * FROM venues;",
     };
 
     return db
@@ -347,10 +386,10 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-  const deleteEvent = (id,venuId) =>{
+  const deleteEvent = (id, venuId) => {
     const query = {
       text: `DELETE FROM events WHERE id = $1 AND venue_id = $2 ;`,
-      values: [id,venuId],
+      values: [id, venuId],
     };
 
     return db
@@ -358,10 +397,43 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
-  const deleteMenuItem = (id,venuId) =>{
+
+  const editEvent = (
+    event_name,
+    event_description,
+    offers,
+    team_id,
+    venue_id,
+    eventId
+  ) => {
+    const query = {
+      text: `UPDATE events 
+      SET  
+      event_name = $1,
+      event_description = $2,
+      offers =$3,
+      team_id =$4
+      WHERE venue_id = $5  AND id = $6 RETURNING *;`,
+      values: [
+        event_name,
+        event_description,
+        offers,
+        team_id,
+        venue_id,
+        eventId
+      ],
+    };
+    console.log(query);
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => console.log(err));
+  };
+
+  const deleteMenuItem = (id, venuId) => {
     const query = {
       text: `DELETE FROM menu_items WHERE id = $1 AND venue_id = $2 ;`,
-      values: [id,venuId],
+      values: [id, venuId],
     };
 
     return db
@@ -372,7 +444,7 @@ module.exports = (db) => {
 
   const getSports = () => {
     const query = {
-      text: 'SELECT * FROM sports',
+      text: "SELECT * FROM sports",
     };
 
     return db
@@ -383,7 +455,7 @@ module.exports = (db) => {
 
   const getTeams = () => {
     const query = {
-      text: 'SELECT * FROM teams',
+      text: "SELECT * FROM teams",
     };
 
     return db
@@ -391,11 +463,11 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
-  const getFavouritesEventsByUserId = (id) =>{
+  const getFavouritesEventsByUserId = (id) => {
     const query = {
       text: `SELECT * FROM favourite_events 
       WHERE user_id = $1;`,
-      values: [id]
+      values: [id],
     };
 
     return db
@@ -408,15 +480,15 @@ module.exports = (db) => {
     const query = {
       text: `DELETE * FROM favourite_events 
       WHERE id = $1;`,
-      values: [id]
+      values: [id],
     };
 
     return db
       .query(query)
       .then((result) => result.rows)
       .catch((err) => err);
-  }
-  const getFavouritesEventsCountForDayByVenueId = (venue_id) =>{
+  };
+  const getFavouritesEventsCountForDayByVenueId = (venue_id) => {
     const query = {
       text: `SELECT count(*) as  favourites_number , venues.id as venue_id , created_at::date as day
       FROM favourite_events 
@@ -432,7 +504,7 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
-  const getEventFavForDayByEventId =(event_id)=>{
+  const getEventFavForDayByEventId = (event_id) => {
     const query = {
       text: `SELECT count(*) as  favourites_number , events. event_name as events_name , created_at::date as day
       FROM favourite_events 
@@ -448,11 +520,11 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
-  const addSport = (sport_name,photo_url) => {
+  const addSport = (sport_name, photo_url) => {
     const query = {
       text: `INSERT INTO sports (sport_name,photo_url) 
         VALUES ($1, $2) RETURNING *`,
-      values: [sport_name,photo_url],
+      values: [sport_name, photo_url],
     };
 
     return db
@@ -461,7 +533,7 @@ module.exports = (db) => {
       .catch((err) => err);
   };
 
-  const searchForEvent = (name)=>{
+  const searchForEvent = (name) => {
     const query = {
       text: `SELECT events.id, teams.team_name, teams.team_logo_url, events.offers, events.start_date, events.end_date, events.venue_id, events.event_description, events.team_id, venue_name, venue_logo_url,sport_name
       FROM sports 
@@ -476,39 +548,65 @@ module.exports = (db) => {
       .query(query)
       .then((result) => result.rows)
       .catch((err) => err);
-
-  }
-  const editHours = (day,open_time,close_time,venue_id)=>{
-   
-    
-      const query = {
-        text: `UPDATE business_hours SET  open_time =$1 ,close_time = $2
+  };
+  const editHours = (day, open_time, close_time, venue_id) => {
+    const query = {
+      text: `UPDATE business_hours SET  open_time =$1 ,close_time = $2
         WHERE venue_id = $3  AND day = $4 RETURNING *;`,
-        values: [open_time ,close_time, venue_id, day],
-      };
-      console.log(query);
-      return db
-        .query(query)
-        .then((result) => result.rows[0])
-        .catch((err) => console.log(err));
+      values: [open_time, close_time, venue_id, day],
+    };
+    console.log(query);
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => console.log(err));
+  };
 
-  }
-
-  const editVenueById =(id,venue_name,street, country, venue_zip_code , province , venue_description , phone,venue_email, capacity, age_restriction, dress_code , category_id,city) =>{
-    const query ={
-      text:`UPDATE venues SET  venue_name = $1 ,street =$2, country=$3, venue_zip_code = $4, province = $5, venue_description =$6, phone= $7,venue_email=$8, capacity=$9, age_restriction= $10, dress_code =$11, category_id=$12, city= $13
+  const editVenueById = (
+    id,
+    venue_name,
+    street,
+    country,
+    venue_zip_code,
+    province,
+    venue_description,
+    phone,
+    venue_email,
+    capacity,
+    age_restriction,
+    dress_code,
+    category_id,
+    city
+  ) => {
+    const query = {
+      text: `UPDATE venues SET  venue_name = $1 ,street =$2, country=$3, venue_zip_code = $4, province = $5, venue_description =$6, phone= $7,venue_email=$8, capacity=$9, age_restriction= $10, dress_code =$11, category_id=$12, city= $13
       WHERE id = $14 RETURNING *;`,
-      values : [venue_name,street, country, venue_zip_code , province , venue_description , phone,venue_email, capacity, age_restriction, dress_code , category_id,city,id],
-    }
-    
-      return db
-        .query(query)
-        .then((result) => result.rows[0])
-        .catch((err) => console.log(err));
-  }
+      values: [
+        venue_name,
+        street,
+        country,
+        venue_zip_code,
+        province,
+        venue_description,
+        phone,
+        venue_email,
+        capacity,
+        age_restriction,
+        dress_code,
+        category_id,
+        city,
+        id,
+      ],
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows[0])
+      .catch((err) => console.log(err));
+  };
   const getCategories = () => {
     const query = {
-      text: 'SELECT * FROM venue_categories;',
+      text: "SELECT * FROM venue_categories;",
     };
 
     return db
@@ -551,6 +649,7 @@ module.exports = (db) => {
     getAllMenues,
     editHours,
     editVenueById,
-    deleteEvent
+    deleteEvent,
+    editEvent,
   };
 };
