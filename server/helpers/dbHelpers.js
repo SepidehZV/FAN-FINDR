@@ -333,7 +333,7 @@ module.exports = (db) => {
   };
   const getEvents = () => {
     const query = {
-      text: `SELECT events.id, events.event_name, teams.team_name, teams.team_logo_url, events.offers, events.start_date :: date, events.end_date :: date, events.venue_id, events.event_description, events.team_id,venues.venue_name ,sport_name
+      text: `SELECT events.id, events.event_name, teams.team_name, teams.team_logo_url, events.offers, events.start_date :: date, events.end_date :: date, events.venue_id, events.event_description, events.team_id,venues.venue_name ,sport_name , venues.venue_logo_url
       FROM events
       JOIN teams ON teams.id = team_id
       JOIN venues ON events.venue_id = venues.id
