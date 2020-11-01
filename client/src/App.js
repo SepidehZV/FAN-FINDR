@@ -95,7 +95,7 @@ function App() {
           </PrivateRoute>
 
           <PrivateRoute path='/favourites'>
-            <Favourites />
+            <Favourites addFav={addFav} removeFav={removeFav}/>
           </PrivateRoute>
           <PrivateRoute path='/profile'>
             <Profile editPatronProfile = {editPatronProfile} />
