@@ -346,6 +346,18 @@ module.exports = (db) => {
       .then((result) => result.rows)
       .catch((err) => err);
   };
+
+  const deleteEvent = (id,venuId) =>{
+    const query = {
+      text: `DELETE FROM events WHERE id = $1 AND venue_id = $2 ;`,
+      values: [id,venuId],
+    };
+
+    return db
+      .query(query)
+      .then((result) => result.rows)
+      .catch((err) => err);
+  };
   const deleteMenuItem = (id,venuId) =>{
     const query = {
       text: `DELETE FROM menu_items WHERE id = $1 AND venue_id = $2 ;`,
@@ -538,6 +550,7 @@ module.exports = (db) => {
     eidtMenuItems,
     getAllMenues,
     editHours,
-    editVenueById
+    editVenueById,
+    deleteEvent
   };
 };

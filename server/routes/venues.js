@@ -14,7 +14,8 @@ module.exports = ({ getVenues,
   addNewMenuItems,
   eidtMenuItems,
   editHours,
-  editVenueById}) => {
+  editVenueById,
+  deleteEvent}) => {
 
   /* GET venues listing. */
   router.get('/', (req, res) => {
@@ -81,14 +82,14 @@ module.exports = ({ getVenues,
 
   router.get('/:id/hours',(req,res) =>{
     getBussniessHours(req.params.id)
-    .then((openinghours) => res.json(openinghours))
-    .catch((err) => res.json({ err }));
+      .then((openinghours) => res.json(openinghours))
+      .catch((err) => res.json({ err }));
   });
   router.put('/:id/hours',(req,res)=>{
     const{day,open_time,close_time} = req.body;
     editHours(day,open_time,close_time,req.params.id)
-    .then ((newTime)=> res.json(newTime))
-    .catch((err) => res.json({err}));
+      .then ((newTime)=> res.json(newTime))
+      .catch((err) => res.json({err}));
   });
 
   router.get('/:id/photos',(req,res) =>{
@@ -103,7 +104,11 @@ module.exports = ({ getVenues,
       .catch((err) => res.json({ err }));
       console.log(req.params.id)
   });
-
+  router.delete('/:venueId/event/:eventId',(req,res) =>{
+    deleteEvent(req.params.eventId , req.params.venuId)
+      .then((event) => res.json(event))
+      .catch((err) => res.json({ err }));
+  });
   
 
   return router;

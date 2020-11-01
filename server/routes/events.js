@@ -22,7 +22,7 @@ module.exports = ({ getEvents, getEventFavForDayByEventId, addNewEvent }) => {
 
       })
       .catch((err) => res.json({ err }));
-  })
+  });
 
 
   return router;
