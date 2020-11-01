@@ -76,8 +76,8 @@ export default function Login() {
       })
 
       .catch(error => {
-        console.log(error);
-        setAlert(error.data);
+        console.log(error.response.data);
+        setAlert(error.response.data);
 
       });
 
