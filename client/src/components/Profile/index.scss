@@ -26,15 +26,25 @@
     right: 10%;
   }
   .img-circle {
-    block-size: 8rem;
+    block-size: 7rem;
     
     
   }
 
   .avatar-pic:hover {
-    border:red 10px;
-    border-width: 10px;
-    box-shadow: brown;
+    
+    border-radius: 150px;
+    box-sizing: border-box;
+    background-color: #DDD;
+    border: 5px solid #cfd8dc;
+    
+  }
+  .avatar-pic:hover {
+    
+    border-radius: 150px;
+    box-sizing: border-box;
+    background-color: #DDD;
+    border: 5px solid #cfd8dc;
     
   }
   
@@ -42,7 +52,7 @@
     position: absolute;
     top:55%;
     left: 30%;
-    width: 60%;
+    width: 80%;
     justify-items: center;
     align-items: center;
   }
