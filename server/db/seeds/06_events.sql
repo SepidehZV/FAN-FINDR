@@ -10,8 +10,8 @@ INSERT INTO
   )
   VALUES
   (
-    'base ball event',
-    'this is the event desc',
+    'Baseball Game',
+    'Visit us to wahtch you team and enjoy your time with friends ',
     '10% discount',
     '2020-11-23',
     '2020-11-24',
@@ -19,20 +19,29 @@ INSERT INTO
     7
   ),
   (
-    'Hockey event',
+    'Hockey Game',
     'this is the event desc',
-    '10% discount',
+    'free meals for kids',
     '2020-12-23',
     '2020-12-24',
     1,
     10
   ),
   (
-    'basketball event',
-    'this is the event desc',
-    '10% discount',
+    'basketball Game',
+    'find people like you love basketball',
+    '15% discount',
     '2020-12-23',
     '2020-12-24',
     2,
     1
+  ),
+  (
+    'Teinns Game',
+    'we have big screen come and visit us',
+    '20% discount',
+    '2020-12-10',
+    '2020-12-12',
+    2,
+    13
   )

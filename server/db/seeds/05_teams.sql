@@ -12,7 +12,8 @@ VALUES
   ('Canadian National Mens Hockey','https://cdn.hockeycanada.ca/hockey-canada/Logos/640x360/Federations/hockey_canada_640.jpg?q=60',4),
   ('Toronto Maple Leafs','http://t3.gstatic.com/images?q=tbn:ANd9GcSHqnoDfih2nMtFKX8lzZlhXPPzudx8dyf1KvrKY2c3NMFG3ykb',4),
   ('Philadelphia Flyers','https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT-pKTg6XO_sVk9Eo0S3bQZuWIguMStb-7m0amjbv5eu1pBLgem',4),
-  ('Montreal Canadiens','http://t1.gstatic.com/images?q=tbn:ANd9GcRPdyIq2LnfqpbtFVQv51azBXvomcOLVU06so0VotXbD8bYaSgA',4);
+  ('Montreal Canadiens','http://t1.gstatic.com/images?q=tbn:ANd9GcRPdyIq2LnfqpbtFVQv51azBXvomcOLVU06so0VotXbD8bYaSgA',4),
+  ('Tennis Earns ITA ','https://emueagles.com/images/2020/1/31/Tennis_TeamShot_2020.jpg?width=1416&height=797&mode=crop&quality=80&format=jpg',13)
 
 
   
