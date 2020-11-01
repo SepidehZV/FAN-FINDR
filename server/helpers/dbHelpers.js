@@ -450,11 +450,12 @@ module.exports = (db) => {
 
   const searchForEvent = (name)=>{
     const query = {
-      text: `SELECT events.id, teams.team_name, teams.team_logo_url, events.offers, events.start_date, events.end_date, events.venue_id, events.event_description, events.team_id 
+      text: `SELECT events.id, teams.team_name, teams.team_logo_url, events.offers, events.start_date, events.end_date, events.venue_id, events.event_description, events.team_id, venue_name, venue_logo_url,sport_name
       FROM sports 
       JOIN teams ON sports.id = teams.sport_id 
       JOIN events ON teams.id = team_id
-      WHERE events.event_name like $1 OR sports.sport_name like $1 OR teams.team_name like $1 ;`,
+      JOIN venues ON venues.id = venue_id
+      WHERE venue_name like $1  OR sports.sport_name like $1  OR teams.team_name like $1 ;`,
       values: [`%${name}%`],
     };
 

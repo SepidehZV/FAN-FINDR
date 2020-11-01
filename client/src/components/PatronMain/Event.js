@@ -5,7 +5,7 @@ import StateContext from '../../StateContext';
 
 export default function Event(props) {
 
-  
+  console.log(props.venue_logo_url);
   const state = useContext(StateContext);
   const event = state.events.find(event => props.id === event.id);
   
@@ -32,10 +32,10 @@ export default function Event(props) {
     <div className="event-card">
 
     <div className="card" >
-    <img src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"} class="card-img-top" alt="..." />
-    <img src={props.team_logo_url} class="card-img-right" alt="..." />
-    <h1 class="card-title-event">{event.event_name || 'event name'}</h1>
-    <h1 class="card-title-date">{props.start_date}</h1>
+    <img src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"} class="card-img-top" alt={props.venue_name} />
+    <img src={props.venue_logo_url} class="card-img-right" alt="..." />
+    <h1 class="card-title-event">{props.venue_name || 'event name'}</h1>
+    {/* <h1 class="card-title-date">{props.start_date}</h1> */}
     <div class="card-body">
   <div className="info-and-fav" >
           <h1 className="card-title-team">{props.team_name || 'team name'}</h1> 
@@ -59,8 +59,8 @@ export default function Event(props) {
     <p class="card-text-left">{props.event_description}</p>
     <table class="table">
         <tr>
-          <th >hosted by</th>
-          <th >{props.venue_name || 'venue name'}</th>
+          <th >Sport</th>
+          <th >{props.sport_name || 'sport name'}</th>
         </tr>
 
         <th >offer</th>
