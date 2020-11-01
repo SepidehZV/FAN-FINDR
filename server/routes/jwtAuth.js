@@ -133,14 +133,14 @@ router.post("/login", validInfo, async (req, res) => {
       email
     ]);
     if (user.rows.length === 0) {
-      return res.status(401).json("Password or Email is incorrect");
+      return res.status(401).send("Password or Email is incorrect");
     }
     const validPassword = await bcrypt.compare(
       password,
       user.rows[0].password
     );
     if (!validPassword) {
-      return res.status(401).json("Invalid Password");
+      return res.status(401).send("Invalid Password");
     }
 
 

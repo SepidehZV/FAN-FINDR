@@ -54,7 +54,7 @@ export default function SignUpOwner() {
       })
 
       .catch(error => {
-        setAlert(error);
+        setAlert(error.response.data);
         console.log(error);});
 
   }

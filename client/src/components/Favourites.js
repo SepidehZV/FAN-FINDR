@@ -2,6 +2,7 @@ import React, {useContext} from 'react'
 import Event from './PatronMain/Event';
 import StateContext from '../StateContext';
 import NavigationBar from './NavigationBar';
+import CoverPhoto from './CoverPohto';
 export default function Favourites(props) {
     const state = useContext(StateContext);
     const favouriteEventsId = state.favouriteEvents.map(fav => fav.event_id);
@@ -31,7 +32,8 @@ export default function Favourites(props) {
     return (
         <div>
             <NavigationBar />
-            <h1>favourite events page</h1>
+            <CoverPhoto  />
+            
             {eventList}
         </div>
     )
