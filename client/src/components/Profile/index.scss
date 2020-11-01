@@ -27,12 +27,35 @@
   }
   .img-circle {
     block-size: 8rem;
+    
+    
   }
-  .container-avatars {
+
+  .avatar-pic:hover {
+    border:red 10px;
+    border-width: 10px;
+    box-shadow: brown;
+    
+  }
+  
+  .form-group-avatars {
     position: absolute;
     top:55%;
     left: 30%;
     width: 60%;
     justify-items: center;
     align-items: center;
+  }
+  .btn-avatars {
+    display: flex;
+    flex-direction: row;
+    justify-items: space-evenly;
+    right: 10%;
+    
+    
+  }
+  .edit-avatar{
+    position: absolute;
+    left: 20%;
+    top: 48%;
   }

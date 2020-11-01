@@ -25,11 +25,11 @@ module.exports = ({ getUsers, getUserById,editUserById }) => {
   });
   
   router.put('/:id', (req, res) => {
-    const {first_name,last_name, username, email, user_zip_code } = req.body;
+    const {first_name,last_name, username, email, user_zip_code, avatar_url } = req.body;
     console.log(req.body);
 
 
-    editUserById(req.params.id, first_name,last_name, username, email, user_zip_code ) 
+    editUserById(req.params.id, first_name,last_name, username, email, user_zip_code, avatar_url ) 
       .then((user) => res.json(user))
       .catch((err) => res.json({ err }));
   })

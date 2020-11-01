@@ -33,7 +33,8 @@ function App() {
     editPatronProfile,
     editVenuePage,
     addFav,
-    removeFav } = useApplicationData();
+    removeFav,
+    editPatronAvatar } = useApplicationData();
 
 
   // const userList = state.users.map(user => (
@@ -98,7 +99,7 @@ function App() {
             <Favourites addFav={addFav} removeFav={removeFav}/>
           </PrivateRoute>
           <PrivateRoute path='/profile'>
-            <Profile editPatronProfile = {editPatronProfile} />
+            <Profile editPatronProfile = {editPatronProfile} editPatronAvatar={editPatronAvatar} />
           </PrivateRoute>
         </Switch>
         </SetStateContext.Provider>

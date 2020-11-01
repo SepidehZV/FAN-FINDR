@@ -15,6 +15,7 @@ const SHOW = "SHOW";
 const EDIT = "EDIT";
 const SAVING = "SAVING";
 const ERROR_SAVE = "ERROR_SAVE";
+const AVATAR ="AVATAR";
 
 export default function PatronProfile(props) {
   
@@ -33,7 +34,11 @@ export default function PatronProfile(props) {
        
   }
 
-
+  function saveAvatar (avatar_url,state) {
+    transition(SAVING);
+    props.editPatronAvatar(avatar_url,state)
+      .then(() => transition(SHOW))
+  }
 
   
 
@@ -42,11 +47,11 @@ export default function PatronProfile(props) {
       <NavigationBar />
       <CoverPhoto  />
       
-      {mode === SHOW && <PatronInfo onEdit={() => transition(EDIT)}/>}
+      {mode === SHOW && <PatronInfo onEdit={() => transition(EDIT)} onEditAvatar={() => transition(AVATAR)}/>}
       {mode === SAVING && <Status message='Saving'/>}
       {mode === EDIT && <Form onSave={ save } onCancel={() => back()}/>}
       {mode === ERROR_SAVE && <Error message={"Could not save the changes"} onClose={() => back()} />}
-      <Avatar/>
+      {mode === AVATAR && <Avatar saveAvatar={saveAvatar} onCancel={() => back()}/>}
     </div>
 
     
