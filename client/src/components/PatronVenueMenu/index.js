@@ -1,7 +1,7 @@
 import React, {useContext}from 'react';
 import './index.scss';
 import NavigationBar from '../NavigationBar';
-import CoverPhoto from '../CoverPohto';
+import CoverPhoto from '../VenuePagePatron/CoverPohto';
 import Sidebar from '../Sidebar';
 import StateContext from '../../StateContext';
 import Menu from './Menu';

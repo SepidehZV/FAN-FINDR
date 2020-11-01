@@ -3,10 +3,7 @@ import Event from './Event';
 
 export default function EventList(props) {
   const events = props.events.map(event => {
-    // const venueName = getVenuName(props.events);
-    // console.log(event.event_name);
-  
-    
+
     return(<Event 
       key={event.id}
       id= {event.id}
@@ -18,11 +15,10 @@ export default function EventList(props) {
       offers={event.offers}
       team_logo_url={event.team_logo_url}
       start_date ={event.start_date}
+      sport_name={event.sport_name}
       
       />)
     
-    
-
   })
 
 

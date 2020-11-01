@@ -8,7 +8,7 @@ export default function CoverPhoto(props){
 
   return (
     <div>
-    <LogoPhoto logo_url={props.venue_logo_url}/>
+    <LogoPhoto logo_url={props.logo_url}/>
     
     
     <img src={props.cover_url || "https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-21-at-3.58.19-PM.png"} className="coverphoto" alt="Responsive image"/>
