@@ -8,12 +8,12 @@ export default function Show(props) {
             src={
               "https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"
             }
-            class="card-img-top"
+            className="card-img-top"
             alt="..."
           />
-          <img src={props.team_logo_url} class="card-img-right" alt="..." />
-          <h1 class="card-title-event">{props.event_name || "event name"}</h1>
-          <div class="card-body">
+          <img src={props.team_logo_url} className="card-img-right" alt="..." />
+          <h1 className="card-title-event">{props.event_name || "event name"}</h1>
+          <div className="card-body">
             <div className="info-and-fav">
               <h1 className="card-title-team">
                 {props.team_name || "team name"}
@@ -24,7 +24,7 @@ export default function Show(props) {
                     width="1em"
                     height="1em"
                     viewBox="0 0 16 16"
-                    class="bi bi-trash"
+                    className="bi bi-trash"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -40,7 +40,7 @@ export default function Show(props) {
                     width="1em"
                     height="1em"
                     viewBox="0 0 16 16"
-                    class="bi bi-pencil-square"
+                    className="bi bi-pencil-square"
                     fill="currentColor"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -54,8 +54,8 @@ export default function Show(props) {
               </div>
             </div>
             <hr className="seprating" />
-            <p class="card-text-left">{props.event_description}</p>
-            <table class="table">
+            <p className="card-text-left">{props.event_description}</p>
+            <table className="table">
               <tr>
                 <th>Sport</th>
                 <th>{props.sport_name || "Sport_name"}</th>

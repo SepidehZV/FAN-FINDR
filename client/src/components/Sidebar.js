@@ -16,8 +16,8 @@ function Sidebar(props) {// we can use this in resutrent owner
             <hr className="seprating-line" />
           </li>
           <li className="nav-item">
-            {state.user_type && <li className="nav-link" ><Link to='/events'> Events</Link></li>}
-            {!state.user_type && <li className="nav-link" ><Link to={`/venues/${props.currentVenueId}/events`}> Events</Link></li>}
+            {state.user_type && <li className="nav-link" ><Link to='/events'> Games</Link></li>}
+            {!state.user_type && <li className="nav-link" ><Link to={`/venues/${props.currentVenueId}/events`}> Games</Link></li>}
             <hr className="seprating-line" />
           </li>
           <li className="nav-item">
@@ -28,7 +28,7 @@ function Sidebar(props) {// we can use this in resutrent owner
           {state.user_type &&
           <li className="nav-item">
             <li className="nav-link" ><Link to='/analytics'>Analytics</Link></li>
-            <hr className="seprating-line" />
+         
           </li>}
           
         </ul>

@@ -6,4 +6,5 @@ VALUES
   ('bar and grille'),
   ('Casino'),
   ('Nightclub'),
-  ('casual or pub');
+  ('casual or pub'),
+  ('restaurant');

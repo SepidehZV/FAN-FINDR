@@ -46,7 +46,6 @@ export default function VenueMenu(props) {
     return axios
       .put(`http://localhost:3001/api/venues/${venue_id}/menu/${id}`, { item_name, price, item_description })
       .then(res => {
-        console.log("put result", res.data);
         const index = menuList.findIndex(i => i.id === updated.id);
         menuList[index] = updated;
         setState((prev) => ({ ...prev, menuList }));
@@ -57,11 +56,9 @@ export default function VenueMenu(props) {
   }
   const addMenuItem = (id, item_name, price, item_description, venue_id) => {
     const newMenuItem = { item_name, price, item_description, venue_id };
-    console.log("newMenuItem", newMenuItem)
     const updatedMenuList = [...state.menuList, newMenuItem];
     return axios.post(`http://localhost:3001/api/venues/${venue_id}/menu`, { item_name, price, item_description, venue_id })
       .then(res => {
-        console.log("res.data", res.data)
         setState(prev => ({ ...prev, menuList: updatedMenuList }))
         transition(SHOW);
       })
@@ -97,7 +94,7 @@ export default function VenueMenu(props) {
           <section><Sidebar /></section>
           <div className ="line-fo-resizing-mune">
             {menuList}
-            {mode === SHOW && <button type="submit" type="submit" className="btn btn-primary" onClick={() => transition(CREATE)}>Add New</button>}
+            {mode === SHOW && <button className="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" onClick={() => transition(CREATE)}>Add New Item</button>}
 
             {mode === CREATE && <Form
               id={null}

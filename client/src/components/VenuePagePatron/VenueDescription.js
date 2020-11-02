@@ -10,7 +10,7 @@ export default function VenueDescription(props) {
   return (
 
     <div className="conrinerforPadding">
-      <div class="col">
+      <div className="col">
         <h3>
           {props.venue_name}
         </h3>

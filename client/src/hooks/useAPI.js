@@ -19,7 +19,7 @@ const useAPI = (options) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // console.log(options);
+
 
   useEffect(() => {
     axios(requestOptions(options))

@@ -16,7 +16,6 @@ export default function Event(props) {
 
   const liked = (ev) => {
     ev.preventDefault();
-    console.log("heart clicked");
     if (select) {
       setSelect(false);
       props.removeFav(event.id, state);
@@ -33,13 +32,13 @@ export default function Event(props) {
           src={
             "https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"
           }
-          class="card-img-top"
+          className="card-img-top"
           alt={props.venue_name}
         />
-        <img src={props.venue_logo_url} class="card-img-right" alt="..." />
-        <h1 class="card-title-event">{props.venue_name || "event name"}</h1>
-        {/* <h1 class="card-title-date">{props.start_date}</h1> */}
-        <div class="card-body">
+        <img src={props.venue_logo_url} className="card-img-right" alt="..." />
+        <h1 className="card-title-event">{props.venue_name || "event name"}</h1>
+        {/* <h1 className="card-title-date">{props.start_date}</h1> */}
+        <div className="card-body">
           <div className="info-and-fav">
             <h1 className="card-title-team">
               {props.team_name || "team name"}
@@ -48,7 +47,7 @@ export default function Event(props) {
               <div className="infolink">
                 <div className="moreInfo">
                   <h4>
-                    <span class="badge pr-2">
+                    <span className="badge pr-2">
                       <Link
                         className="navLink"
                         to={`/venues/${props.venue_id}`}
@@ -79,8 +78,8 @@ export default function Event(props) {
             )}
           </div>
           <hr className="seprating" />
-          <p class="card-text-left">{props.event_description}</p>
-          <table class="table">
+          <p className="card-text-left">{props.event_description}</p>
+          <table className="table">
             <tr>
               <th>Sport</th>
               <th>{props.sport_name || "sport name"}</th>

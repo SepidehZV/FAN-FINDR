@@ -10,28 +10,13 @@ export default function Form(props) {
     props.event_description
   );
   const { stateSportTeam } = useSportTeam();
-  console.log("render");
+
   const [offers, setOffers] = useState(props.offers);
   const [selectedTeamId, setSelectedTeamId] = useState(props.team_id);
-  // const [sportTeams, setSportTeams] = useState([]);
-  // const teams =[
-  //   {
-  //     "id": 1,
-  //     "team_name": "NBA",
-  //     "team_logo_url": "https://theundefeated.com/wp-content/uploads/2017/06/nbalogo.jpg?w=700",
-  //     "sport_id": 2
-  //   },
-  //   {
-  //     "id": 2,
-  //     "team_name": "Los Angeles Lakers",
-  //     "team_logo_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Los_Angeles_Lakers_logo.svg/330px-Los_Angeles_Lakers_logo.svg.png",
-  //     "sport_id": 2
-  //   }
-  // ]
 
   const teamList = stateSportTeam.teams.map((team) => (
     <li
-      class="dropdown-item"
+    className="dropdown-item"
       key={team.team_name}
       team_id={team.id}
       onClick={() => setSelectedTeamId(team.id)}
@@ -51,7 +36,7 @@ export default function Form(props) {
         <div className="card-body">
           <div className="col-md-6">
             <div className="form-group">
-              <label for="VenueName">Game Name</label>
+              <label htmlFor="VenueName">Game Name</label>
               <input
                 type="text"
                 className="form-control"
@@ -63,8 +48,8 @@ export default function Form(props) {
           </div>
           <div className="col-md-6">
             <div className="form-group">
-              <label for="VenueName">Description</label>
-              <input
+              <label htmlFor="VenueName">Description</label>
+              <textarea
                 type="text"
                 className="form-control"
                 laceholder="item_description"
@@ -75,7 +60,7 @@ export default function Form(props) {
           </div>
           <div className="col-md-6">
             <div className="form-group">
-              <label for="VenueName">Offers</label>
+              <label htmlFor="VenueName">Offers</label>
               <input
                 type="text"
                 className="form-control"
@@ -88,9 +73,9 @@ export default function Form(props) {
 
           <div className="col-md-6">
             <div className="form-group">
-              <div class="dropdown">
+              <div clclassNameass="dropdown">
                 <button
-                  class="btn btn-secondary dropdown-toggle"
+                  className="btn btn-secondary dropdown-toggle"
                   type="button"
                   id="dropdownMenuButton"
                   data-toggle="dropdown"
@@ -99,7 +84,7 @@ export default function Form(props) {
                 >
                   choose Team
                 </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   {teamList}
                 </div>
               </div>
@@ -118,15 +103,14 @@ export default function Form(props) {
                     selectedTeamId,
                     props.venue_id,
                     props.id
-                  );
-                  props.transition("SHOW");
+                  ).then(res => props.transition('SHOW'));
                 }}
               >
                 <svg
                   width="1em"
                   height="1em"
                   viewBox="0 0 16 16"
-                  class="bi bi-check-circle"
+                  className="bi bi-check-circle"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
                 >
@@ -145,7 +129,7 @@ export default function Form(props) {
                   width="1em"
                   height="1em"
                   viewBox="0 0 16 16"
-                  class="bi bi-arrow-right-circle-fill"
+                  className="bi bi-arrow-right-circle-fill"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
                 >

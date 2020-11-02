@@ -38,9 +38,10 @@ import StateContext from '../StateContext';
             {state.user_type && state.venue.venue_logo_url && <img className="avatarImg" src={state.venue.venue_logo_url} alt="" loading="lazy" />}
           </li>
           <div className="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-            <li className="dropdown-item" ><Link to='/profile' className="navLink">Profile</Link></li>
-            <li className="dropdown-item" ><Link to='/favourites' className="navLink">My favourites</Link></li>
-            <li className="dropdown-item" onClick={logout}><hr/> Logout</li>
+            {!state.user_type && <li className="dropdown-item" ><Link to='/profile' className="navLink">Profile</Link></li>}
+            {!state.user_type && <li className="dropdown-item" ><Link to='/favourites' className="navLink">My favourites</Link></li>}
+            {!state.user_type && <li className="dropdown-item" onClick={logout}><hr/> Logout</li>}
+            {state.user_type && <li className="dropdown-item" onClick={logout}>Logout</li>}
             </div>
       </div>
         

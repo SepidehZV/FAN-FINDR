@@ -15,14 +15,14 @@ export default function Form(props) {
           <div className="edit-and-delete" >
             <div><h5 className="card-title"><input placeholder="enter the team name" /></h5></div>
             <div className="edit-and-delete">
-              <div className="delete" ><i class="far fa-save"></i> Save </div>
+              <div className="delete" ><i className="far fa-save"></i> Save </div>
             </div>
           </div>
 
           <hr className="seprating" />
           <p className="card-text"><input placeholder="enter the descrption " /></p>
         </div>
-        <table class="table">
+        <table className="table">
           <tr>
             <th >hosted by</th>
             <th >offer</th>

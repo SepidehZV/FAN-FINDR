@@ -7,7 +7,8 @@ import CoverPhoto from "../CoverPohto";
 import NavigationBar from "../NavigationBar";
 import StateContext from "../../StateContext";
 import SetStateContext from "../../SetStateContext";
-import Axios from "axios";
+import axios from "axios";
+import './index.scss';
 
 export default function VenueEvents(props) {
   const EMPTY = "EMPTY";
@@ -21,9 +22,18 @@ export default function VenueEvents(props) {
 
   const state = useContext(StateContext);
   const setState = useContext(SetStateContext);
+  // useEffect(() => {
+  //   if (!alert) {
+  //     return;
+  //   }
+  //   document.querySelector('html').scrollTo({
+  //     top: 0,
+  //     behavior: 'smooth'
+  //   });
+  // }, [alert]);
 
   const deleteEvent = (eventId) => {
-    Axios.delete(
+    return axios.delete(
       `http://localhost:3001/api/venues/${state.venue.id}/event/${eventId}`
     )
       .then((res) => {
@@ -53,15 +63,14 @@ export default function VenueEvents(props) {
       eventId
     };
     const tempEvents = [...state.events];
-
-    Axios.put(`http://localhost:3001/api/venues/${venue_id}/event/${eventId}`, {
+ return
+   axios.put(`http://localhost:3001/api/venues/${venue_id}/event/${eventId}`, {
       event_name,
       event_description,
       offers,
       team_id,
     })
       .then((res) => {
-        console.log("put res", res.data);
         const index = tempEvents.findIndex((i) => i.id === updated.id);
         tempEvents[index] = updated;
         setState((prev) => ({ ...prev, events: tempEvents }));
@@ -88,7 +97,7 @@ export default function VenueEvents(props) {
     };
     const tempEvents = [...state.events];
     const newEventList = [...state.events, tempEvents];
-    Axios.post(`http://localhost:3001/api/venues/${venue_id}/event`, {
+    return axios.post(`http://localhost:3001/api/venues/${venue_id}/event`, {
       event_name,
       event_description,
       offers,
@@ -96,9 +105,7 @@ export default function VenueEvents(props) {
       venue_id,
     })
       .then((res) => {
-        console.log("post res", res.data);
         setState((prev) => ({ ...prev, events: newEventList  }));
-        transition(SHOW);
       })
       .catch((err) => console.log(err));
   };
@@ -126,19 +133,19 @@ export default function VenueEvents(props) {
     }
   });
   return (
-    <main className="layout">
       <div>
-        <section>
-          <NavigationBar />
-        </section>
-        <section>
-          <CoverPhoto />
-        </section>
-        <div className="conrinerforflex">
-          <Sidebar />
-          {events}
-          {mode === SHOW && <button type="submit" type="submit" className="btn btn-primary" onClick={() => transition(CREATE)}>Add New</button>}
+      <section><NavigationBar /></section>
 
+        <section><CoverPhoto /></section>
+
+        <div className="conrinerforflex">
+        <section><Sidebar /></section>
+
+          <div className ="line-fo-resizing">
+          {events}
+          {mode === SHOW && <button className="btn btn-lg  btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" onClick={() => transition(CREATE)}>Add New Game</button>}
+
+       
           {mode === CREATE &&
        <Form 
        key={null}
@@ -154,9 +161,11 @@ export default function VenueEvents(props) {
        onSave = {addEvent}
        venue_id= {state.venue.id}
        onCancel={() => back()} 
-       mode={"CREATE"} />}
-        </div>
-      </div>
-    </main>
+       mode={"CREATE"} 
+       transition={transition}/>}
+       </div>
+      </div></div>        
+
+      
   );
 }

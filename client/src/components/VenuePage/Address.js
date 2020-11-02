@@ -7,7 +7,7 @@ export default function Address(props) {
   const MapWrapped = withScriptjs(withGoogleMap(Map));
   return (
     <div className="conrinerforPadding">
-      <div class="col">
+      <div className="col">
         <h3> Address </h3>
         <hr className="seprating" />
         {props.street || 'street'}, {props.city || 'city'},{props.province || 'province'}, {props.country || 'country'}, {props.venue_zip_code || 'zip_code'}

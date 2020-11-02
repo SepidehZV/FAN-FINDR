@@ -10,12 +10,12 @@ export default function CoverPhoto(porps){
 
 
 
-<div class="relative">{state.user_type && !state.venue.cover_url && <img src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-21-at-3.58.19-PM.png"} className="coverphoto" alt="Responsive image"/>}
+<div className="relative">{state.user_type && !state.venue.cover_url && <img src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-21-at-3.58.19-PM.png"} className="coverphoto" alt="Responsive image"/>}
     {state.user_type && state.venue.cover_url && <img src={state.venue.cover_url} className="coverphoto" alt="Responsive image"/>}
     {/* {!state.user_type && props.cover_url && <img src={props.cover_url} className="coverphoto" alt="Responsive image"/>} */}
     {!state.user_type && <img src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-28-at-2.38.38-PM-1024x245.png"} className="coverphoto" alt="Responsive image"/>}
     
-  <div class="absolute"><LogoPhoto/></div>
+  <div className="absolute"><LogoPhoto/></div>
 </div>
 
   )

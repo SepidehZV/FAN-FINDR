@@ -15,9 +15,9 @@ export default function PatronMain(props) {
     <NavigationBar />
     <SearchBar addFav={props.addFav} removeFav={props.removeFav}/>
     {/* <EventList events={state.events} teams={state.teams} /> */}
-    <main role="main" class="container">
+    <main role="main" className="container">
 
-<div class="mapimg"> <Map />  </div>
+<div className="mapimg"> <Map />  </div>
     
          </main>
   </div>

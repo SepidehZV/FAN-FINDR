@@ -14,11 +14,11 @@ export default function NumberOfFavouritesForDay(props) {
     axios
       .get(`http://localhost:3001/api/venues/${props.venue_id}/favouriteEvents`)
       .then(res => {
-        // console.log(res);
+
         for (const dataObj of res.data) {
           faveCount.push(parseInt(dataObj.favourites_number));
           days.push(parseInt(dataObj.day.substring(8, 10)));
-          // console.log(dataObj.day);
+
         }
         setChartData({
           labels: days,
@@ -35,7 +35,7 @@ export default function NumberOfFavouritesForDay(props) {
       .catch(err => {
         console.log(err);
       });
-    // console.log(faveCount, days);
+
   };
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function NumberOfFavouritesForDay(props) {
   }, []);
   return (
     <div className="conrinerforPadding">
-      <div class="col">
+      <div className="col">
             <div >
               <Line
                 data={chartData}

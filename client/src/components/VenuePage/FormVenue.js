@@ -3,7 +3,6 @@ import StateContext from '../../StateContext';
 
 export default function FormVenue(props) {
   const state = useContext(StateContext);
-  console.log(state.venue);
   const [venue_zip_code, setZipCode] = useState(state.venue.venue_zip_code);
   const [venue_name, setVenueName] = useState(state.venue.venue_name);
   const [street, setStreet] = useState(state.venue.street);
@@ -35,7 +34,7 @@ export default function FormVenue(props) {
           <div className="row no-gutters  rounded overflow-hidden flex-md-row mb-4  h-md-250 position-relative">
           <div className="conrinerPadding">
 
-<div class="col">
+<div className="col">
   <h1 className="">Edit Venue Profile</h1>
   <hr className="seprating" />
 
@@ -47,9 +46,9 @@ export default function FormVenue(props) {
           <div className="row no-gutters  rounded overflow-hidden flex-md-row mb-4  h-md-250 position-relative">
           <div className="conrinerPadding">
 
-<div class="col">
+<div className="col">
 <h1>
- <button type="submit" className="btn btn-primary mr-4" onClick={handleSave} >Save</button>
+ <button type="submit" className="btn btn-save-patron mr-4" onClick={handleSave} >Save</button>
  <button type="submit" className="btn btn-danger" onClick={props.onCancel}>Cancel</button>
 
  
@@ -73,14 +72,14 @@ export default function FormVenue(props) {
  <hr className="seprating" /> */}
    <div className="col-md-6">
      <div className="form-group">
-       <label for="VenueName">Venue Name</label>
+       <label htmlFor="VenueName">Venue Name</label>
        <input type="text" className="form-control" placeholder="" id="VenueName" value={venue_name} onChange={(e) => setVenueName(e.target.value)} />
      </div>
    </div>
 
    <div className="col-md-6">
      <div className="form-group">
-       <label for="description">Description</label>
+       <label htmlFor="description">Description</label>
        <input type="text" className="form-control" placeholder="" id="description" value={venue_description} onChange={(e) => setDescription(e.target.value)}/>
      </div>
    </div>
@@ -92,14 +91,14 @@ export default function FormVenue(props) {
   
    <div className="col-md-6">
      <div className="form-group">
-       <label for="email">Email</label>
+       <label htmlFor="email">Email</label>
        <input type="email" className="form-control" id="email" placeholder="email"  value={venue_email} onChange={(e) => setEmail(e.target.value)}/>
      </div>
    </div>
 
  <div className="col-md-6">
      <div className="form-group">
-       <label for="phone">Phone</label>
+       <label htmlFor="phone">Phone</label>
        <input type="text" className="form-control" placeholder="" id="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
      </div>
    </div>
@@ -110,7 +109,7 @@ export default function FormVenue(props) {
  <div className="row">
    <div className="col-md-6">
      <div className="form-group">
-     <label for="categorie">Category</label>
+     <label htmlFor="categorie">Category</label>
      <select className=" form-control custom-select browser-default" value={categorie_name} onChange={(e) => setCategory(e.target.value)}  selected="selected">
                <option value="AB" >Sport Bar</option>
                <option value="BC">hotel bar</option>
@@ -124,7 +123,7 @@ export default function FormVenue(props) {
 
    <div className="col-md-6">
      <div className="form-group">
-       <label for="capacity">Capacity</label>
+       <label htmlFor="capacity">Capacity</label>
        <input type="text" className="form-control" id="capacity" placeholder="capacity" value={capacity} onChange={(e) => setCapacity(e.target.value)} />
      </div>
    </div>
@@ -135,7 +134,7 @@ export default function FormVenue(props) {
 
 <div className="col-md-6">
 <div className="form-group">
-<label for="dress-code">Dress-Code</label>
+<label htmlFor="dress-code">Dress-Code</label>
 <input type="text" className="form-control" placeholder="" id="dress-code" value={dress_code} onChange={(e) => setDressCode(e.target.value)}/>
 </div>
 </div>
@@ -143,7 +142,7 @@ export default function FormVenue(props) {
 
 <div className="col-md-6">
 <div className="form-group">
-<label for="age">Age restriction</label>
+<label htmlFor="age">Age restriction</label>
 <input type="text" className="form-control" placeholder="" id="age" value={age_restriction} onChange={(e) => setAge(e.target.value)}/>
 </div>
 </div>
@@ -154,7 +153,7 @@ export default function FormVenue(props) {
 
 <div className="col-md-6">
 <div className="form-group">
-<label for="Street">Street</label>
+<label htmlFor="Street">Street</label>
 <input type="text" id="Street" className="form-control" placeholder=""  required  value={street} onChange={(e) => setStreet(e.target.value)}/>
 </div>
 </div>
@@ -165,7 +164,7 @@ export default function FormVenue(props) {
 
 <div className="col-md-6">
 <div className="form-group">
-<label for="City">City</label>
+<label htmlFor="City">City</label>
 <input type="text" id="City" className="form-control" placeholder="City"  required  value={city} onChange={(e) => setCity(e.target.value)}/>
 </div>
 </div>
@@ -179,7 +178,7 @@ export default function FormVenue(props) {
 
 <div className="col-md-6">
 <div className="form-group">
-<label for="province">Province</label>
+<label htmlFor="province">Province</label>
 <select className=" form-control custom-select browser-default" value={province} onChange={(e) => setProvince(e.target.value)} selected="selected">
                <option value="AB" >Alberta</option>
                <option value="BC">British Columbia</option>
@@ -191,7 +190,7 @@ export default function FormVenue(props) {
 
 <div className="col-md-6">
 <div className="form-group">
-<label for="Country">Province</label>
+<label htmlFor="Country">Province</label>
 <select className=" form-control custom-select browser-default" value={country} onChange={(e) => setCountry(e.target.value)}>
                <option value="Canada">Canada</option>
              </select> 
@@ -208,7 +207,7 @@ export default function FormVenue(props) {
 
 <div className="col-md-6">
 <div className="form-group">
-<label for="Zip-Code">Zip-Code</label>
+<label htmlFor="Zip-Code">Zip-Code</label>
 <input type="text" id="Zip-Code" className="form-control" placeholder="Zip-Code"  required  value={venue_zip_code} onChange={(e) => setZipCode(e.target.value)}/>
            </div>
 </div>

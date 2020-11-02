@@ -29,10 +29,8 @@ export default function VenuePage(props) {
       })
   }, [id])
   
-    
-    console.log(state.venues);
     const venue = state.venues[id - 1];
-    console.log(venue);
+ 
     
     
 

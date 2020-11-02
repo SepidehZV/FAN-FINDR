@@ -10,16 +10,16 @@ export default function MainContainer(props) {
   //if the user_tpe
   
   return (
-    <div class="continerforbackgroundcolor">
-      <div class="row1 mb-2">
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+    <div className="continerforbackgroundcolor">
+      <div className="row1 mb-2">
+        <div className="col-md-6">
+          <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
            <VenueDescription venue_description={props.venue.venue_description} 
            venue_name ={props.venue.venue_name}/>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div className="col-md-6">
+          <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <Info capacity={props.venue.capacity}
               categorie_name={props.venue.categorie_name}
               age_restriction={props.venue.age_restriction}
@@ -30,21 +30,21 @@ export default function MainContainer(props) {
         </div>
       </div>
 
-      <div class="row1 mb-2">
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div className="row1 mb-2">
+        <div className="col-md-6">
+          <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <BussniessHours hours={props.hours}/>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div className="col-md-6">
+          <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <Photos photos = {props.photos}/>
           </div>
         </div>
       </div>
-      <div class="row1 mb-1">
-        <div class="col-md-12">
-          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+      <div className="row1 mb-1">
+        <div className="col-md-12">
+          <div className="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <Address 
             street={props.venue.street}
             country ={props.venue.country}

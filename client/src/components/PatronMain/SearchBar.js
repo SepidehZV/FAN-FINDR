@@ -17,11 +17,9 @@ function SearchBar(props) {
   const { search } = useLocation();
   const { name } = queryString.parse(search);
 
-  //console.log("name", name);
   const SearchResult = ({ name }) => {
     // using the custom hook to get the data
     const { eventDetails, loading, error } = useSearch(name);
-    console.log(eventDetails);
     // Extract and parse query string (useLocation, queryString.parse )
 
     return (
@@ -49,27 +47,27 @@ function SearchBar(props) {
   };
 
   return (
-    <div class="container">
+    <div className="container">
       <h2>Enter your Favorite Team,Sport ..</h2>
 
       <form onSubmit={handleSubmit}>
-        <div class="row">
-          <div class="col-12">
-            <div class="input-group">
+        <div className="row">
+          <div className="col-12">
+            <div className="input-group">
               <input
-                class="form-control border-secondary py-2"
+                className="form-control border-secondary py-2"
                 name="name"
                 type="search"
                 value={searchContent}
                 onChange={(event) => setSearchContent(event.target.value)}
               />
-              <div class="input-group-append">
+              <div className="input-group-append">
                 <button
-                  class="btn btn-outline-secondary"
+                  className="btn btn-outline-secondary"
                   type="submit"
                   value="Search"
                 >
-                  <i class="fa fa-search"></i>
+                  <i className="fa fa-search"></i>
                 </button>
               </div>
             </div>

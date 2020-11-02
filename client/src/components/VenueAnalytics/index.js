@@ -10,12 +10,9 @@ import NumberOfFavouritesForEvent from './NumberOfFavouritesForEvent';
 
 const VenueAnalytics = (props) => {
   const state = useContext(StateContext);
-  // console.log("events from state",state.events)
   const venueForUser = state.venues.find(ven => ven.owner_id === state.user.id)
-  console.log(venueForUser)
   const eventsForVenue = state.events.filter((ev) => ev.venue_id === venueForUser.id);
 
-  // console.log("eventsForVenue",eventsForVenue);   
   return (
 
     <div>

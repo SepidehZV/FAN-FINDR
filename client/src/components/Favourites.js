@@ -3,11 +3,16 @@ import Event from './PatronMain/Event';
 import StateContext from '../StateContext';
 import NavigationBar from './NavigationBar';
 import CoverPhoto from './CoverPohto';
+
+import './Favourites.scss';
+
+
+
 export default function Favourites(props) {
     const state = useContext(StateContext);
     const favouriteEventsId = state.favouriteEvents.map(fav => fav.event_id);
     const favouriteEvents = state.events.filter(event =>  favouriteEventsId.includes(event.id));
-    //console.log(favouriteEvents);
+
     const eventList = favouriteEvents.map((event) =>{
         return (
             <Event
@@ -33,10 +38,13 @@ export default function Favourites(props) {
         <div>
             <NavigationBar />
             <CoverPhoto  />
-            <div className=" favourite-events">
-            {eventList}
+            <div className ="line-fo-resizing-event-patron">
+<h1 className="favourites">My Favourites</h1>
+<hr className="seprating" />
+
+{eventList}</div>
+
             </div>
             
-        </div>
     )
 }

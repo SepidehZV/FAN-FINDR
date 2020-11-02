@@ -8,15 +8,17 @@ module.exports = ({ getEvents, getEventFavForDayByEventId, addNewEvent }) => {
       .then((events) => res.json(events))
       .catch((err) => res.json({ err }));
   });
+
   router.get('/:id', (req, res) => {
     getEventFavForDayByEventId(req.params.id)
       .then((event) => res.json(event))
       .catch((err) => res.json({ err }));
   });
-  router.post('/', (req,res) => {
-    const {event_name, event_description, offers, start_date, end_date,venue_id, team_id} = req.body
-    addNewEvent(event_name, event_description, offers, start_date, end_date,venue_id, team_id)
-      .then((data) => { 
+
+  router.post('/', (req, res) => {
+    const { event_name, event_description, offers, start_date, end_date, venue_id, team_id } = req.body
+    addNewEvent(event_name, event_description, offers, start_date, end_date, venue_id, team_id)
+      .then((data) => {
         console.log(data)
         return res.json(data)
 

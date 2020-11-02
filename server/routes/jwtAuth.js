@@ -1,11 +1,9 @@
 const express = require("express");
 const router = express.Router();
-//const pool = require("../db");
 const bcrypt = require('bcrypt');
 const jwtGenerator = require("../utils/jwtGenerator");
 const validInfo = require("../middleware/validInfo");
 const authorize = require("../middleware/authorize");
-
 const client = require("../db/index.js");
 
 
@@ -22,7 +20,7 @@ router.post("/patron", validInfo, async (req, res) => {
       email
     ]);
 
-    if (user.rows.length !==0) {
+    if (user.rows.length !== 0) {
       return res.status(401).send("User already exist.");
     }
     const saltRound = 10;
@@ -31,18 +29,16 @@ router.post("/patron", validInfo, async (req, res) => {
 
     let newUser = await client.query(
       `INSERT INTO
-users(first_name,last_name,username,email, user_zip_code, user_type,password)
-VALUES
-(
-$1,$2,$3,$4,$5,false,$6
-)
-RETURNING *`,
+      users(first_name,last_name,username,email, user_zip_code, user_type,password)
+      VALUES
+      ($1,$2,$3,$4,$5,false,$6)
+      RETURNING *`,
       [first_name, last_name, username, email, user_zip_code, bcryptPassword]
     );
 
     const jwtToken = jwtGenerator(newUser.rows[0].id);
 
-    res.json({ user:newUser.rows[0], jwtToken });
+    res.json({ user: newUser.rows[0], jwtToken });
 
   } catch (err) {
     console.error(err.message);
@@ -59,8 +55,8 @@ router.post("/owner", validInfo, async (req, res) => {
     venue_name, street, city, province, country, venue_zip_code } = req.body;
 
   try {
-    
-  
+
+
 
     const user = await client.query("SELECT * FROM users WHERE email = $1", [
       email
@@ -74,19 +70,16 @@ router.post("/owner", validInfo, async (req, res) => {
     const bcryptPassword = await bcrypt.hash(password, salt);
     const newUser = await client.query(
       `INSERT INTO
-      users( first_name, last_name, username, email,user_type, password
-      )
+      users( first_name, last_name, username, email,user_type, password)
       VALUES
-      (
-      $1,$2,$3,$4,true,$5
-      )
+      ($1,$2,$3,$4,true,$5)
       RETURNING *;`,
       [first_name, last_name, username, email, bcryptPassword]
     )
-    
+
 
     /*add new venue*/
-    const newVenue =  await client.query(
+    const newVenue = await client.query(
       `INSERT INTO
       venues (
         owner_id,
@@ -102,14 +95,14 @@ router.post("/owner", validInfo, async (req, res) => {
         $1,$2,$3,$4,$5,$6,$7
       )
       RETURNING *`,
-      [newUser.rows[0].id, venue_name, street, city, province, country, venue_zip_code ]
+      [newUser.rows[0].id, venue_name, street, city, province, country, venue_zip_code]
     )
 
 
 
     const jwtToken = jwtGenerator(newUser.rows[0].id);
 
-     res.json({ user:newUser.rows[0],newVenue:newVenue.rows[0], jwtToken });
+    res.json({ user: newUser.rows[0], newVenue: newVenue.rows[0], jwtToken });
 
   } catch (err) {
     console.error(err.message);
@@ -145,7 +138,7 @@ router.post("/login", validInfo, async (req, res) => {
 
 
     const token = jwtGenerator(user.rows[0].id);
-    res.json({token, user:user.rows[0]});
+    res.json({ token, user: user.rows[0] });
 
   } catch (err) {
     console.error(err.message);

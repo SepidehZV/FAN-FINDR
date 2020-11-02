@@ -3,8 +3,7 @@ import Event from "./Event";
 
 export default function EventList(props) {
   const events = props.events.map((event) => {
-    // const venueName = getVenuName(props.events);
-    // console.log(event.event_name);
+
 
     return (
       <Event

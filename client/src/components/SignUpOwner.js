@@ -76,47 +76,47 @@ export default function SignUpOwner() {
               <form className="form-signin" >
                 <div className="form-label-group">
                   <input type="First Name" id="First Name" className="form-control" placeholder="First Name" value={first_name} onChange={(e) => setFirstName(e.target.value)}  required/>
-                  <label for="First Name">First Name</label>
+                  <label htmlFor="First Name">First Name</label>
                 </div>
 
                 <div className="form-label-group">
                   <input type="Last Name" id="Last Name" className="form-control" placeholder="Last Name" value={last_name} onChange={(e) => setLastName(e.target.value)}  required/>
-                  <label for="Last Name">Last  Name</label>
+                  <label htmlFor="Last Name">Last  Name</label>
                 </div>
 
                 <div className="form-label-group">
                   <input type="Username" id="Username" className="form-control" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)}  required/>
-                  <label for="Username">Username</label>
+                  <label htmlFor="Username">Username</label>
                 </div>
 
                 <div className="form-label-group">
-                  <input type="email" id="inputEmail" className="form-control" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required autofocus/>
-                  <label for="inputEmail">Email address</label>
+                  <input type="email" id="inputEmail" className="form-control" placeholder="Email address" value={email} onChange={(e) => setEmail(e.target.value)} required autoFocus/>
+                  <label htmlFor="inputEmail">Email address</label>
                 </div>
                
                 <div className="form-label-group">
                   <input type="password" id="inputPassword" className="form-control" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}  required/>
-                  <label for="inputPassword">Password</label>
+                  <label htmlFor="inputPassword">Password</label>
                 </div>
 
                 <div className="form-label-group">
                   <input type="password" id="inputConfirmPassword" className="form-control" placeholder="Confirm Password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
-                  <label for="inputConfirmPassword">Confirm Password</label>
+                  <label htmlFor="inputConfirmPassword">Confirm Password</label>
                 </div>
 
                 <div className="form-label-group">
                   <input type="Venue name" id="Venue name" className="form-control" placeholder="Venue name" value={venue_name} onChange={(e) => setVenueName(e.target.value)}  required/>
-                  <label for="Venue name">Venue Name</label>
+                  <label htmlFor="Venue name">Venue Name</label>
                 </div>
 
                 <div className="form-label-group">
                   <input type="Street" id="Street" className="form-control" placeholder="Street"  required value={street} onChange={(e) => setStreet(e.target.value)} />
-                  <label for="Street">Street</label>
+                  <label htmlFor="Street">Street</label>
                 </div>
 
                 <div className="form-label-group">
                   <input type="City" id="City" className="form-control" placeholder="City"  required value={city} onChange={(e) => setCity(e.target.value)} />
-                  <label for="City">City</label>
+                  <label htmlFor="City">City</label>
                 </div>
 
                 <div className="form-label-group" >
@@ -138,7 +138,7 @@ export default function SignUpOwner() {
 
                 <div className="form-label-group">
                   <input type="Zip-Code" id="Zip-Code" className="form-control" placeholder="Zip-Code" value={venue_zip_code} onChange={(e) => setZipCode(e.target.value)} required/>
-                  <label for="Zip-Code">Zip-Code</label>
+                  <label htmlFor="Zip-Code">Zip-Code</label>
                 </div>
 
                 </form>

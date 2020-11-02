@@ -8,21 +8,21 @@ INSERT INTO
   )
 VALUES 
   (
-    'pizza',
+    'Everything Bagel Pasta',
     20,
-    'pizza',
+    'Even though my personal preference in the bagel realm is a soft multgrain number, I think wed all agree that the platonic ideal for everyone whos not me is a well-seasoned everything bagel with a healthy schmear of cream cheese. Theres no denying that the combo of carbs, fat, and crunchy toppings is a magic formula for all things delicious in this world, and we are big fans of applying the everything bagel seasoning to everything we possibly can. Not only do we have homemade everything bagels and a keto version as well, weve also turned the everything bagel into everything eggrolls, everything chicken, and even everything popcorn. And now, we present to you the new frontier: everything bagel pasta.',
     1
   ),
   (
-    'Crepes',
+    'Tie-Dye Fruity Pebbles-Crusted Waffles',
     15,
-    'Crepes',
+    'With these tie-dye Belgian waffles, the breakfast classic gets a much-needed makeover—and we’re so here for it. From now on, adding Fruity PEBBLES cereal into the batter, around the sides, and on top of your waffle is a must. Think of it as sweet and fruity confetti (that also adds a super satisfying crunch)!  Whip out the waffle iron to make these as breakfast-for-dessert, or treat yourself any weekend morning you want breakfast to feel like a party.',
     1
   ),
   (
-    'Ratatouille',
+    'Biscuits and Gravy Bake',
     9.99,
-    'Ratatouille',
+    'There is nothing better than biscuits and gravy and this is the perfect way to serve them to crowd. An extra thick layer of gravy with lots of black pepper (which is the most important part) makes this bake absolutely perfect.',
     1
   ),
   (
@@ -66,4 +66,10 @@ VALUES
     7.50,
     'A mix of jammy roasted cherry tomatoes and juicy fresh ones makes this guy one of my favorite summer salads. With spiced roasted chickpeas, tangy feta, and big pearls of couscous, it’s hearty enough to be a meal on its own.',
     3
+  ),
+  (
+    'Everything Bagel Casserole',
+    7.50,
+    'Everything you want it to be and more',
+    1
   );

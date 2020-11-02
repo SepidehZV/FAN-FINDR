@@ -13,7 +13,7 @@ export default function VenueEvents(props) {
   const { id } = useParams();
   const events = state.events.filter(event => event.venue_id === Number(id));
   const venue = state.venues.find(venue => venue.id === Number(id))
-  console.log('events',state.events)
+
     return (
       <main className="layout">
         <div>
@@ -21,7 +21,7 @@ export default function VenueEvents(props) {
           <section><CoverPhoto cover_url={venue.cover_url} logo_url={venue.venue_logo_url}/></section>
           <div className="conrinerforflex">
 
-            <Sidebar currentVenueId={id}/>
+            <section><Sidebar currentVenueId={id}/></section>
             <div className ="line-fo-resizing-mune">
 
             <EventList events={events} addFav={props.addFav} removeFav={props.removeFav}/>

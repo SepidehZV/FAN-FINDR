@@ -28,7 +28,6 @@ const useApplicationData = () => {
     user_zip_code,
     userObj
   ) {
-    //console.log('user,userId: ',user,userId)
     const updatedUser = {
       ...userObj,
       first_name,
@@ -91,9 +90,7 @@ const useApplicationData = () => {
       categorie_name,
       city,
     };
-    //console.log(categorie_name.toLowerCase()=== state.categories[1].categorie_name);
     const category_id = 1;
-    //console.log(category_id);
     return axios
       .put(`http://localhost:3001/api/venues/${id}`, {
         venue_name,

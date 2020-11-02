@@ -15,10 +15,10 @@ const hours= props.hours.map(e => {
   return (
     <div className="conrinerforPadding">
      
-        <div class="col">
+        <div className="col">
           <h3>Business Hours</h3>
           <hr className="seprating" />
-          <table class="table">
+          <table className="table">
             <thead>
               <tr>
                 <th >Day</th>

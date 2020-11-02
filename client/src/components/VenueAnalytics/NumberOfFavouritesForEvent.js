@@ -35,25 +35,22 @@ export default function NumberOfFavouritesForEvent(props) {
   };
   
   const clickAction=(id) => {
-    console.log({id});
+
     chart(id)
   }
   const eventList = props.events.map((ev) =>
-  <li class="dropdown-item" key={ev.event_name} event_id ={ev.event_id} onClick={() => clickAction(ev.event_id)}>{ev.event_name} </li>
+  <li className="dropdown-item" key={ev.event_name} event_id ={ev.event_id} onClick={() => clickAction(ev.id)}>{ev.event_name} </li>
   
 );
-  // useEffect(() => {
-  //   chart();
-   
-  // }, []);
+
   return (
     <div className="conrinerforPadding">
-      <div class="col">
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div className="col">
+        <div className="dropdown">
+          <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            choose an event
     </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id ="eventChart">
+          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton" id ="eventChart">
             {eventList}
           </div>
         </div>

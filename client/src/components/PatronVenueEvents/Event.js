@@ -17,7 +17,6 @@ export default function Event(props) {
 
   const liked = (ev) => {
     ev.preventDefault();
-    console.log("heart clicked");
     if (select) {
       setSelect(false);
       props.removeFav(event.id, state);
@@ -33,10 +32,10 @@ export default function Event(props) {
     <div className="event-card">
 
       <div className="card" >
-        <img src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"} class="card-img-top" alt="..." />
-        <img src={props.team_logo_url} class="card-img-right" alt="..." />
-        <h1 class="card-title-event">{props.event_name || 'event name'}</h1>
-        <div class="card-body">
+        <img src={"https://swanipro.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-22-at-10.44.32-PM-1024x148.png"} className="card-img-top" alt="..." />
+        <img src={props.team_logo_url} className="card-img-right" alt="..." />
+        <h1 className="card-title-event">{props.event_name || 'event name'}</h1>
+        <div className="card-body">
           <div className="info-and-fav" >
             <h1 className="card-title-team">{props.team_name || 'team name'}</h1>
             <div className="favlink">
@@ -58,8 +57,8 @@ export default function Event(props) {
           </div>
 
           <hr className="seprating" />
-          <p class="card-text-left">{props.event_description}</p>
-          <table class="table">
+          <p className="card-text-left">{props.event_description}</p>
+          <table className="table">
             <tr>
               <th >Sport </th>
               <th >{props.sport_name || 'sport_name'}</th>

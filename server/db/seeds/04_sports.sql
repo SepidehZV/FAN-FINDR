@@ -13,7 +13,7 @@ VALUES
   ('ncaa baseball','https://www.ncaa.com/_flysystem/public-s3/styles/stax_large_content_tile/public-s3/tile-images/hero/baseball-cws.JPG?h=7f337707&itok=BkHJVk-o'),
   ('Champions Golf','https://golfadvisor.brightspotcdn.com/dims4/default/6412ba5/2147483647/strip/true/crop/320x180+0+10/resize/590x332!/format/jpg/quality/90/?url=https%3A%2F%2Fgolfadvisor.brightspotcdn.com%2F04%2Fc3%2Fa3e155294d008d49f0675264e913%2Fcha10-stay-and-play-package.jpg'),
   ('Professional Golf Ladies','bbb'),
-  ('tennies','https://steemitimages.com/DQmQi5Ckzh9HiDmygL999BW77TLC6cwEbV98ZKxJ8sPWwsW/tennies.jpg');
+  ('Tennies','https://steemitimages.com/DQmQi5Ckzh9HiDmygL999BW77TLC6cwEbV98ZKxJ8sPWwsW/tennies.jpg');
 
 
 

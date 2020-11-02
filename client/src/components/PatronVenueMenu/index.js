@@ -16,10 +16,8 @@ export default function VenueMenu(props) {
   const venue = state.venues.find(venue => venue.id === Number(id))
   
   const menuList = state.menus.map((menu) => { 
-    //console.log(menu);
-    //console.log(typeof id);
+
     if (menu.venue_id === Number(id)) {
-      //console.log('here inside if');
       return (
         <Menu
           key={menu.id}

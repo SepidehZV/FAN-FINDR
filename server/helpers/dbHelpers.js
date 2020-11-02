@@ -343,7 +343,7 @@ module.exports = (db) => {
       cover_url,  
       venue_categories.categorie_name 
       FROM venues
-   JOIN venue_categories ON venue_categories.id = venues.category_id
+      JOIN venue_categories ON venue_categories.id = venues.category_id
       WHERE venues.id = $1
       GROUP BY venues.id, venue_categories.categorie_name;`,
       values: [id],
@@ -534,7 +534,7 @@ module.exports = (db) => {
       JOIN teams ON sports.id = teams.sport_id 
       JOIN events ON teams.id = team_id
       JOIN venues ON venues.id = venue_id
-      WHERE venue_name like $1  OR sports.sport_name like $1  OR teams.team_name like $1 ;`,
+      WHERE UPPER(venue_name) like UPPER($1)  OR UPPER(sports.sport_name) like UPPER($1)  OR UPPER(teams.team_name) like UPPER($1);`,
       values: [`%${name}%`],
     };
 
