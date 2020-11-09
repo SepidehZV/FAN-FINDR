@@ -12,7 +12,7 @@ function Map({ options, onMount, className, onMountProps }) {
     if (!window.google) {
       const script = document.createElement(`script`)
       script.src =
-        `https://maps.googleapis.com/maps/api/js?key=AIzaSyCxJqHeFAMPaMPi0s6dbQXdE65ishDnOlM`
+        `https://maps.googleapis.com/maps/api/js?key=AIzaSyAMRxtPX9cb2WOjzV5xjYOsIE_31uBuq-o`
       document.head.append(script)
       script.addEventListener(`load`, onLoad)
       return () => script.removeEventListener(`load`, onLoad)
