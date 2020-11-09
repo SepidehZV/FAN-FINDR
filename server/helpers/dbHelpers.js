@@ -472,7 +472,7 @@ module.exports = (db) => {
 
   const removeFavouriteEventById = (id) => {
     const query = {
-      text: `DELETE * FROM favourite_events 
+      text: `DELETE FROM favourite_events 
       WHERE id = $1;`,
       values: [id],
     };
