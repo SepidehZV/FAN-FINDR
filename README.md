@@ -14,7 +14,7 @@ for watching their favorite games.
 Bar Owners.Manager also can market to returning patrons and those in their
 area, via push notifications. The system will remember patrons favorite the bars they come in liked with.
 
-## Screen Shots
+## Final product
 
 ![Login](https://github.com/SwaniEryani/FAN-FINDR/blob/master/DOCs/Login.gif)
 ![Search Bar](https://github.com/SwaniEryani/FAN-FINDR/blob/master/DOCs/Search-bar.gif)
@@ -24,10 +24,15 @@ area, via push notifications. The system will remember patrons favorite the bars
 
 ## Getting Started
 
-Fork this repository, then clone your fork of this repository.
-Install dependencies using the npm install command in both the root folder as well as the "server" folder.
-Start the web server using the npm start command while in the "server" folder. You will also need to start the client by navigating to the root folder and running this npm start command there as well. The app will be served at http://localhost:3000/.
-Go to http://localhost:3000/ in your browser.
+- Fork this repository.
+- clone your fork to your local machine.
+- Install dependencies using `npm install` command in the root folder of the "server" folder.
+- Install dependencies using `npm install` command in the root folder of the "client" folder.
+- Start the web server using the `npm run dev` or `npm run start` command while in the "server" folder.
+- You will also need to start the client by navigating to the root folder and running this `npm start` command there as well. 
+- The app will be served at http://localhost:3000/.
+- the server will served at http://localhost:3001/
+- Go to http://localhost:3000/ in your browser. you will see the logoin page.
 
 ## Tech Stack
 
@@ -41,3 +46,17 @@ Go to http://localhost:3000/ in your browser.
 - Sass
 - JWT
 - RESTful api
+
+## Setup the DATABASE 
+
+create user called labber
+`CREATE ROLE labber WITH LOGIN password 'labber';`
+create the database owned by labber user
+`createdb fan_findr -O labber`
+to reset the database inside the vagrant
+`npm run db:reset`
+this commend will create the tables and seeds the data
+to open the database by 
+`psql -U labber -d fan_findr`
+then insert the labber password 
+
