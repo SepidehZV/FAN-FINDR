@@ -16,11 +16,11 @@ area, via push notifications. The system will remember patrons favorite the bars
 
 ## Screen Shots
 
-![Login](url)
-![Search Bar](url)
-![Favourites](url)
-![Profile](url)
-![Venue page](url)
+![Login](https://github.com/SwaniEryani/FAN-FINDR/blob/master/DOCs/Login.gif)
+![Search Bar](https://github.com/SwaniEryani/FAN-FINDR/blob/master/DOCs/Search-bar.gif)
+![Favourites](https://github.com/SwaniEryani/FAN-FINDR/blob/master/DOCs/favourites.gif)
+![Profile](https://github.com/SwaniEryani/FAN-FINDR/blob/master/DOCs/Avatar-Profile.gif)
+![Venue page](https://github.com/SwaniEryani/FAN-FINDR/blob/master/DOCs/Venue%20Page.gif)
 
 ## Getting Started
 
